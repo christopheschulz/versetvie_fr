@@ -3,28 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VersetVie – Un verset chaque jour, gratuitement</title>
   <meta name="description" content="VersetVie, l'app chrétienne qui illumine ta foi au quotidien. Un verset biblique chaque jour, gratuitement." />
   <meta name="keywords" content="verset biblique, app chrétienne, motivation, foi, bible, spiritualité" />
   <meta name="author" content="VerseFlow" />
-  <meta property="og:title" content="VersetVie – Un verset chaque jour, gratuitement" />
-  <meta property="og:description" content="VersetVie, l'app chrétienne qui illumine ta foi au quotidien. Un verset biblique chaque jour, gratuitement." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://via.placeholder.com/600x300?text=VerseFlow+Preview" />
-  <meta property="og:url" content="https://www.verseflow.app" />
   <link rel="icon" href="assets/icon-versetvie.png" />
-  <title>VersetVie – Un verset chaque jour, gratuitement</title>
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body { font-family: 'Inter', sans-serif; }
     .font-title { font-family: 'Playfair Display', serif; }
-    .glass {
-      background: rgba(255,255,255,0.7);
+    .glass-dark {
+      background: rgba(24,24,27,0.7);
       backdrop-filter: blur(12px);
-      box-shadow: 0 4px 32px 0 rgba(0,0,0,0.08);
+      box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
     }
     .reveal-on-scroll {
       opacity: 0;
@@ -36,87 +28,78 @@
       transform: none;
     }
   </style>
-
-  <!-- Google Analytics (à activer) -->
-  <!--
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXX');
-  </script>
-  -->
 </head>
-<body class="min-h-screen bg-gradient-to-br from-yellow-50 via-white to-yellow-100 flex flex-col">
+<body class="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex flex-col">
   <!-- HERO -->
-  <header class="relative w-full min-h-[60vh] flex flex-col items-center justify-center px-4 md:px-20 py-16 bg-gradient-to-br from-yellow-50 via-white to-yellow-100 overflow-hidden">
-    <div class="absolute left-1/2 top-0 -translate-x-1/2 w-40 h-40 opacity-20 pointer-events-none">
-      <img src="assets/icon-versetvie.png" alt="Logo watermark" class="w-full h-full object-contain" />
-    </div>
-    <div class="relative z-10 flex flex-col items-center text-center w-full max-w-2xl mx-auto">
-      <h1 class="font-title text-5xl md:text-7xl font-extrabold mb-4 text-yellow-700 drop-shadow-lg">VersetVie</h1>
-      <p class="text-2xl md:text-3xl text-gray-700 mb-6">La Parole qui t'accompagne chaque jour</p>
-      <p class="text-lg md:text-xl text-gray-600 mb-8">Un verset biblique chaque jour, gratuitement et sans pub.</p>
-      <a href="#" class="bg-yellow-500 hover:bg-yellow-600 text-white px-10 py-4 rounded-full text-xl font-semibold shadow-lg transition">Télécharger l'application</a>
+  <header class="relative w-full min-h-[70vh] flex flex-col items-center justify-center px-4 py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-hidden">
+    <div class="flex flex-col items-center w-full max-w-2xl mx-auto">
+      <div class="w-48 h-48 mb-8 opacity-90 flex  items-center justify-center">
+        <img src="assets/icon-versetvie.png" alt="Logo watermark" class="w-full h-full rounded-xl object-contain" />
+      </div>
+      <div class="flex flex-col items-center text-center w-full">
+        <h1 class="font-title text-5xl md:text-7xl font-extrabold mb-4 text-yellow-400 drop-shadow-lg">VersetVie</h1>
+        <p class="text-2xl md:text-3xl text-gray-100 mb-6">La Parole qui t'accompagne chaque jour</p>
+        <p class="text-lg md:text-xl text-gray-400 mb-8">Un verset biblique chaque jour, gratuitement et sans pub.</p>
+        <a href="#" class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-10 py-4 rounded-full text-xl font-semibold shadow-lg transition">Télécharger l'application</a>
+      </div>
     </div>
   </header>
 
   <!-- FONCTIONNALITÉS -->
   <section class="w-full max-w-5xl mx-auto my-28 px-4 reveal-on-scroll">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-      <div class="glass rounded-2xl p-10 flex flex-col items-center text-center transition-transform hover:scale-105">
-        <div class="text-5xl mb-3">📖</div>
-        <h3 class="text-xl font-title font-bold text-yellow-700 mb-2">Verset du jour</h3>
-        <p class="text-gray-700">Un mot inspirant chaque matin pour nourrir ta foi.</p>
+      <div class="glass-dark rounded-2xl p-10 flex flex-col items-center text-center transition-transform hover:scale-105">
+        <div class="text-5xl mb-3 text-yellow-400">📖</div>
+        <h3 class="text-xl font-title font-bold text-yellow-400 mb-2">Verset du jour</h3>
+        <p class="text-gray-200">Un mot inspirant chaque matin pour nourrir ta foi.</p>
       </div>
-      <div class="glass rounded-2xl p-10 flex flex-col items-center text-center transition-transform hover:scale-105">
-        <div class="text-5xl mb-3">⭐</div>
-        <h3 class="text-xl font-title font-bold text-yellow-700 mb-2">Favoris</h3>
-        <p class="text-gray-700">Garde tes versets préférés à portée de main.</p>
+      <div class="glass-dark rounded-2xl p-10 flex flex-col items-center text-center transition-transform hover:scale-105">
+        <div class="text-5xl mb-3 text-yellow-400">⭐</div>
+        <h3 class="text-xl font-title font-bold text-yellow-400 mb-2">Favoris</h3>
+        <p class="text-gray-200">Garde tes versets préférés à portée de main.</p>
       </div>
-      <div class="glass rounded-2xl p-10 flex flex-col items-center text-center transition-transform hover:scale-105">
-        <div class="text-5xl mb-3">🗂️</div>
-        <h3 class="text-xl font-title font-bold text-yellow-700 mb-2">Catégories</h3>
-        <p class="text-gray-700">Explore la Parole selon tes besoins et tes envies.</p>
+      <div class="glass-dark rounded-2xl p-10 flex flex-col items-center text-center transition-transform hover:scale-105">
+        <div class="text-5xl mb-3 text-yellow-400">🗂️</div>
+        <h3 class="text-xl font-title font-bold text-yellow-400 mb-2">Catégories</h3>
+        <p class="text-gray-200">Explore la Parole selon tes besoins et tes envies.</p>
       </div>
     </div>
   </section>
 
   <!-- GALERIE D'ÉCRANS -->
   <section class="w-full max-w-6xl mx-auto my-28 px-4 reveal-on-scroll">
-    <div class="glass rounded-3xl p-12 flex flex-col items-center">
-      <h2 class="text-3xl md:text-4xl font-title font-bold text-yellow-700 mb-10 tracking-tight drop-shadow">Aperçu de l'application</h2>
+    <div class="glass-dark rounded-3xl p-12 flex flex-col items-center">
+      <h2 class="text-3xl md:text-4xl font-title font-bold text-yellow-400 mb-10 tracking-tight drop-shadow">Aperçu de l'application</h2>
       <div class="flex gap-6 overflow-x-auto pb-4 w-full justify-center px-2 sm:px-4">
         <div class="flex flex-col items-center min-w-[90px] sm:min-w-[120px] md:min-w-[160px]">
-          <div class="rounded-3xl overflow-hidden border-2 border-yellow-100 bg-white flex items-center justify-center h-36 w-16 sm:h-56 sm:w-28 md:h-72 md:w-36">
-            <img src="assets/screenshot1.png" alt="Accueil" class="w-full h-full object-contain bg-white" />
+          <div class="rounded-3xl overflow-hidden border-2 border-yellow-700 bg-gray-900 flex items-center justify-center h-36 w-16 sm:h-56 sm:w-28 md:h-72 md:w-36">
+            <img src="assets/screenshot1.png" alt="Accueil" class="w-full h-full object-contain bg-gray-900" />
           </div>
-          <span class="mt-3 text-yellow-700 text-base md:text-lg font-semibold tracking-wide">Accueil</span>
+          <span class="mt-3 text-yellow-400 text-base md:text-lg font-semibold tracking-wide">Accueil</span>
         </div>
         <div class="flex flex-col items-center min-w-[90px] sm:min-w-[120px] md:min-w-[160px]">
-          <div class="rounded-3xl overflow-hidden border-2 border-yellow-100 bg-white flex items-center justify-center h-36 w-16 sm:h-56 sm:w-28 md:h-72 md:w-36">
-            <img src="assets/screenshot1.png" alt="Motivation" class="w-full h-full object-contain bg-white" />
+          <div class="rounded-3xl overflow-hidden border-2 border-yellow-700 bg-gray-900 flex items-center justify-center h-36 w-16 sm:h-56 sm:w-28 md:h-72 md:w-36">
+            <img src="assets/screenshot1.png" alt="Motivation" class="w-full h-full object-contain bg-gray-900" />
           </div>
-          <span class="mt-3 text-yellow-700 text-base md:text-lg font-semibold tracking-wide">Motivation</span>
+          <span class="mt-3 text-yellow-400 text-base md:text-lg font-semibold tracking-wide">Motivation</span>
         </div>
         <div class="flex flex-col items-center min-w-[90px] sm:min-w-[120px] md:min-w-[160px]">
-          <div class="rounded-3xl overflow-hidden border-2 border-yellow-100 bg-white flex items-center justify-center h-36 w-16 sm:h-56 sm:w-28 md:h-72 md:w-36">
-            <img src="assets/screenshot1.png" alt="Favoris" class="w-full h-full object-contain bg-white" />
+          <div class="rounded-3xl overflow-hidden border-2 border-yellow-700 bg-gray-900 flex items-center justify-center h-36 w-16 sm:h-56 sm:w-28 md:h-72 md:w-36">
+            <img src="assets/screenshot1.png" alt="Favoris" class="w-full h-full object-contain bg-gray-900" />
           </div>
-          <span class="mt-3 text-yellow-700 text-base md:text-lg font-semibold tracking-wide">Favoris</span>
+          <span class="mt-3 text-yellow-400 text-base md:text-lg font-semibold tracking-wide">Favoris</span>
         </div>
         <div class="flex flex-col items-center min-w-[90px] sm:min-w-[120px] md:min-w-[160px]">
-          <div class="rounded-3xl overflow-hidden border-2 border-yellow-100 bg-white flex items-center justify-center h-36 w-16 sm:h-56 sm:w-28 md:h-72 md:w-36">
-            <img src="assets/screenshot1.png" alt="Catégories" class="w-full h-full object-contain bg-white" />
+          <div class="rounded-3xl overflow-hidden border-2 border-yellow-700 bg-gray-900 flex items-center justify-center h-36 w-16 sm:h-56 sm:w-28 md:h-72 md:w-36">
+            <img src="assets/screenshot1.png" alt="Catégories" class="w-full h-full object-contain bg-gray-900" />
           </div>
-          <span class="mt-3 text-yellow-700 text-base md:text-lg font-semibold tracking-wide">Catégories</span>
+          <span class="mt-3 text-yellow-400 text-base md:text-lg font-semibold tracking-wide">Catégories</span>
         </div>
         <div class="flex flex-col items-center min-w-[90px] sm:min-w-[120px] md:min-w-[160px]">
-          <div class="rounded-3xl overflow-hidden border-2 border-yellow-100 bg-white flex items-center justify-center h-36 w-16 sm:h-56 sm:w-28 md:h-72 md:w-36">
-            <img src="assets/screenshot2.png" alt="Statistiques" class="w-full h-full object-contain bg-white" />
+          <div class="rounded-3xl overflow-hidden border-2 border-yellow-700 bg-gray-900 flex items-center justify-center h-36 w-16 sm:h-56 sm:w-28 md:h-72 md:w-36">
+            <img src="assets/screenshot2.png" alt="Statistiques" class="w-full h-full object-contain bg-gray-900" />
           </div>
-          <span class="mt-3 text-yellow-700 text-base md:text-lg font-semibold tracking-wide">Statistiques</span>
+          <span class="mt-3 text-yellow-400 text-base md:text-lg font-semibold tracking-wide">Statistiques</span>
         </div>
       </div>
     </div>
@@ -124,33 +107,46 @@
 
   <!-- NOTRE MISSION -->
   <section class="w-full max-w-2xl mx-auto my-28 px-4 reveal-on-scroll">
-    <div class="glass rounded-3xl p-12 flex flex-col items-center text-center">
-      <div class="text-5xl mb-4 text-yellow-500">🌟</div>
-      <h2 class="text-3xl font-title font-bold text-yellow-700 mb-4">Notre mission</h2>
-      <p class="text-lg text-gray-700 mb-2">Accompagner chacun dans l'approfondissement de sa relation avec Jésus-Christ, chaque jour, à travers la Parole et des encouragements inspirants.</p>
-      <blockquote class="italic text-yellow-700 mt-4">"Ta parole est une lampe à mes pieds, une lumière sur mon sentier."<br><span class="text-sm">Psaume 119:105</span></blockquote>
+    <div class="glass-dark rounded-3xl p-12 flex flex-col items-center text-center">
+      <div class="text-5xl mb-4 text-yellow-400">🌟</div>
+      <h2 class="text-3xl font-title font-bold text-yellow-400 mb-4">Notre mission</h2>
+      <p class="text-lg text-gray-200 mb-2">Accompagner chacun dans l'approfondissement de sa relation avec Jésus-Christ, chaque jour, à travers la Parole et des encouragements inspirants.</p>
+      <blockquote class="italic text-yellow-400 mt-4">"Ta parole est une lampe à mes pieds, une lumière sur mon sentier."<br><span class="text-sm">Psaume 119:105</span></blockquote>
+    </div>
+  </section>
+
+  <!-- APPEL À L'ACTION FINAL -->
+  <section class="w-full flex flex-col items-center justify-center my-20 px-4">
+    <div class="flex flex-col items-center">
+      <h2 class="text-2xl md:text-3xl font-title font-bold text-yellow-400 mb-4">Prêt à illuminer ta journée ?</h2>
+      <p class="text-lg text-gray-200 mb-6">Télécharge gratuitement VersetVie et reçois un verset chaque jour !</p>
+      <a href="#" class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-10 py-4 rounded-full text-xl font-semibold shadow-lg transition">Télécharger l'application</a>
     </div>
   </section>
 
   <!-- DON / SOUTIEN -->
   <section class="w-full max-w-xl mx-auto my-28 px-4 reveal-on-scroll">
-    <div class="glass rounded-3xl p-10 flex flex-col items-center text-center">
-      <h2 class="text-2xl font-title font-bold text-yellow-700 mb-4">Soutenir VersetVie</h2>
-      <p class="mb-4 text-gray-700">L'application VersetVie est gratuite et sans publicité.<br>Si vous souhaitez soutenir son développement, vous pouvez faire un don du montant de votre choix.<br><span class="font-semibold text-yellow-700">VersetVie est une microentreprise :</span> votre don n'est pas déductible des impôts, mais il contribue directement à l'amélioration de l'application.<br>Merci pour votre soutien !</p>
-      <a href="#" class="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg transition">Faire un don</a>
+    <div class="glass-dark rounded-3xl p-10 flex flex-col items-center text-center">
+      <h2 class="text-2xl font-title font-bold text-yellow-400 mb-4">Soutenir VersetVie</h2>
+      <p class="mb-4 text-gray-200">L'application VersetVie est gratuite et sans publicité.<br>Si vous souhaitez soutenir son développement, vous pouvez faire un don du montant de votre choix.<br>Votre don contribue directement à l'amélioration de l'application et à son développement.<br>Merci pour votre soutien !</p>
+      <a href="#" class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-8 py-3 rounded-full text-lg font-semibold shadow-lg transition">Faire un don</a>
     </div>
   </section>
 
+
   <!-- FOOTER -->
-  <footer class="w-full flex flex-col items-center py-10 bg-transparent text-gray-600 text-center mt-auto">
+  <footer class="w-full flex flex-col items-center py-10 bg-transparent text-gray-400 text-center mt-auto">
     <div class="mb-4">
       <a href="mentions-legales.html" class="hover:underline">Mentions légales</a> |
       <a href="politique-confidentialite.html" class="hover:underline">Politique de confidentialité</a> |
       <a href="mailto:contact@versetvie.fr" class="hover:underline">Contact</a>
     </div>
-    <p class="mb-1">Une application créée par <a href="https://krisskoolbycode.fr" target="_blank" rel="noopener" class="text-yellow-700 underline hover:text-yellow-600 transition">krisskool by code</a></p>
+    <p class="mb-1">Une application créée par</p>
+    <a href="https://krisskoolbycode.fr" target="_blank" rel="noopener" class="inline-block transition-transform hover:scale-105 mb-3">
+      <img src="assets/krisskoolbycode.jpeg" alt="krisskool by code" class="h-32 w-auto rounded-xl shadow-lg border-2 border-yellow-400 mx-auto" />
+    </a>
     <p class="mb-2">&copy; 2025 VersetVie. Tous droits réservés.</p>
-    <p class="text-sm text-gray-400">Site designé avec amour et foi ✨</p>
+    <p class="text-sm text-gray-600">Site designé avec amour et foi ✨</p>
   </footer>
   <script>
     const reveals = document.querySelectorAll('.reveal-on-scroll');
