@@ -85,5 +85,21 @@
     <br>
     <a class="back-link" href="index.html">&larr; Retour à l'accueil</a>
   </div>
+  <script>
+    // Light/Dark mode switcher
+    const html = document.documentElement;
+    function setMode(mode) {
+      if (mode === 'dark') {
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        html.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
+    }
+    // Utiliser le thème sauvegardé ou le mode clair par défaut
+    const savedTheme = localStorage.getItem('theme');
+    setMode(savedTheme || 'light');
+  </script>
 </body>
 </html> 

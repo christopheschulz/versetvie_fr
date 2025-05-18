@@ -428,15 +428,19 @@
         localStorage.setItem('theme', 'light');
       }
     }
-    // Init mode
-    const userPref = localStorage.getItem('theme');
-    if (userPref) {
-      setMode(userPref);
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+
+    // Vérifier si c'est la première visite
+    const hasVisited = localStorage.getItem('hasVisited');
+    if (!hasVisited) {
+      // Première visite : forcer le mode sombre
       setMode('dark');
+      localStorage.setItem('hasVisited', 'true');
     } else {
-      setMode('light');
+      // Visites suivantes : utiliser le thème sauvegardé ou le mode clair par défaut
+      const savedTheme = localStorage.getItem('theme');
+      setMode(savedTheme || 'light');
     }
+
     modeSwitch.addEventListener('click', () => {
       setMode(html.classList.contains('dark') ? 'light' : 'dark');
     });

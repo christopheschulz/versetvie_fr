@@ -36,10 +36,6 @@
   </style>
 </head>
 <body class="relative min-h-screen flex flex-col items-center justify-center px-4">
-  <button class="mode-switch" id="modeSwitch" aria-label="Changer le mode clair/sombre">
-    <span id="modeSwitchIcon">🌙</span>
-    <span id="modeSwitchText">Mode clair</span>
-  </button>
   <header class="w-full flex flex-col items-center pt-10 pb-4">
     <img src="assets/icon-versetvie.png" alt="Icône VersetVie" class="w-16 h-16 rounded-2xl shadow-lg mb-2 border-4 border-white" />
     <span class="text-2xl font-title font-bold text-yellow-700 tracking-wide drop-shadow">VersetVie</span>
@@ -53,41 +49,25 @@
       <li>Nous ne partageons aucune information avec des tiers.</li>
       <li>Si vous nous contactez par email, votre adresse ne sera utilisée que pour répondre à votre demande.</li>
     </ul>
-    <p class="mb-4 text-base">Pour toute question, contactez-nous à <a href="mailto:contact@versetvie.app" class="text-yellow-700 underline hover:text-yellow-600 transition">contact@versetvie.app</a>.</p>
+    <p class="mb-4 text-base">Pour toute question, <a href="contact.html" class="text-yellow-700 underline hover:text-yellow-600 transition">nous contacter</a>.</p>
     <p class="text-sm text-gray-500 mt-8">Dernière mise à jour : juin 2024</p>
     <a href="index.html" class="mt-8 text-yellow-700 underline hover:text-yellow-600 transition">← Retour à l'accueil</a>
   </main>
   <script>
     // Light/Dark mode switcher
     const html = document.documentElement;
-    const modeSwitch = document.getElementById('modeSwitch');
-    const modeSwitchIcon = document.getElementById('modeSwitchIcon');
-    const modeSwitchText = document.getElementById('modeSwitchText');
     function setMode(mode) {
       if (mode === 'dark') {
         html.classList.add('dark');
-        modeSwitchIcon.textContent = '☀️';
-        modeSwitchText.textContent = 'Mode sombre';
         localStorage.setItem('theme', 'dark');
       } else {
         html.classList.remove('dark');
-        modeSwitchIcon.textContent = '🌙';
-        modeSwitchText.textContent = 'Mode clair';
         localStorage.setItem('theme', 'light');
       }
     }
-    // Init mode
-    const userPref = localStorage.getItem('theme');
-    if (userPref) {
-      setMode(userPref);
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setMode('dark');
-    } else {
-      setMode('light');
-    }
-    modeSwitch.addEventListener('click', () => {
-      setMode(html.classList.contains('dark') ? 'light' : 'dark');
-    });
+    // Utiliser le thème sauvegardé ou le mode clair par défaut
+    const savedTheme = localStorage.getItem('theme');
+    setMode(savedTheme || 'light');
   </script>
 </body>
 </html> 

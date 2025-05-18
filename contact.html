@@ -233,10 +233,6 @@
     </svg>
     Retour
   </a>
-  <button class="mode-switch" id="modeSwitch" aria-label="Changer le mode clair/sombre">
-    <span id="modeSwitchIcon">🌙</span>
-    <span id="modeSwitchText">Mode clair</span>
-  </button>
   <main class="contact-card">
     <h1 class="text-3xl font-title font-bold mb-6 text-yellow-700 dark:text-yellow-400">Contact</h1>
     <p class="mb-6 text-base">Une question, une suggestion ou un encouragement&nbsp;? Remplis ce formulaire, nous te répondrons rapidement.</p>
@@ -270,34 +266,18 @@
   <script>
     // Light/Dark mode switcher
     const html = document.documentElement;
-    const modeSwitch = document.getElementById('modeSwitch');
-    const modeSwitchIcon = document.getElementById('modeSwitchIcon');
-    const modeSwitchText = document.getElementById('modeSwitchText');
     function setMode(mode) {
       if (mode === 'dark') {
         html.classList.add('dark');
-        modeSwitchIcon.textContent = '☀️';
-        modeSwitchText.textContent = 'Mode sombre';
         localStorage.setItem('theme', 'dark');
       } else {
         html.classList.remove('dark');
-        modeSwitchIcon.textContent = '🌙';
-        modeSwitchText.textContent = 'Mode clair';
         localStorage.setItem('theme', 'light');
       }
     }
-    // Init mode
-    const userPref = localStorage.getItem('theme');
-    if (userPref) {
-      setMode(userPref);
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setMode('dark');
-    } else {
-      setMode('light');
-    }
-    modeSwitch.addEventListener('click', () => {
-      setMode(html.classList.contains('dark') ? 'light' : 'dark');
-    });
+    // Utiliser le thème sauvegardé ou le mode clair par défaut
+    const savedTheme = localStorage.getItem('theme');
+    setMode(savedTheme || 'light');
   </script>
   <script>
     // Gestion du formulaire
