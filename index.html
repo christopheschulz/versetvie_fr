@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VersetVie – Un verset chaque jour, gratuitement</title>
+  <title>VersetVie – Un verset chaque jour avec son encouragement</title>
   <meta name="description" content="VersetVie, l'app chrétienne qui illumine ta foi au quotidien. Un verset biblique chaque jour, gratuitement." />
   <meta name="keywords" content="verset biblique, app chrétienne, motivation, foi, bible, spiritualité" />
-  <meta name="author" content="VerseFlow" />
+  <meta name="author" content="VersetVie" />
   <link rel="icon" href="assets/icon-versetvie.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Swiper.js CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <style>
     body { font-family: 'Inter', sans-serif; }
     .font-title { font-family: 'Playfair Display', serif; }
@@ -27,6 +29,94 @@
       opacity: 1;
       transform: none;
     }
+    /* Animation slide/fade pour le carrousel */
+    .carousel-slide-next {
+      animation: slideNext 0.45s cubic-bezier(.4,0,.2,1) forwards;
+    }
+    .carousel-slide-prev {
+      animation: slidePrev 0.45s cubic-bezier(.4,0,.2,1) forwards;
+    }
+    @keyframes slideNext {
+      0% { opacity: 0; transform: translateX(60px) scale(0.98); }
+      60% { opacity: 1; transform: translateX(0) scale(1.01); }
+      100% { opacity: 1; transform: translateX(0) scale(1); }
+    }
+    @keyframes slidePrev {
+      0% { opacity: 0; transform: translateX(-60px) scale(0.98); }
+      60% { opacity: 1; transform: translateX(0) scale(1.01); }
+      100% { opacity: 1; transform: translateX(0) scale(1); }
+    }
+    .carousel-fade-out {
+      opacity: 0;
+      transform: translateX(-40px) scale(0.98);
+      transition: opacity 0.35s cubic-bezier(.4,0,.2,1), transform 0.35s cubic-bezier(.4,0,.2,1);
+    }
+    .carousel-fade-in {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+      transition: opacity 0.35s cubic-bezier(.4,0,.2,1), transform 0.35s cubic-bezier(.4,0,.2,1);
+    }
+    .carousel-viewport {
+      overflow: hidden;
+      position: relative;
+    }
+    .carousel-track {
+      display: flex;
+      width: 300%;
+      transition: transform 0.5s cubic-bezier(.4,0,.2,1);
+      will-change: transform;
+    }
+    .carousel-img {
+      transition: all 0.5s cubic-bezier(.4,0,.2,1);
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
+      background: #18181b;
+      object-fit: contain;
+      user-select: none;
+      pointer-events: none;
+    }
+    .carousel-img.center {
+      z-index: 10;
+      opacity: 1;
+      filter: none;
+      transform: scale(1) translateY(0);
+      box-shadow: 0 8px 32px 0 rgba(0,0,0,0.25);
+    }
+    .carousel-img.side {
+      z-index: 5;
+      opacity: 0.5;
+      filter: brightness(0.6) blur(1px);
+      transform: scale(0.8) translateY(10px);
+    }
+    .carousel-img.hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.7) translateY(20px);
+    }
+    .swiper-darken {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      border-radius: 1.5rem;
+      pointer-events: none;
+      opacity: 1;
+      transition: opacity 0.45s cubic-bezier(.4,0,.2,1);
+    }
+    .swiper-slide-active .swiper-darken {
+      opacity: 0;
+    }
+    .swiper-slide-next .swiper-darken,
+    .swiper-slide-prev .swiper-darken {
+      opacity: 1;
+    }
+    .swiper-slide span {
+      background: transparent !important;
+      box-shadow: none !important;
+      filter: none !important;
+      padding: 0;
+      margin: 0;
+      border-radius: 0;
+    }
   </style>
 </head>
 <body class="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex flex-col">
@@ -39,7 +129,7 @@
       <div class="flex flex-col items-center text-center w-full">
         <h1 class="font-title text-5xl md:text-7xl font-extrabold mb-4 text-yellow-400 drop-shadow-lg">VersetVie</h1>
         <p class="text-2xl md:text-3xl text-gray-100 mb-6">La Parole qui t'accompagne chaque jour</p>
-        <p class="text-lg md:text-xl text-gray-400 mb-8">Un verset biblique chaque jour, gratuitement et sans pub.</p>
+        <p class="text-lg md:text-xl text-gray-400 mb-8">Un verset biblique chaque jour avec son encouragement.</p>
         <a href="#" class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-10 py-4 rounded-full text-xl font-semibold shadow-lg transition">Télécharger l'application</a>
       </div>
     </div>
@@ -47,11 +137,16 @@
 
   <!-- FONCTIONNALITÉS -->
   <section class="w-full max-w-5xl mx-auto my-28 px-4 reveal-on-scroll">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
       <div class="glass-dark rounded-2xl p-10 flex flex-col items-center text-center transition-transform hover:scale-105">
         <div class="text-5xl mb-3 text-yellow-400">📖</div>
-        <h3 class="text-xl font-title font-bold text-yellow-400 mb-2">Verset du jour</h3>
-        <p class="text-gray-200">Un mot inspirant chaque matin pour nourrir ta foi.</p>
+        <h3 class="text-xl font-title font-bold text-yellow-400 mb-2">Verset</h3>
+        <p class="text-gray-200">Un verset inspirant chaque matin pour nourrir ta foi.</p>
+      </div>
+      <div class="glass-dark rounded-2xl p-10 flex flex-col items-center text-center transition-transform hover:scale-105">
+        <div class="text-5xl mb-3 text-yellow-400">💬</div>
+        <h3 class="text-xl font-title font-bold text-yellow-400 mb-2">Encouragement</h3>
+        <p class="text-gray-200">Une message positif pour t'accompagner et te motiver chaque jour une fois le verset découvert.</p>
       </div>
       <div class="glass-dark rounded-2xl p-10 flex flex-col items-center text-center transition-transform hover:scale-105">
         <div class="text-5xl mb-3 text-yellow-400">⭐</div>
@@ -63,44 +158,57 @@
         <h3 class="text-xl font-title font-bold text-yellow-400 mb-2">Catégories</h3>
         <p class="text-gray-200">Explore la Parole selon tes besoins et tes envies.</p>
       </div>
+      <div class="glass-dark rounded-2xl p-10 flex flex-col items-center text-center transition-transform hover:scale-105">
+        <div class="text-5xl mb-3 text-yellow-400">📊</div>
+        <h3 class="text-xl font-title font-bold text-yellow-400 mb-2">Statistiques</h3>
+        <p class="text-gray-200">Suis ta progression et tes habitudes de lecture des versets et des encouragements.</p>
+      </div>
     </div>
   </section>
 
-  <!-- GALERIE D'ÉCRANS -->
-  <section class="w-full max-w-6xl mx-auto my-28 px-4 reveal-on-scroll">
-    <div class="glass-dark rounded-3xl p-12 flex flex-col items-center">
-      <h2 class="text-3xl md:text-4xl font-title font-bold text-yellow-400 mb-10 tracking-tight drop-shadow">Aperçu de l'application</h2>
-      <div class="flex gap-6 overflow-x-auto pb-4 w-full justify-center px-2 sm:px-4">
-        <div class="flex flex-col items-center min-w-[90px] sm:min-w-[120px] md:min-w-[160px]">
-          <div class="rounded-3xl overflow-hidden border-2 border-yellow-700 bg-gray-900 flex items-center justify-center h-36 w-16 sm:h-56 sm:w-28 md:h-72 md:w-36">
-            <img src="assets/screenshot1.png" alt="Accueil" class="w-full h-full object-contain bg-gray-900" />
+  <!-- GALERIE D'ÉCRANS (Swiper.js) -->
+  <section class="w-full max-w-6xl mx-auto my-28 px-4 reveal-on-scroll" id="screenshots-section">
+    <h2 class="text-3xl md:text-4xl font-title font-bold text-yellow-400 mb-10 tracking-tight drop-shadow text-center">Aperçu de l'application</h2>
+    <div class="w-full max-w-2xl mx-auto">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide flex flex-col items-center relative bg-transparent">
+              <img src="assets/verset.png" alt="Accueil" class="rounded-3xl shadow-xl w-full h-full object-contain" />
+              <div class="swiper-darken"></div>
+            <span class="mt-3 text-yellow-400 text-base md:text-lg font-semibold tracking-wide">Accueil</span>
           </div>
-          <span class="mt-3 text-yellow-400 text-base md:text-lg font-semibold tracking-wide">Accueil</span>
-        </div>
-        <div class="flex flex-col items-center min-w-[90px] sm:min-w-[120px] md:min-w-[160px]">
-          <div class="rounded-3xl overflow-hidden border-2 border-yellow-700 bg-gray-900 flex items-center justify-center h-36 w-16 sm:h-56 sm:w-28 md:h-72 md:w-36">
-            <img src="assets/screenshot1.png" alt="Motivation" class="w-full h-full object-contain bg-gray-900" />
+          
+          <div class="swiper-slide flex flex-col items-center relative bg-transparent">
+              <img src="assets/encouragement.png" alt="Motivation" class="rounded-3xl shadow-xl w-full h-full object-contain" />
+              <div class="swiper-darken"></div>
+            <span class="mt-3 text-yellow-400 text-base md:text-lg font-semibold tracking-wide">Motivation</span>
           </div>
-          <span class="mt-3 text-yellow-400 text-base md:text-lg font-semibold tracking-wide">Motivation</span>
-        </div>
-        <div class="flex flex-col items-center min-w-[90px] sm:min-w-[120px] md:min-w-[160px]">
-          <div class="rounded-3xl overflow-hidden border-2 border-yellow-700 bg-gray-900 flex items-center justify-center h-36 w-16 sm:h-56 sm:w-28 md:h-72 md:w-36">
-            <img src="assets/screenshot1.png" alt="Favoris" class="w-full h-full object-contain bg-gray-900" />
+          
+          <div class="swiper-slide flex flex-col items-center relative bg-transparent">
+              <img src="assets/favoris.png" alt="Favoris" class="rounded-3xl shadow-xl w-full h-full object-contain" />
+              <div class="swiper-darken"></div>
+            <span class="mt-3 text-yellow-400 text-base md:text-lg font-semibold tracking-wide">Favoris</span>
           </div>
-          <span class="mt-3 text-yellow-400 text-base md:text-lg font-semibold tracking-wide">Favoris</span>
-        </div>
-        <div class="flex flex-col items-center min-w-[90px] sm:min-w-[120px] md:min-w-[160px]">
-          <div class="rounded-3xl overflow-hidden border-2 border-yellow-700 bg-gray-900 flex items-center justify-center h-36 w-16 sm:h-56 sm:w-28 md:h-72 md:w-36">
-            <img src="assets/screenshot1.png" alt="Catégories" class="w-full h-full object-contain bg-gray-900" />
+
+          <div class="swiper-slide flex flex-col items-center relative bg-transparent">
+              <img src="assets/categories.png" alt="Catégories" class="rounded-3xl shadow-xl w-full h-full object-contain" />
+              <span class="mt-3 text-yellow-400 text-base md:text-lg font-semibold tracking-wide">Catégories</span>
+              <div class="swiper-darken"></div>
           </div>
-          <span class="mt-3 text-yellow-400 text-base md:text-lg font-semibold tracking-wide">Catégories</span>
-        </div>
-        <div class="flex flex-col items-center min-w-[90px] sm:min-w-[120px] md:min-w-[160px]">
-          <div class="rounded-3xl overflow-hidden border-2 border-yellow-700 bg-gray-900 flex items-center justify-center h-36 w-16 sm:h-56 sm:w-28 md:h-72 md:w-36">
-            <img src="assets/screenshot2.png" alt="Statistiques" class="w-full h-full object-contain bg-gray-900" />
+
+          <div class="swiper-slide flex flex-col items-center relative bg-transparent">
+              <img src="assets/statistiques.png" alt="Statistiques" class="rounded-3xl shadow-xl w-full h-full object-contain" />
+              <div class="swiper-darken"></div>
+            <span class="mt-3 text-yellow-400 text-base md:text-lg font-semibold tracking-wide">Statistiques</span>
           </div>
-          <span class="mt-3 text-yellow-400 text-base md:text-lg font-semibold tracking-wide">Statistiques</span>
+        
         </div>
+        <!-- Flèches -->
+        <div class="swiper-button-next !text-yellow-400 !right-0"></div>
+        <div class="swiper-button-prev !text-yellow-400 !left-0"></div>
+        <!-- Pagination -->
+        <br><br>
+        <div class="swiper-pagination"></div>
       </div>
     </div>
   </section>
@@ -110,7 +218,7 @@
     <div class="glass-dark rounded-3xl p-12 flex flex-col items-center text-center">
       <div class="text-5xl mb-4 text-yellow-400">🌟</div>
       <h2 class="text-3xl font-title font-bold text-yellow-400 mb-4">Notre mission</h2>
-      <p class="text-lg text-gray-200 mb-2">Accompagner chacun dans l'approfondissement de sa relation avec Jésus-Christ, chaque jour, à travers la Parole et des encouragements inspirants.</p>
+      <p class="text-lg text-gray-200 mb-2">Accompagner chacun dans l'approfondissement de sa relation avec Jésus-Christ, chaque jour, à travers un verset Biblique et l'encouragement qui l'accompagne.</p>
       <blockquote class="italic text-yellow-400 mt-4">"Ta parole est une lampe à mes pieds, une lumière sur mon sentier."<br><span class="text-sm">Psaume 119:105</span></blockquote>
     </div>
   </section>
@@ -119,7 +227,7 @@
   <section class="w-full flex flex-col items-center justify-center my-20 px-4">
     <div class="flex flex-col items-center">
       <h2 class="text-2xl md:text-3xl font-title font-bold text-yellow-400 mb-4">Prêt à illuminer ta journée ?</h2>
-      <p class="text-lg text-gray-200 mb-6">Télécharge gratuitement VersetVie et reçois un verset chaque jour !</p>
+      <p class="text-lg text-gray-200 mb-6">Télécharge gratuitement VersetVie et reçois un verset chaque jour avec son encouragement !</p>
       <a href="#" class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-10 py-4 rounded-full text-xl font-semibold shadow-lg transition">Télécharger l'application</a>
     </div>
   </section>
@@ -157,6 +265,8 @@
     <p class="mb-2">&copy; 2025 VersetVie. Tous droits réservés.</p>
     <p class="text-sm text-gray-600">Site designé avec amour et foi ✨</p>
   </footer>
+  <!-- Swiper.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
     const reveals = document.querySelectorAll('.reveal-on-scroll');
     const observer = new IntersectionObserver((entries) => {
@@ -168,6 +278,38 @@
       });
     }, { threshold: 0.15 });
     reveals.forEach(el => observer.observe(el));
+
+    // Swiper.js init
+    new Swiper('.mySwiper', {
+      slidesPerView: 1.2,
+      spaceBetween: 24,
+      centeredSlides: true,
+      loop: true,
+      grabCursor: true,
+      effect: 'coverflow',
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 120,
+        modifier: 2,
+        slideShadows: false,
+        scale: 0.85,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        640: { slidesPerView: 1.5 },
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 2.5 },
+        1280: { slidesPerView: 3 },
+      },
+    });
   </script>
 </body>
 </html>
