@@ -17,12 +17,11 @@
     .font-title { font-family: 'Playfair Display', serif; }
     /* Light/Dark mode root styles */
     html {
-      background: #f7fafc;
       color: #22223b;
       transition: background 0.3s, color 0.3s;
     }
     body {
-      background: transparent;
+      background: linear-gradient(135deg, #fffbe8 0%, #f7fafc 100%);
       transition: background 0.3s, color 0.3s;
     }
     .glass-dark {
@@ -185,11 +184,11 @@
       color: #e5e7eb;
     }
     .custom-hero-bg {
-      background: linear-gradient(135deg, #f7fafc 0%, #f1f5f9 100%);
+      background: none;
       transition: background 0.3s;
     }
     .dark .custom-hero-bg {
-      background: linear-gradient(135deg, #18181b 0%, #27272a 100%);
+      background: none;
     }
     /* Texte principal très foncé en mode clair */
     html, body, h1, h2, h3, h4, h5, h6, p, span, div, a, li, label, blockquote {
@@ -341,7 +340,7 @@
       <div class="text-4xl mb-3 text-yellow-400">✉️</div>
       <h2 class="text-2xl font-title font-bold text-yellow-400 mb-4">Participez à l'aventure VersetVie</h2>
       <p class="mb-4 text-gray-200">Une idée, un bug, une suggestion ? Votre retour est précieux pour faire grandir l'application !<br>Écrivez-nous pour partager vos idées ou signaler un problème.</p>
-      <a href="mailto:contact@versetvie.fr" class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-8 py-3 rounded-full text-lg font-semibold shadow-lg transition">Écrire à l'équipe</a>
+      <a href="contact.html" class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-8 py-3 rounded-full text-lg font-semibold shadow-lg transition">Écrire à l'équipe</a>
     </div>
   </section>
 
@@ -350,7 +349,7 @@
     <div class="mb-4">
       <a href="mentions-legales.html" class="hover:underline">Mentions légales</a> |
       <a href="politique-confidentialite.html" class="hover:underline">Politique de confidentialité</a> |
-      <a href="mailto:contact@versetvie.fr" class="hover:underline">Contact</a>
+      <a href="contact.html" class="hover:underline">Contact</a>
     </div>
     <p class="mb-1">Une application créée par</p>
     <div class="flex justify-center mb-3">
