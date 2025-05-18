@@ -15,9 +15,40 @@
   <style>
     body { font-family: 'Inter', sans-serif; }
     .font-title { font-family: 'Playfair Display', serif; }
+    /* Light/Dark mode root styles */
+    html {
+      background: #f7fafc;
+      color: #22223b;
+      transition: background 0.3s, color 0.3s;
+    }
+    body {
+      background: transparent;
+      transition: background 0.3s, color 0.3s;
+    }
     .glass-dark {
       background: rgba(24,24,27,0.7);
       backdrop-filter: blur(12px);
+      box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
+    }
+    .glass-light {
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 32px 0 rgba(0,0,0,0.08);
+    }
+    .dark {
+      background: #18181b;
+      color: #f3f4f6;
+    }
+    .dark body {
+      background: linear-gradient(135deg, #18181b 0%, #27272a 100%);
+      color: #f3f4f6;
+    }
+    .dark .glass-dark {
+      background: rgba(24,24,27,0.7);
+      box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
+    }
+    .dark .glass-light {
+      background: rgba(36,36,40,0.7);
       box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
     }
     .reveal-on-scroll {
@@ -117,19 +148,81 @@
       margin: 0;
       border-radius: 0;
     }
+    .mode-switch {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      z-index: 50;
+      background: rgba(255,255,255,0.85);
+      color: #22223b;
+      border-radius: 9999px;
+      box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+      padding: 0.5rem 1.1rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      transition: background 0.3s, color 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .dark .mode-switch {
+      background: rgba(36,36,40,0.9);
+      color: #facc15;
+      box-shadow: 0 2px 8px 0 rgba(0,0,0,0.18);
+    }
+    .mode-switch svg {
+      width: 1.3em;
+      height: 1.3em;
+    }
+    .card-text {
+      color: #22223b;
+      transition: color 0.3s;
+    }
+    .dark .card-text {
+      color: #e5e7eb;
+    }
+    .custom-hero-bg {
+      background: linear-gradient(135deg, #f7fafc 0%, #f1f5f9 100%);
+      transition: background 0.3s;
+    }
+    .dark .custom-hero-bg {
+      background: linear-gradient(135deg, #18181b 0%, #27272a 100%);
+    }
+    /* Texte principal très foncé en mode clair */
+    html, body, h1, h2, h3, h4, h5, h6, p, span, div, a, li, label, blockquote {
+      color: #22223b;
+      transition: color 0.3s;
+    }
+    .dark html, .dark body, .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6, .dark p, .dark span, .dark div, .dark a, .dark li, .dark label, .dark blockquote {
+      color: #f3f4f6;
+    }
+    /* Texte secondaire (gris doux en clair, gris clair en dark) */
+    .text-gray-200, .text-gray-400 {
+      color: #4b5563 !important;
+    }
+    .dark .text-gray-200, .dark .text-gray-400 {
+      color: #e5e7eb !important;
+    }
   </style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex flex-col">
+<body class="min-h-screen flex flex-col">
+  <button class="mode-switch" id="modeSwitch" aria-label="Changer le mode clair/sombre">
+    <span id="modeSwitchIcon">🌙</span>
+    <span id="modeSwitchText">Mode clair</span>
+  </button>
   <!-- HERO -->
-  <header class="relative w-full min-h-[70vh] flex flex-col items-center justify-center px-4 py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-hidden">
+  <header class="relative w-full min-h-[70vh] flex flex-col items-center justify-center px-4 py-20 custom-hero-bg overflow-hidden">
     <div class="flex flex-col items-center w-full max-w-2xl mx-auto">
       <div class="w-48 h-48 mb-8 opacity-90 flex  items-center justify-center">
         <img src="assets/icon-versetvie.png" alt="Logo watermark" class="w-full h-full rounded-xl object-contain" />
       </div>
       <div class="flex flex-col items-center text-center w-full">
         <h1 class="font-title text-5xl md:text-7xl font-extrabold mb-4 text-yellow-400 drop-shadow-lg">VersetVie</h1>
-        <p class="text-2xl md:text-3xl text-gray-100 mb-6">La Parole qui t'accompagne chaque jour</p>
-        <p class="text-lg md:text-xl text-gray-400 mb-8">Un verset biblique chaque jour avec son encouragement.</p>
+        <p class="text-2xl md:text-3xl dark:text-gray-100 text-gray-800 mb-6">La Parole qui t'accompagne chaque jour</p>
+        <p class="text-lg md:text-xl dark:text-gray-400 text-gray-700 mb-8">Un verset biblique chaque jour avec son encouragement.</p>
         <a href="#" class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-10 py-4 rounded-full text-xl font-semibold shadow-lg transition">Télécharger l'application</a>
       </div>
     </div>
@@ -138,30 +231,30 @@
   <!-- FONCTIONNALITÉS -->
   <section class="w-full max-w-5xl mx-auto my-28 px-4 reveal-on-scroll">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
-      <div class="glass-dark rounded-2xl p-10 flex flex-col items-center text-center transition-transform hover:scale-105">
+      <div class="glass-dark glass-light rounded-2xl p-10 flex flex-col items-center text-center transition-transform hover:scale-105">
         <div class="text-5xl mb-3 text-yellow-400">📖</div>
         <h3 class="text-xl font-title font-bold text-yellow-400 mb-2">Verset</h3>
-        <p class="text-gray-200">Un verset inspirant chaque matin pour nourrir ta foi.</p>
+        <p class="card-text">Un verset inspirant chaque matin pour nourrir ta foi.</p>
       </div>
-      <div class="glass-dark rounded-2xl p-10 flex flex-col items-center text-center transition-transform hover:scale-105">
+      <div class="glass-dark glass-light rounded-2xl p-10 flex flex-col items-center text-center transition-transform hover:scale-105">
         <div class="text-5xl mb-3 text-yellow-400">💬</div>
         <h3 class="text-xl font-title font-bold text-yellow-400 mb-2">Encouragement</h3>
-        <p class="text-gray-200">Un message positif pour t'accompagner et te motiver chaque jour une fois le verset découvert.</p>
+        <p class="card-text">Un message positif pour t'accompagner et te motiver chaque jour une fois le verset découvert.</p>
       </div>
-      <div class="glass-dark rounded-2xl p-10 flex flex-col items-center text-center transition-transform hover:scale-105">
+      <div class="glass-dark glass-light rounded-2xl p-10 flex flex-col items-center text-center transition-transform hover:scale-105">
         <div class="text-5xl mb-3 text-yellow-400">⭐</div>
         <h3 class="text-xl font-title font-bold text-yellow-400 mb-2">Favoris</h3>
-        <p class="text-gray-200">Garde tes versets préférés à portée de main.</p>
+        <p class="card-text">Garde tes versets préférés à portée de main.</p>
       </div>
-      <div class="glass-dark rounded-2xl p-10 flex flex-col items-center text-center transition-transform hover:scale-105">
+      <div class="glass-dark glass-light rounded-2xl p-10 flex flex-col items-center text-center transition-transform hover:scale-105">
         <div class="text-5xl mb-3 text-yellow-400">🗂️</div>
         <h3 class="text-xl font-title font-bold text-yellow-400 mb-2">Catégories</h3>
-        <p class="text-gray-200">Explore la Parole selon tes besoins et tes envies.</p>
+        <p class="card-text">Explore la Parole selon tes besoins et tes envies.</p>
       </div>
-      <div class="glass-dark rounded-2xl p-10 flex flex-col items-center text-center transition-transform hover:scale-105">
+      <div class="glass-dark glass-light rounded-2xl p-10 flex flex-col items-center text-center transition-transform hover:scale-105">
         <div class="text-5xl mb-3 text-yellow-400">📊</div>
         <h3 class="text-xl font-title font-bold text-yellow-400 mb-2">Statistiques</h3>
-        <p class="text-gray-200">Suis ta progression et tes habitudes de lecture des versets et des encouragements.</p>
+        <p class="card-text">Suis ta progression et tes habitudes de lecture des versets et des encouragements.</p>
       </div>
     </div>
   </section>
@@ -215,7 +308,7 @@
 
   <!-- NOTRE MISSION -->
   <section class="w-full max-w-2xl mx-auto my-28 px-4 reveal-on-scroll">
-    <div class="glass-dark rounded-3xl p-12 flex flex-col items-center text-center">
+    <div class="glass-dark glass-light rounded-3xl p-12 flex flex-col items-center text-center">
       <div class="text-5xl mb-4 text-yellow-400">🌟</div>
       <h2 class="text-3xl font-title font-bold text-yellow-400 mb-4">Notre mission</h2>
       <p class="text-lg text-gray-200 mb-2">Accompagner chacun dans l'approfondissement de sa relation avec Jésus-Christ, chaque jour, à travers un verset Biblique et l'encouragement qui l'accompagne.</p>
@@ -225,6 +318,7 @@
 
   <!-- APPEL À L'ACTION FINAL -->
   <section class="w-full flex flex-col items-center justify-center my-20 px-4">
+  
     <div class="flex flex-col items-center">
       <h2 class="text-2xl md:text-3xl font-title font-bold text-yellow-400 mb-4">Prêt à illuminer ta journée ?</h2>
       <p class="text-lg text-gray-200 mb-6">Télécharge gratuitement VersetVie et reçois un verset chaque jour avec son encouragement !</p>
@@ -234,7 +328,7 @@
 
   <!-- DON / SOUTIEN -->
   <section class="w-full max-w-xl mx-auto my-28 px-4 reveal-on-scroll">
-    <div class="glass-dark rounded-3xl p-10 flex flex-col items-center text-center">
+    <div class="glass-dark glass-light rounded-3xl p-10 flex flex-col items-center text-center">
       <h2 class="text-2xl font-title font-bold text-yellow-400 mb-4">Soutenir VersetVie</h2>
       <p class="mb-4 text-gray-200">L'application VersetVie est gratuite et sans publicité.<br>Si vous souhaitez soutenir son développement, vous pouvez faire un don du montant de votre choix.<br>Votre don contribue directement à l'amélioration de l'application et à son développement.<br>Merci pour votre soutien !</p>
       <a href="#" class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-8 py-3 rounded-full text-lg font-semibold shadow-lg transition">Faire un don</a>
@@ -243,7 +337,7 @@
 
   <!-- PARTICIPEZ À L'AVENTURE -->
   <section class="w-full max-w-xl mx-auto my-20 px-4 reveal-on-scroll">
-    <div class="glass-dark rounded-3xl p-10 flex flex-col items-center text-center">
+    <div class="glass-dark glass-light rounded-3xl p-10 flex flex-col items-center text-center">
       <div class="text-4xl mb-3 text-yellow-400">✉️</div>
       <h2 class="text-2xl font-title font-bold text-yellow-400 mb-4">Participez à l'aventure VersetVie</h2>
       <p class="mb-4 text-gray-200">Une idée, un bug, une suggestion ? Votre retour est précieux pour faire grandir l'application !<br>Écrivez-nous pour partager vos idées ou signaler un problème.</p>
@@ -315,6 +409,37 @@
         1024: { slidesPerView: 2.5 },
         1280: { slidesPerView: 3 },
       },
+    });
+
+    // Light/Dark mode switcher
+    const html = document.documentElement;
+    const modeSwitch = document.getElementById('modeSwitch');
+    const modeSwitchIcon = document.getElementById('modeSwitchIcon');
+    const modeSwitchText = document.getElementById('modeSwitchText');
+    function setMode(mode) {
+      if (mode === 'dark') {
+        html.classList.add('dark');
+        modeSwitchIcon.textContent = '☀️';
+        modeSwitchText.textContent = 'Mode sombre';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        html.classList.remove('dark');
+        modeSwitchIcon.textContent = '🌙';
+        modeSwitchText.textContent = 'Mode clair';
+        localStorage.setItem('theme', 'light');
+      }
+    }
+    // Init mode
+    const userPref = localStorage.getItem('theme');
+    if (userPref) {
+      setMode(userPref);
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setMode('dark');
+    } else {
+      setMode('light');
+    }
+    modeSwitch.addEventListener('click', () => {
+      setMode(html.classList.contains('dark') ? 'light' : 'dark');
     });
   </script>
 </body>
