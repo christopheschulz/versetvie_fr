@@ -27,20 +27,266 @@
     .font-title { font-family: 'Playfair Display', serif; }
     .card-text { color: #22223b; transition: color 0.3s; }
     .dark .card-text { color: #e5e7eb; }
-    .mode-switch {
-      position: fixed; top: 1.5rem; right: 1.5rem; z-index: 50;
-      background: rgba(255,255,255,0.85); color: #22223b; border-radius: 9999px;
-      box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08); padding: 0.5rem 1.1rem; font-size: 1.1rem; font-weight: 600; cursor: pointer; border: none; outline: none; transition: background 0.3s, color 0.3s; display: flex; align-items: center; gap: 0.5rem;
+    /* HEADER NAVIGATION */
+    .header-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
     }
-    .dark .mode-switch { background: rgba(36,36,40,0.9); color: #facc15; box-shadow: 0 2px 8px 0 rgba(0,0,0,0.18); }
+    
+    .dark .header-nav {
+      background: rgba(24, 24, 27, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+    }
+    
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #facc15;
+    }
+    
+    .logo-img {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 0.5rem;
+      object-fit: contain;
+    }
+    
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+    
+    .nav-desktop {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .nav-link {
+      color: #22223b;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-link:hover, .nav-link.active {
+      color: #facc15;
+      background: rgba(250, 204, 21, 0.1);
+    }
+    
+    .dark .nav-link {
+      color: #f3f4f6;
+    }
+    
+    .dark .nav-link:hover, .dark .nav-link.active {
+      color: #facc15;
+    }
+    
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .mode-switch {
+      background: rgba(255,255,255,0.85);
+      color: #22223b;
+      border-radius: 9999px;
+      box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .dark .mode-switch {
+      background: rgba(36,36,40,0.9);
+      color: #facc15;
+      box-shadow: 0 2px 8px 0 rgba(0,0,0,0.18);
+    }
+    
+    .mode-text {
+      display: none;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 0.25rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+    
+    .hamburger-line {
+      width: 1.5rem;
+      height: 2px;
+      background: #22223b;
+      border-radius: 1px;
+      transition: all 0.3s ease;
+    }
+    
+    .dark .hamburger-line {
+      background: #f3f4f6;
+    }
+    
+    .nav-mobile {
+      display: none;
+      background: rgba(255, 255, 255, 0.98);
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 1rem;
+    }
+    
+    .dark .nav-mobile {
+      background: rgba(24, 24, 27, 0.98);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .nav-mobile.active {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .nav-link-mobile {
+      color: #22223b;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link-mobile:hover {
+      color: #facc15;
+      background: rgba(250, 204, 21, 0.1);
+    }
+    
+    .dark .nav-link-mobile {
+      color: #f3f4f6;
+    }
+    
+    .dark .nav-link-mobile:hover {
+      color: #facc15;
+    }
+    
+    body {
+      padding-top: 80px;
+    }
+    
+    .policy-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      border-radius: 2rem;
+      padding: 3rem 2.5rem;
+      max-width: 800px;
+      width: 100%;
+      margin: 0 auto;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    }
+    
+    .dark .policy-card {
+      background: rgba(36, 36, 40, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+    
+    @media (max-width: 768px) {
+      .nav-desktop {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: flex;
+      }
+      
+      .mode-text {
+        display: inline;
+      }
+      
+      .nav-container {
+        padding: 0.75rem 1rem;
+      }
+      
+      .policy-card {
+        padding: 2rem 1.5rem;
+      }
+    }
   </style>
 </head>
-<body class="relative min-h-screen flex flex-col items-center justify-center px-4">
-  <header class="w-full flex flex-col items-center pt-10 pb-4">
-    <img src="assets/icon-versetvie.png" alt="Icône VersetVie" class="w-16 h-16 rounded-2xl shadow-lg mb-2 border-4 border-white" />
-    <span class="text-2xl font-title font-bold text-yellow-700 tracking-wide drop-shadow">VersetVie</span>
+<body class="min-h-screen flex flex-col">
+  <!-- HEADER NAVIGATION -->
+  <header class="header-nav">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="assets/icon-versetvie.png" alt="VersetVie" class="logo-img" />
+        <span class="logo-text">VersetVie</span>
+      </div>
+      
+      <nav class="nav-desktop">
+        <a href="index.html#accueil" class="nav-link">Accueil</a>
+        <a href="index.html#fonctionnalites" class="nav-link">Fonctionnalités</a>
+        <a href="index.html#apercu" class="nav-link">Aperçu</a>
+        <a href="index.html#mission" class="nav-link">Notre mission</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      
+      <div class="nav-actions">
+        <button class="mode-switch" id="modeSwitch" aria-label="Changer le mode clair/sombre">
+          <span id="modeSwitchIcon">🌙</span>
+          <span id="modeSwitchText" class="mode-text">Mode clair</span>
+        </button>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Menu Mobile -->
+    <nav class="nav-mobile" id="navMobile">
+      <a href="index.html#accueil" class="nav-link-mobile">Accueil</a>
+      <a href="index.html#fonctionnalites" class="nav-link-mobile">Fonctionnalités</a>
+      <a href="index.html#apercu" class="nav-link-mobile">Aperçu</a>
+      <a href="index.html#mission" class="nav-link-mobile">Notre mission</a>
+      <a href="contact.html" class="nav-link-mobile">Contact</a>
+    </nav>
   </header>
-  <main class="backdrop-blur-md bg-white/60 border border-white/40 shadow-2xl rounded-3xl p-10 max-w-2xl w-full mt-6 flex flex-col items-center">
+  
+  <div class="flex-1 flex items-center justify-center px-4 py-8">
+    <main class="policy-card">
     <h1 class="text-3xl font-title font-bold mb-6 text-yellow-700">Mentions légales</h1>
     <p class="mb-4"><strong>Nom du site :</strong> VersetVie</p>
     <p class="mb-4"><strong>Éditeur :</strong> <a href="https://krisskoolbycode.fr" target="_blank" rel="noopener" class="text-yellow-700 underline hover:text-yellow-600 transition">krisskool by code</a></p>
@@ -49,7 +295,8 @@
     <p class="mb-4">Ce site ne collecte aucune donnée personnelle sur ses visiteurs.</p>
     <p class="text-sm text-gray-500 mt-8">Dernière mise à jour : juin 2024</p>
     <a href="index.html" class="mt-8 text-yellow-700 underline hover:text-yellow-600 transition">← Retour à l'accueil</a>
-  </main>
+    </main>
+  </div>
   <script>
     // Light/Dark mode switcher
     const html = document.documentElement;
@@ -65,6 +312,25 @@
     // Utiliser le thème sauvegardé ou le mode clair par défaut
     const savedTheme = localStorage.getItem('theme');
     setMode(savedTheme || 'light');
+    
+    // Navigation mobile
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMobile = document.getElementById('navMobile');
+    
+    if (mobileMenuBtn && navMobile) {
+      mobileMenuBtn.addEventListener('click', () => {
+        navMobile.classList.toggle('active');
+        mobileMenuBtn.classList.toggle('active');
+      });
+      
+      // Fermer le menu mobile lors du clic sur un lien
+      navMobile.addEventListener('click', (e) => {
+        if (e.target.classList.contains('nav-link-mobile')) {
+          navMobile.classList.remove('active');
+          mobileMenuBtn.classList.remove('active');
+        }
+      });
+    }
   </script>
 </body>
 </html> 

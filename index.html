@@ -59,6 +59,317 @@
       opacity: 1;
       transform: none;
     }
+    /* HERO SECTION */
+    .hero-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      position: relative;
+      background: linear-gradient(135deg, #fffbe8 0%, #f7fafc 100%);
+      transition: background 0.3s;
+    }
+    
+    .dark .hero-section {
+      background: linear-gradient(135deg, #18181b 0%, #27272a 100%);
+    }
+    
+    .hero-container {
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+    }
+    
+    .hero-icon {
+      width: 12rem;
+      height: 12rem;
+      opacity: 0.95;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .hero-logo {
+      width: 100%;
+      height: 100%;
+      border-radius: 1rem;
+      object-fit: contain;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+    
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 800;
+      color: #facc15;
+      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin: 0;
+      line-height: 1.1;
+    }
+    
+    .hero-subtitle {
+      font-size: clamp(1.25rem, 4vw, 2rem);
+      font-weight: 600;
+      color: #22223b;
+      margin: 0;
+    }
+    
+    .dark .hero-subtitle {
+      color: #f3f4f6;
+    }
+    
+    .hero-description {
+      font-size: clamp(1rem, 3vw, 1.25rem);
+      color: #4b5563;
+      margin: 0;
+      max-width: 600px;
+    }
+    
+    .dark .hero-description {
+      color: #9ca3af;
+    }
+    
+    .app-store-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: #000000 !important;
+      color: white !important;
+      padding: 1rem 1.5rem;
+      border-radius: 1rem;
+      font-size: 1.125rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      border: none;
+      cursor: pointer;
+    }
+    
+    .app-store-btn:hover {
+      background: #1f2937 !important;
+      color: white !important;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+    
+    .dark .app-store-btn {
+      background: #000000 !important;
+      color: white !important;
+    }
+    
+    .dark .app-store-btn:hover {
+      background: #1f2937 !important;
+      color: white !important;
+    }
+    
+    .app-store-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      flex-shrink: 0;
+      color: white !important;
+    }
+    
+    .app-store-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1.2;
+      color: white !important;
+    }
+    
+    .app-store-small {
+      font-size: 0.75rem;
+      opacity: 0.8;
+      color: white !important;
+    }
+    
+    .app-store-large {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: white !important;
+    }
+    
+    .dark .app-store-icon,
+    .dark .app-store-text,
+    .dark .app-store-small,
+    .dark .app-store-large {
+      color: white !important;
+    }
+    
+    /* SECTIONS COMMUNES */
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: #facc15;
+      text-align: center;
+      margin: 0 0 3rem 0;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* FONCTIONNALITÉS SECTION */
+    .features-section {
+      padding: 6rem 0;
+      background: transparent;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .feature-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      border-radius: 1.5rem;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    }
+    
+    .dark .feature-card {
+      background: rgba(36, 36, 40, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12);
+    }
+    
+    .dark .feature-card:hover {
+      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
+    }
+    
+    .feature-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    
+    .feature-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #facc15;
+      margin: 0 0 1rem 0;
+    }
+    
+    .feature-description {
+      color: #22223b;
+      line-height: 1.6;
+      margin: 0;
+      font-size: 1rem;
+    }
+    
+    .dark .feature-description {
+      color: #e5e7eb;
+    }
+    
+    /* SCREENSHOTS SECTION */
+    .screenshots-section {
+      padding: 6rem 0;
+      background: transparent;
+    }
+    
+    .swiper-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    /* MISSION SECTION */
+    .mission-section {
+      padding: 6rem 0;
+      background: transparent;
+    }
+    
+    .mission-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      border-radius: 2rem;
+      padding: 3rem 2.5rem;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    }
+    
+    .dark .mission-card {
+      background: rgba(36, 36, 40, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+    
+    .mission-icon {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    
+    .mission-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #facc15;
+      margin: 0 0 2rem 0;
+    }
+    
+    .mission-description {
+      font-size: 1.125rem;
+      color: #22223b;
+      line-height: 1.7;
+      margin: 0 0 2rem 0;
+    }
+    
+    .dark .mission-description {
+      color: #e5e7eb;
+    }
+    
+    .mission-quote {
+      font-style: italic;
+      color: #facc15;
+      font-size: 1.125rem;
+      margin: 0;
+      line-height: 1.6;
+    }
+    
+    .mission-cite {
+      display: block;
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
+      opacity: 0.8;
+    }
+    
     /* Animation slide/fade pour le carrousel */
     .carousel-slide-next {
       animation: slideNext 0.45s cubic-bezier(.4,0,.2,1) forwards;
@@ -147,34 +458,258 @@
       margin: 0;
       border-radius: 0;
     }
+    /* HEADER NAVIGATION */
+    .header-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+    
+    .dark .header-nav {
+      background: rgba(24, 24, 27, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+    }
+    
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #facc15;
+    }
+    
+    .logo-img {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 0.5rem;
+      object-fit: contain;
+    }
+    
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+    
+    .nav-desktop {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .nav-link {
+      color: #22223b;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-link:hover, .nav-link.active {
+      color: #facc15;
+      background: rgba(250, 204, 21, 0.1);
+    }
+    
+    .dark .nav-link {
+      color: #f3f4f6;
+    }
+    
+    .dark .nav-link:hover, .dark .nav-link.active {
+      color: #facc15;
+    }
+    
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
     .mode-switch {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      z-index: 50;
       background: rgba(255,255,255,0.85);
       color: #22223b;
       border-radius: 9999px;
       box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
-      padding: 0.5rem 1.1rem;
-      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
       font-weight: 600;
       cursor: pointer;
       border: none;
       outline: none;
-      transition: background 0.3s, color 0.3s;
+      transition: all 0.3s ease;
       display: flex;
       align-items: center;
       gap: 0.5rem;
     }
+    
     .dark .mode-switch {
       background: rgba(36,36,40,0.9);
       color: #facc15;
       box-shadow: 0 2px 8px 0 rgba(0,0,0,0.18);
     }
-    .mode-switch svg {
-      width: 1.3em;
-      height: 1.3em;
+    
+    .mode-text {
+      display: none;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 0.25rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+    
+    .hamburger-line {
+      width: 1.5rem;
+      height: 2px;
+      background: #22223b;
+      border-radius: 1px;
+      transition: all 0.3s ease;
+    }
+    
+    .dark .hamburger-line {
+      background: #f3f4f6;
+    }
+    
+    .nav-mobile {
+      display: none;
+      background: rgba(255, 255, 255, 0.98);
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 1rem;
+    }
+    
+    .dark .nav-mobile {
+      background: rgba(24, 24, 27, 0.98);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .nav-mobile.active {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .nav-link-mobile {
+      color: #22223b;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link-mobile:hover {
+      color: #facc15;
+      background: rgba(250, 204, 21, 0.1);
+    }
+    
+    .dark .nav-link-mobile {
+      color: #f3f4f6;
+    }
+    
+    .dark .nav-link-mobile:hover {
+      color: #facc15;
+    }
+    
+    .mobile-menu-btn.active .hamburger-line:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .mobile-menu-btn.active .hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .mobile-menu-btn.active .hamburger-line:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    /* Scroll offset pour les ancres */
+    section[id] {
+      scroll-margin-top: 80px;
+    }
+    
+    /* Body padding pour éviter le chevauchement avec le header fixe */
+    body {
+      padding-top: 80px;
+    }
+    
+    @media (max-width: 768px) {
+      .nav-desktop {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: flex;
+      }
+      
+      .mode-text {
+        display: inline;
+      }
+      
+      .nav-container {
+        padding: 0.75rem 1rem;
+      }
+      
+      .hero-section {
+        min-height: calc(100vh - 80px);
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .hero-icon {
+        width: 8rem;
+        height: 8rem;
+      }
+      
+      .mission-card {
+        padding: 2rem 1.5rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero-content {
+        gap: 2rem;
+      }
+      
+      .app-store-btn {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+      }
+      
+      .app-store-text {
+        align-items: center;
+      }
+      
+      .feature-card {
+        padding: 2rem 1.5rem;
+      }
     }
     .card-text {
       color: #22223b;
@@ -208,68 +743,109 @@
   </style>
 </head>
 <body class="min-h-screen flex flex-col">
-  <button class="mode-switch" id="modeSwitch" aria-label="Changer le mode clair/sombre">
-    <span id="modeSwitchIcon">🌙</span>
-    <span id="modeSwitchText">Mode clair</span>
-  </button>
-  <!-- HERO -->
-  <header class="relative w-full min-h-[70vh] flex flex-col items-center justify-center px-4 py-20 custom-hero-bg overflow-hidden">
-    <div class="flex flex-col items-center w-full max-w-2xl mx-auto">
-      <div class="w-48 h-48 mb-8 opacity-90 flex  items-center justify-center">
-        <img src="assets/icon-versetvie.png" alt="Logo watermark" class="w-full h-full rounded-xl object-contain" />
+  <!-- HEADER NAVIGATION -->
+  <header class="header-nav" id="headerNav">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="assets/icon-versetvie.png" alt="VersetVie" class="logo-img" />
+        <span class="logo-text">VersetVie</span>
       </div>
-      <div class="flex flex-col items-center text-center w-full">
-        <h1 class="font-title text-5xl md:text-7xl font-extrabold mb-4 text-yellow-400 drop-shadow-lg">VersetVie</h1>
-        <p class="text-2xl md:text-3xl dark:text-gray-100 text-gray-800 mb-6">La Parole qui t'accompagne chaque jour</p>
-        <p class="text-lg md:text-xl dark:text-gray-400 text-gray-700 mb-8">Un verset biblique chaque jour avec son encouragement.</p>
-        <a href="https://apps.apple.com/app/versetvie/id6746123018" class="flex items-center gap-2 bg-black hover:bg-gray-900 text-white px-6 py-3 rounded-xl text-lg font-semibold transition">
-          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-          </svg>
-          <div class="flex flex-col items-start">
-            <span class="text-xs">Télécharger sur</span>
-            <span class="text-xl">App Store</span>
-          </div>
-        </a>
+      
+      <nav class="nav-desktop">
+        <a href="#accueil" class="nav-link active">Accueil</a>
+        <a href="#fonctionnalites" class="nav-link">Fonctionnalités</a>
+        <a href="#apercu" class="nav-link">Aperçu</a>
+        <a href="#mission" class="nav-link">Notre mission</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      
+      <div class="nav-actions">
+        <button class="mode-switch" id="modeSwitch" aria-label="Changer le mode clair/sombre">
+          <span id="modeSwitchIcon">🌙</span>
+          <span id="modeSwitchText" class="mode-text">Mode clair</span>
+        </button>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
       </div>
     </div>
+    
+    <!-- Menu Mobile -->
+    <nav class="nav-mobile" id="navMobile">
+      <a href="#accueil" class="nav-link-mobile">Accueil</a>
+      <a href="#fonctionnalites" class="nav-link-mobile">Fonctionnalités</a>
+      <a href="#apercu" class="nav-link-mobile">Aperçu</a>
+      <a href="#mission" class="nav-link-mobile">Notre mission</a>
+      <a href="contact.html" class="nav-link-mobile">Contact</a>
+    </nav>
   </header>
+  <!-- HERO -->
+  <section id="accueil" class="hero-section">
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-icon">
+          <img src="assets/icon-versetvie.png" alt="Logo VersetVie" class="hero-logo" />
+        </div>
+        <div class="hero-text">
+          <h1 class="hero-title">VersetVie</h1>
+          <p class="hero-subtitle">La Parole qui t'accompagne chaque jour</p>
+          <p class="hero-description">Un verset biblique chaque jour avec son encouragement.</p>
+          <a href="https://apps.apple.com/app/versetvie/id6746123018" class="app-store-btn">
+            <svg class="app-store-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+            <div class="app-store-text">
+              <span class="app-store-small">Télécharger sur</span>
+              <span class="app-store-large">App Store</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- FONCTIONNALITÉS -->
-  <section class="w-full max-w-5xl mx-auto my-28 px-4 reveal-on-scroll">
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
-      <div class="glass-dark glass-light rounded-2xl p-10 flex flex-col items-center text-center transition-transform hover:scale-105">
-        <div class="text-5xl mb-3 text-yellow-400">📖</div>
-        <h3 class="text-xl font-title font-bold text-yellow-400 mb-2">Verset</h3>
-        <p class="card-text">Un verset inspirant chaque matin pour nourrir ta foi.</p>
-      </div>
-      <div class="glass-dark glass-light rounded-2xl p-10 flex flex-col items-center text-center transition-transform hover:scale-105">
-        <div class="text-5xl mb-3 text-yellow-400">💬</div>
-        <h3 class="text-xl font-title font-bold text-yellow-400 mb-2">Encouragement</h3>
-        <p class="card-text">Un message positif pour t'accompagner et te motiver chaque jour une fois le verset découvert.</p>
-      </div>
-      <div class="glass-dark glass-light rounded-2xl p-10 flex flex-col items-center text-center transition-transform hover:scale-105">
-        <div class="text-5xl mb-3 text-yellow-400">⭐</div>
-        <h3 class="text-xl font-title font-bold text-yellow-400 mb-2">Favoris</h3>
-        <p class="card-text">Garde tes versets préférés à portée de main.</p>
-      </div>
-      <div class="glass-dark glass-light rounded-2xl p-10 flex flex-col items-center text-center transition-transform hover:scale-105">
-        <div class="text-5xl mb-3 text-yellow-400">🗂️</div>
-        <h3 class="text-xl font-title font-bold text-yellow-400 mb-2">Catégories</h3>
-        <p class="card-text">Explore la Parole selon tes besoins et tes envies.</p>
-      </div>
-      <div class="glass-dark glass-light rounded-2xl p-10 flex flex-col items-center text-center transition-transform hover:scale-105">
-        <div class="text-5xl mb-3 text-yellow-400">📊</div>
-        <h3 class="text-xl font-title font-bold text-yellow-400 mb-2">Statistiques</h3>
-        <p class="card-text">Suis ta progression et tes habitudes de lecture des versets et des encouragements.</p>
+  <section id="fonctionnalites" class="features-section reveal-on-scroll">
+    <div class="section-container">
+      <h2 class="section-title">Fonctionnalités</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📖</div>
+          <h3 class="feature-title">Verset</h3>
+          <p class="feature-description">Un verset inspirant chaque matin pour nourrir ta foi.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💬</div>
+          <h3 class="feature-title">Encouragement</h3>
+          <p class="feature-description">Un message positif pour t'accompagner et te motiver chaque jour une fois le verset découvert.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⭐</div>
+          <h3 class="feature-title">Favoris</h3>
+          <p class="feature-description">Garde tes versets préférés à portée de main.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🗂️</div>
+          <h3 class="feature-title">Catégories</h3>
+          <p class="feature-description">Explore la Parole selon tes besoins et tes envies.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3 class="feature-title">Statistiques</h3>
+          <p class="feature-description">Suis ta progression et tes habitudes de lecture des versets et des encouragements.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- GALERIE D'ÉCRANS (Swiper.js) -->
-  <section class="w-full max-w-6xl mx-auto my-28 px-4 reveal-on-scroll" id="screenshots-section">
-    <h2 class="text-3xl md:text-4xl font-title font-bold text-yellow-400 mb-10 tracking-tight drop-shadow text-center">Aperçu de l'application</h2>
-    <div class="w-full max-w-2xl mx-auto">
+  <section id="apercu" class="screenshots-section reveal-on-scroll">
+    <div class="section-container">
+      <h2 class="section-title">Aperçu de l'application</h2>
+      <div class="swiper-container">
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide flex flex-col items-center relative bg-transparent">
@@ -310,16 +886,22 @@
         <br><br>
         <div class="swiper-pagination"></div>
       </div>
+      </div>
     </div>
   </section>
 
   <!-- NOTRE MISSION -->
-  <section class="w-full max-w-2xl mx-auto my-28 px-4 reveal-on-scroll">
-    <div class="glass-dark glass-light rounded-3xl p-12 flex flex-col items-center text-center">
-      <div class="text-5xl mb-4 text-yellow-400">🌟</div>
-      <h2 class="text-3xl font-title font-bold text-yellow-400 mb-4">Notre mission</h2>
-      <p class="text-lg text-gray-200 mb-2">Accompagner chacun dans l'approfondissement de sa relation avec Jésus-Christ, chaque jour, à travers un verset Biblique et l'encouragement qui l'accompagne.</p>
-      <blockquote class="italic text-yellow-400 mt-4">"Ta parole est une lampe à mes pieds, une lumière sur mon sentier."<br><span class="text-sm">Psaume 119:105</span></blockquote>
+  <section id="mission" class="mission-section reveal-on-scroll">
+    <div class="section-container">
+      <div class="mission-card">
+        <div class="mission-icon">🌟</div>
+        <h2 class="mission-title">Notre mission</h2>
+        <p class="mission-description">Accompagner chacun dans l'approfondissement de sa relation avec Jésus-Christ, chaque jour, à travers un verset Biblique et l'encouragement qui l'accompagne.</p>
+        <blockquote class="mission-quote">
+          "Ta parole est une lampe à mes pieds, une lumière sur mon sentier."
+          <cite class="mission-cite">Psaume 119:105</cite>
+        </blockquote>
+      </div>
     </div>
   </section>
 
@@ -329,13 +911,13 @@
     <div class="flex flex-col items-center">
       <h2 class="text-2xl md:text-3xl font-title font-bold text-yellow-400 mb-4">Prêt à illuminer ta journée ?</h2>
       <p class="text-lg text-gray-200 mb-6">Télécharge gratuitement VersetVie et reçois un verset chaque jour avec son encouragement !</p>
-      <a href="https://apps.apple.com/app/versetvie/id6746123018" class="flex items-center gap-2 bg-black hover:bg-gray-900 text-white px-6 py-3 rounded-xl text-lg font-semibold transition">
-        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+      <a href="https://apps.apple.com/app/versetvie/id6746123018" class="app-store-btn">
+        <svg class="app-store-icon" viewBox="0 0 24 24" fill="currentColor">
           <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
         </svg>
-        <div class="flex flex-col items-start">
-          <span class="text-xs">Télécharger sur</span>
-          <span class="text-xl">App Store</span>
+        <div class="app-store-text">
+          <span class="app-store-small">Télécharger sur</span>
+          <span class="app-store-large">App Store</span>
         </div>
       </a>
     </div>
@@ -459,6 +1041,73 @@
 
     modeSwitch.addEventListener('click', () => {
       setMode(html.classList.contains('dark') ? 'light' : 'dark');
+    });
+
+    // Navigation mobile
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMobile = document.getElementById('navMobile');
+    const navLinks = document.querySelectorAll('.nav-link, .nav-link-mobile');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navMobile.classList.toggle('active');
+      mobileMenuBtn.classList.toggle('active');
+    });
+    
+    // Fermer le menu mobile lors du clic sur un lien
+    navMobile.addEventListener('click', (e) => {
+      if (e.target.classList.contains('nav-link-mobile')) {
+        navMobile.classList.remove('active');
+        mobileMenuBtn.classList.remove('active');
+      }
+    });
+    
+    // Navigation smooth scroll
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href.startsWith('#')) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            const headerHeight = document.querySelector('.header-nav').offsetHeight;
+            const targetPosition = target.offsetTop - headerHeight;
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+            
+            // Update active link
+            navLinks.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+          }
+        }
+      });
+    });
+    
+    // Active link on scroll
+    window.addEventListener('scroll', () => {
+      const sections = ['accueil', 'fonctionnalites', 'apercu', 'mission'];
+      const headerHeight = document.querySelector('.header-nav').offsetHeight;
+      
+      let current = '';
+      sections.forEach(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= headerHeight + 100 && rect.bottom > headerHeight + 100) {
+            current = section;
+          }
+        }
+      });
+      
+      if (current) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+          }
+        });
+      }
     });
   </script>
 </body>

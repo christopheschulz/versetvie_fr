@@ -25,12 +25,181 @@
       color: #f3f4f6;
     }
     .font-title { font-family: 'Playfair Display', serif; }
-    .mode-switch {
-      position: fixed; top: 1.5rem; right: 1.5rem; z-index: 50;
-      background: rgba(255,255,255,0.85); color: #22223b; border-radius: 9999px;
-      box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08); padding: 0.5rem 1.1rem; font-size: 1.1rem; font-weight: 600; cursor: pointer; border: none; outline: none; transition: background 0.3s, color 0.3s; display: flex; align-items: center; gap: 0.5rem;
+    /* HEADER NAVIGATION */
+    .header-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
     }
-    .dark .mode-switch { background: rgba(36,36,40,0.9); color: #facc15; box-shadow: 0 2px 8px 0 rgba(0,0,0,0.18); }
+    
+    .dark .header-nav {
+      background: rgba(24, 24, 27, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+    }
+    
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #facc15;
+    }
+    
+    .logo-img {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 0.5rem;
+      object-fit: contain;
+    }
+    
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+    
+    .nav-desktop {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .nav-link {
+      color: #22223b;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-link:hover, .nav-link.active {
+      color: #facc15;
+      background: rgba(250, 204, 21, 0.1);
+    }
+    
+    .dark .nav-link {
+      color: #f3f4f6;
+    }
+    
+    .dark .nav-link:hover, .dark .nav-link.active {
+      color: #facc15;
+    }
+    
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .mode-switch {
+      background: rgba(255,255,255,0.85);
+      color: #22223b;
+      border-radius: 9999px;
+      box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .dark .mode-switch {
+      background: rgba(36,36,40,0.9);
+      color: #facc15;
+      box-shadow: 0 2px 8px 0 rgba(0,0,0,0.18);
+    }
+    
+    .mode-text {
+      display: none;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 0.25rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+    
+    .hamburger-line {
+      width: 1.5rem;
+      height: 2px;
+      background: #22223b;
+      border-radius: 1px;
+      transition: all 0.3s ease;
+    }
+    
+    .dark .hamburger-line {
+      background: #f3f4f6;
+    }
+    
+    .nav-mobile {
+      display: none;
+      background: rgba(255, 255, 255, 0.98);
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 1rem;
+    }
+    
+    .dark .nav-mobile {
+      background: rgba(24, 24, 27, 0.98);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .nav-mobile.active {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .nav-link-mobile {
+      color: #22223b;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link-mobile:hover {
+      color: #facc15;
+      background: rgba(250, 204, 21, 0.1);
+    }
+    
+    .dark .nav-link-mobile {
+      color: #f3f4f6;
+    }
+    
+    .dark .nav-link-mobile:hover {
+      color: #facc15;
+    }
+    
+    body {
+      padding-top: 80px;
+    }
     .contact-card {
       background: rgba(255,255,255,0.95);
       border-radius: 1.5rem;
@@ -130,38 +299,22 @@
       background: #1e293b;
       color: #bbf7d0;
     }
-    .back-button {
-      position: fixed;
-      top: 1.5rem;
-      left: 1.5rem;
-      z-index: 50;
-      background: rgba(255,255,255,0.85);
-      color: #22223b;
-      border-radius: 9999px;
-      box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
-      padding: 0.5rem 1.1rem;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      border: none;
-      outline: none;
-      transition: all 0.3s;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      text-decoration: none;
-    }
-    .dark .back-button {
-      background: rgba(36,36,40,0.9);
-      color: #facc15;
-      box-shadow: 0 2px 8px 0 rgba(0,0,0,0.18);
-    }
-    .back-button:hover {
-      transform: translateX(-3px);
-      box-shadow: 0 4px 12px 0 rgba(0,0,0,0.12);
-    }
-    .dark .back-button:hover {
-      box-shadow: 0 4px 12px 0 rgba(0,0,0,0.25);
+    @media (max-width: 768px) {
+      .nav-desktop {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: flex;
+      }
+      
+      .mode-text {
+        display: inline;
+      }
+      
+      .nav-container {
+        padding: 0.75rem 1rem;
+      }
     }
     .modal-overlay {
       position: fixed;
@@ -227,12 +380,45 @@
   </style>
 </head>
 <body class="min-h-screen flex flex-col items-center justify-center px-4">
-  <a href="index.html" class="back-button">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-      <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
-    </svg>
-    Retour
-  </a>
+  <!-- HEADER NAVIGATION -->
+  <header class="header-nav">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="assets/icon-versetvie.png" alt="VersetVie" class="logo-img" />
+        <span class="logo-text">VersetVie</span>
+      </div>
+      
+      <nav class="nav-desktop">
+        <a href="index.html#accueil" class="nav-link">Accueil</a>
+        <a href="index.html#fonctionnalites" class="nav-link">Fonctionnalités</a>
+        <a href="index.html#apercu" class="nav-link">Aperçu</a>
+        <a href="index.html#mission" class="nav-link">Notre mission</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+      </nav>
+      
+      <div class="nav-actions">
+        <button class="mode-switch" id="modeSwitch" aria-label="Changer le mode clair/sombre">
+          <span id="modeSwitchIcon">🌙</span>
+          <span id="modeSwitchText" class="mode-text">Mode clair</span>
+        </button>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Menu Mobile -->
+    <nav class="nav-mobile" id="navMobile">
+      <a href="index.html#accueil" class="nav-link-mobile">Accueil</a>
+      <a href="index.html#fonctionnalites" class="nav-link-mobile">Fonctionnalités</a>
+      <a href="index.html#apercu" class="nav-link-mobile">Aperçu</a>
+      <a href="index.html#mission" class="nav-link-mobile">Notre mission</a>
+      <a href="contact.html" class="nav-link-mobile">Contact</a>
+    </nav>
+  </header>
   <main class="contact-card">
     <h1 class="text-3xl font-title font-bold mb-6 text-yellow-700 dark:text-yellow-400">Contact</h1>
     <p class="mb-6 text-base">Une question, une suggestion ou un encouragement&nbsp;? Remplis ce formulaire, nous te répondrons rapidement.</p>
@@ -278,6 +464,25 @@
     // Utiliser le thème sauvegardé ou le mode clair par défaut
     const savedTheme = localStorage.getItem('theme');
     setMode(savedTheme || 'light');
+    
+    // Navigation mobile
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMobile = document.getElementById('navMobile');
+    
+    if (mobileMenuBtn && navMobile) {
+      mobileMenuBtn.addEventListener('click', () => {
+        navMobile.classList.toggle('active');
+        mobileMenuBtn.classList.toggle('active');
+      });
+      
+      // Fermer le menu mobile lors du clic sur un lien
+      navMobile.addEventListener('click', (e) => {
+        if (e.target.classList.contains('nav-link-mobile')) {
+          navMobile.classList.remove('active');
+          mobileMenuBtn.classList.remove('active');
+        }
+      });
+    }
   </script>
   <script>
     // Gestion du formulaire
