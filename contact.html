@@ -4,382 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact – VersetVie</title>
-  <link rel="stylesheet" href="https://cdn.tailwindcss.com" />
+  <link rel="icon" href="assets/icon-versetvie.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <style>
-    html {
-      color: #22223b;
-      transition: background 0.3s, color 0.3s;
-    }
-    body {
-      background: linear-gradient(135deg, #fffbe8 0%, #f7fafc 100%);
-      transition: background 0.3s, color 0.3s;
-      font-family: 'Inter', sans-serif;
-    }
-    .dark {
-      background: #18181b;
-      color: #f3f4f6;
-    }
-    .dark body {
-      background: linear-gradient(135deg, #18181b 0%, #27272a 100%);
-      color: #f3f4f6;
-    }
-    .font-title { font-family: 'Playfair Display', serif; }
-    /* HEADER NAVIGATION */
-    .header-nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-      transition: all 0.3s ease;
-    }
-    
-    .dark .header-nav {
-      background: rgba(24, 24, 27, 0.95);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 1.5rem;
-    }
-    
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-weight: 700;
-      font-size: 1.25rem;
-      color: #facc15;
-    }
-    
-    .logo-img {
-      width: 2.5rem;
-      height: 2.5rem;
-      border-radius: 0.5rem;
-      object-fit: contain;
-    }
-    
-    .logo-text {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-    }
-    
-    .nav-desktop {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-    }
-    
-    .nav-link {
-      color: #22223b;
-      text-decoration: none;
-      font-weight: 500;
-      padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-    
-    .nav-link:hover, .nav-link.active {
-      color: #facc15;
-      background: rgba(250, 204, 21, 0.1);
-    }
-    
-    .dark .nav-link {
-      color: #f3f4f6;
-    }
-    
-    .dark .nav-link:hover, .dark .nav-link.active {
-      color: #facc15;
-    }
-    
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    
-    .mode-switch {
-      background: rgba(255,255,255,0.85);
-      color: #22223b;
-      border-radius: 9999px;
-      box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
-      padding: 0.5rem 1rem;
-      font-size: 0.9rem;
-      font-weight: 600;
-      cursor: pointer;
-      border: none;
-      outline: none;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    .dark .mode-switch {
-      background: rgba(36,36,40,0.9);
-      color: #facc15;
-      box-shadow: 0 2px 8px 0 rgba(0,0,0,0.18);
-    }
-    
-    .mode-text {
-      display: none;
-    }
-    
-    .mobile-menu-btn {
-      display: none;
-      flex-direction: column;
-      gap: 0.25rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0.5rem;
-    }
-    
-    .hamburger-line {
-      width: 1.5rem;
-      height: 2px;
-      background: #22223b;
-      border-radius: 1px;
-      transition: all 0.3s ease;
-    }
-    
-    .dark .hamburger-line {
-      background: #f3f4f6;
-    }
-    
-    .nav-mobile {
-      display: none;
-      background: rgba(255, 255, 255, 0.98);
-      border-top: 1px solid rgba(0, 0, 0, 0.08);
-      padding: 1rem;
-    }
-    
-    .dark .nav-mobile {
-      background: rgba(24, 24, 27, 0.98);
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    
-    .nav-mobile.active {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    
-    .nav-link-mobile {
-      color: #22223b;
-      text-decoration: none;
-      font-weight: 500;
-      padding: 0.75rem 1rem;
-      border-radius: 0.5rem;
-      transition: all 0.3s ease;
-    }
-    
-    .nav-link-mobile:hover {
-      color: #facc15;
-      background: rgba(250, 204, 21, 0.1);
-    }
-    
-    .dark .nav-link-mobile {
-      color: #f3f4f6;
-    }
-    
-    .dark .nav-link-mobile:hover {
-      color: #facc15;
-    }
-    
-    body {
-      padding-top: 80px;
-    }
-    .contact-card {
-      background: rgba(255,255,255,0.95);
-      border-radius: 1.5rem;
-      box-shadow: 0 6px 32px 0 rgba(0,0,0,0.10);
-      padding: 2.5rem 2rem;
-      max-width: 480px;
-      margin: 2.5rem auto 0 auto;
-      width: 100%;
-      transition: background 0.3s;
-      box-sizing: border-box;
-    }
-    .dark .contact-card {
-      background: rgba(36,36,40,0.98);
-      box-shadow: 0 6px 32px 0 rgba(0,0,0,0.25);
-    }
-    .contact-label {
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-      color: #22223b;
-      letter-spacing: 0.01em;
-      transition: color 0.3s;
-    }
-    .dark .contact-label {
-      color: #f3f4f6;
-    }
-    .contact-input, .contact-textarea {
-      width: 100%;
-      border-radius: 0.75rem;
-      border: 1.5px solid #e5e7eb;
-      background: #f7fafc;
-      color: #22223b;
-      padding: 0.85rem 1.1rem;
-      font-size: 1.08rem;
-      margin-bottom: 1.1rem;
-      transition: border 0.2s, box-shadow 0.2s, background 0.3s, color 0.3s;
-      outline: none;
-      box-shadow: 0 1px 4px 0 rgba(0,0,0,0.03);
-      box-sizing: border-box;
-    }
-    .contact-input:focus, .contact-textarea:focus {
-      border-color: #facc15;
-      box-shadow: 0 0 0 2px #fde68a;
-      background: #fffbe8;
-    }
-    .dark .contact-input, .dark .contact-textarea {
-      background: #23232b;
-      color: #f3f4f6;
-      border: 1.5px solid #44444c;
-    }
-    .dark .contact-input:focus, .dark .contact-textarea:focus {
-      border-color: #facc15;
-      box-shadow: 0 0 0 2px #facc15;
-      background: #18181b;
-    }
-    .contact-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.7em;
-      background: #facc15;
-      color: #22223b;
-      font-weight: 700;
-      font-size: 1.15rem;
-      border: none;
-      border-radius: 9999px;
-      padding: 0.95em 2.2em;
-      margin-top: 0.5em;
-      box-shadow: 0 2px 12px 0 rgba(250,204,21,0.10);
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-    }
-    .contact-btn:hover, .contact-btn:focus {
-      background: #ffe066;
-      color: #18181b;
-      box-shadow: 0 4px 24px 0 rgba(250,204,21,0.18);
-    }
-    .dark .contact-btn {
-      background: #facc15;
-      color: #18181b;
-    }
-    .contact-success {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.7em;
-      background: #e6fbe6;
-      color: #15803d;
-      border-radius: 1em;
-      font-weight: 600;
-      font-size: 1.1rem;
-      padding: 1em 1.5em;
-      margin-top: 2em;
-      box-shadow: 0 2px 12px 0 rgba(34,197,94,0.08);
-      transition: background 0.3s, color 0.3s;
-    }
-    .dark .contact-success {
-      background: #1e293b;
-      color: #bbf7d0;
-    }
-    @media (max-width: 768px) {
-      .nav-desktop {
-        display: none;
-      }
-      
-      .mobile-menu-btn {
-        display: flex;
-      }
-      
-      .mode-text {
-        display: inline;
-      }
-      
-      .nav-container {
-        padding: 0.75rem 1rem;
-      }
-    }
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(4px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 100;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-    }
-    .modal-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-    .modal-content {
-      background: white;
-      padding: 2rem;
-      border-radius: 1rem;
-      text-align: center;
-      transform: translateY(20px);
-      transition: transform 0.3s ease;
-      max-width: 90%;
-      width: 400px;
-    }
-    .dark .modal-content {
-      background: #1e293b;
-    }
-    .modal-overlay.active .modal-content {
-      transform: translateY(0);
-    }
-    .modal-icon {
-      width: 64px;
-      height: 64px;
-      margin: 0 auto 1rem;
-      color: #22c55e;
-    }
-    .dark .modal-icon {
-      color: #4ade80;
-    }
-    .modal-title {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: #22223b;
-    }
-    .dark .modal-title {
-      color: #f3f4f6;
-    }
-    .modal-text {
-      color: #4b5563;
-      margin-bottom: 1rem;
-    }
-    .dark .modal-text {
-      color: #e5e7eb;
-    }
-  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/contact.css">
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center px-4">
+<body class="min-h-screen flex flex-col">
   <!-- HEADER NAVIGATION -->
   <header class="header-nav">
     <div class="nav-container">
@@ -419,25 +50,36 @@
       <a href="contact.html" class="nav-link-mobile">Contact</a>
     </nav>
   </header>
-  <main class="contact-card">
-    <h1 class="text-3xl font-title font-bold mb-6 text-yellow-700 dark:text-yellow-400">Contact</h1>
-    <p class="mb-6 text-base">Une question, une suggestion ou un encouragement&nbsp;? Remplis ce formulaire, nous te répondrons rapidement.</p>
-    <form id="contactForm" action="https://formsubmit.co/krisskoolbycode@etik.com" method="POST" autocomplete="on">
-      <input type="hidden" name="_captcha" value="false">
-      <label class="contact-label" for="name">Nom</label>
-      <input type="text" id="name" name="name" required class="contact-input" autocomplete="name">
-      <label class="contact-label" for="email">Email</label>
-      <input type="email" id="email" name="email" required class="contact-input" autocomplete="email">
-      <label class="contact-label" for="message">Message</label>
-      <textarea id="message" name="message" rows="5" required class="contact-textarea"></textarea>
-      <button type="submit" class="contact-btn" aria-label="Envoyer">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10l9-6 9 6-9 6-9-6zm0 0v6a9 9 0 009 9 9 9 0 009-9v-6" /></svg>
-        Envoyer
-      </button>
-    </form>
-    
-    <p class="text-gray-500 text-sm mt-6">Ton adresse ne sera utilisée que pour répondre à ton message. Aucune donnée n'est stockée sur ce site.</p>
-  </main>
+
+  <div class="flex-1 flex items-center justify-center px-4 py-8">
+    <main class="contact-card">
+      <h1 class="text-3xl font-title font-bold mb-6 text-yellow-700 dark:text-yellow-400">Contact</h1>
+      <p class="mb-6 text-base">Une question, une suggestion ou un encouragement ? Remplis ce formulaire, nous te répondrons rapidement.</p>
+      
+      <form id="contactForm" action="https://formsubmit.co/krisskoolbycode@etik.com" method="POST" autocomplete="on">
+        <input type="hidden" name="_captcha" value="false">
+        
+        <label class="contact-label" for="name">Nom</label>
+        <input type="text" id="name" name="name" required class="contact-input" autocomplete="name">
+        
+        <label class="contact-label" for="email">Email</label>
+        <input type="email" id="email" name="email" required class="contact-input" autocomplete="email">
+        
+        <label class="contact-label" for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required class="contact-textarea"></textarea>
+        
+        <button type="submit" class="contact-btn" aria-label="Envoyer">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10l9-6 9 6-9 6-9-6zm0 0v6a9 9 0 009 9 9 9 0 009-9v-6" />
+          </svg>
+          Envoyer
+        </button>
+      </form>
+      
+      <p class="text-gray-500 text-sm mt-6">Ton adresse ne sera utilisée que pour répondre à ton message. Aucune donnée n'est stockée sur ce site.</p>
+    </main>
+  </div>
+
   <!-- Modal de confirmation -->
   <div class="modal-overlay" id="confirmationModal">
     <div class="modal-content">
@@ -449,93 +91,7 @@
       <p class="text-sm text-gray-500">Redirection vers l'accueil...</p>
     </div>
   </div>
-  <script>
-    // Light/Dark mode switcher
-    const html = document.documentElement;
-    function setMode(mode) {
-      if (mode === 'dark') {
-        html.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        html.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-      }
-    }
-    // Utiliser le thème sauvegardé ou le mode clair par défaut
-    const savedTheme = localStorage.getItem('theme');
-    setMode(savedTheme || 'light');
-    
-    // Navigation mobile
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const navMobile = document.getElementById('navMobile');
-    
-    if (mobileMenuBtn && navMobile) {
-      mobileMenuBtn.addEventListener('click', () => {
-        navMobile.classList.toggle('active');
-        mobileMenuBtn.classList.toggle('active');
-      });
-      
-      // Fermer le menu mobile lors du clic sur un lien
-      navMobile.addEventListener('click', (e) => {
-        if (e.target.classList.contains('nav-link-mobile')) {
-          navMobile.classList.remove('active');
-          mobileMenuBtn.classList.remove('active');
-        }
-      });
-    }
-  </script>
-  <script>
-    // Gestion du formulaire
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const form = this;
-      const submitButton = form.querySelector('button[type="submit"]');
-      const modal = document.getElementById('confirmationModal');
-      
-      // Désactiver le bouton pendant l'envoi
-      submitButton.disabled = true;
-      submitButton.innerHTML = `
-        <svg class="animate-spin h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-        </svg>
-        Envoi en cours...
-      `;
 
-      // Envoyer le formulaire en AJAX
-      fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form)
-      })
-      .then(response => {
-        if (response.ok) {
-          // Réinitialiser le formulaire
-          form.reset();
-          // Afficher la modale
-          modal.classList.add('active');
-          // Rediriger vers la page d'accueil après 5 secondes
-          setTimeout(() => {
-            window.location.href = 'index.html';
-          }, 4000);
-        } else {
-          throw new Error('Erreur lors de l\'envoi');
-        }
-      })
-      .catch(error => {
-        alert('Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer.');
-      })
-      .finally(() => {
-        // Réactiver le bouton
-        submitButton.disabled = false;
-        submitButton.innerHTML = `
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10l9-6 9 6-9 6-9-6zm0 0v6a9 9 0 009 9 9 9 0 009-9v-6" />
-          </svg>
-          Envoyer
-        `;
-      });
-    });
-  </script>
+  <script src="js/contact.js"></script>
 </body>
-</html> 
+</html>
