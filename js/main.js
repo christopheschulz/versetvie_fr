@@ -1,5 +1,5 @@
 /**
- * VersetVie - Script principal
+ * Verset Vie - Script principal
  * Gestion des animations, navigation, carousel et thème
  */
 

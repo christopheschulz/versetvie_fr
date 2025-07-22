@@ -1,6 +1,6 @@
-# VersetVie – Landing Page
+# Verset Vie – Landing Page
 
-Ce dépôt contient la landing page statique de l'application VersetVie.
+Ce dépôt contient la landing page statique de l'application Verset Vie.
 
 ## Structure des fichiers
 
