@@ -345,13 +345,19 @@ body {
   color: #9ca3af;
 }
 
-/* Bouton App Store */
-.app-store-btn {
+/* Boutons de téléchargement */
+.download-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-store-btn, .play-store-btn {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background: #000000 !important;
-  color: white !important;
   padding: 1rem 1.5rem;
   border-radius: 1rem;
   font-size: 1.125rem;
@@ -363,11 +369,28 @@ body {
   cursor: pointer;
 }
 
+.app-store-btn {
+  background: #000000 !important;
+  color: white !important;
+}
+
+.play-store-btn {
+  background: #01875f !important;
+  color: white !important;
+}
+
 .app-store-btn:hover {
   background: #1f2937 !important;
   color: white !important;
   transform: translateY(-2px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.play-store-btn:hover {
+  background: #016b4a !important;
+  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(1, 135, 95, 0.2);
 }
 
 .dark .app-store-btn {
@@ -380,14 +403,24 @@ body {
   color: white !important;
 }
 
-.app-store-icon {
+.dark .play-store-btn {
+  background: #01875f !important;
+  color: white !important;
+}
+
+.dark .play-store-btn:hover {
+  background: #016b4a !important;
+  color: white !important;
+}
+
+.app-store-icon, .play-store-icon {
   width: 1.5rem;
   height: 1.5rem;
   flex-shrink: 0;
   color: white !important;
 }
 
-.app-store-text {
+.app-store-text, .play-store-text {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -395,22 +428,22 @@ body {
   color: white !important;
 }
 
-.app-store-small {
+.app-store-small, .play-store-small {
   font-size: 0.75rem;
   opacity: 0.8;
   color: white !important;
 }
 
-.app-store-large {
+.app-store-large, .play-store-large {
   font-size: 1.25rem;
   font-weight: 700;
   color: white !important;
 }
 
-.dark .app-store-icon,
-.dark .app-store-text,
-.dark .app-store-small,
-.dark .app-store-large {
+.dark .app-store-icon, .dark .play-store-icon,
+.dark .app-store-text, .dark .play-store-text,
+.dark .app-store-small, .dark .play-store-small,
+.dark .app-store-large, .dark .play-store-large {
   color: white !important;
 }
 
@@ -513,13 +546,14 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  justify-content: center;
+  padding: 0 80px;
 }
 
 .carousel-viewport {
   position: relative;
   width: 100%;
-  height: 520px;
+  height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -528,17 +562,17 @@ body {
 
 .carousel-slide {
   position: absolute;
-  width: 280px;
-  height: 450px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  width: 240px;
+  height: 520px;
   border-radius: 1.5rem;
   transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
   cursor: pointer;
   top: 50%;
   left: 50%;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* Image active (au centre) */
@@ -584,32 +618,7 @@ body {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-.carousel-image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 1.5rem;
-}
 
-.carousel-title {
-  position: absolute;
-  bottom: -2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  color: var(--primary-yellow);
-  font-size: 1.125rem;
-  font-weight: 600;
-  text-align: center;
-  white-space: nowrap;
-  transition: all 0.6s ease;
-}
-
-/* Titre plus petit pour les images latérales */
-.carousel-slide.prev .carousel-title,
-.carousel-slide.next .carousel-title {
-  font-size: 0.95rem;
-  opacity: 0.8;
-}
 
 .carousel-btn {
   background: rgba(255, 255, 255, 0.9);
@@ -624,6 +633,18 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+}
+
+.carousel-btn-prev {
+  left: -60px;
+}
+
+.carousel-btn-next {
+  right: -60px;
 }
 
 .dark .carousel-btn {
@@ -779,10 +800,14 @@ section[id] {
   .simple-carousel {
     max-width: 600px;
   }
+
+  .carousel-viewport {
+    height: 500px;
+  }
   
   .carousel-slide {
-    width: 220px;
-    height: 360px;
+    width: 200px;
+    height: 430px;
   }
   
   .carousel-slide.prev {
@@ -796,14 +821,20 @@ section[id] {
 
 @media (max-width: 640px) {
   .carousel-container {
-    gap: 0.5rem;
+    padding: 0 60px;
   }
   
   .carousel-btn {
     width: 40px;
     height: 40px;
-    position: relative;
-    z-index: 15;
+  }
+  
+  .carousel-btn-prev {
+    left: -50px;
+  }
+
+  .carousel-btn-next {
+    right: -50px;
   }
   
   .carousel-btn svg {
@@ -812,12 +843,12 @@ section[id] {
   }
   
   .carousel-viewport {
-    height: 420px;
+    height: 460px;
   }
   
   .carousel-slide {
-    width: 180px;
-    height: 300px;
+    width: 160px;
+    height: 350px;
   }
   
   .carousel-slide.prev {
@@ -828,10 +859,6 @@ section[id] {
     transform: translate(0%, -50%) scale(0.7);
   }
   
-  .carousel-title {
-    font-size: 0.9rem;
-    bottom: -1.5rem;
-  }
 }
 
 @media (max-width: 480px) {
@@ -839,13 +866,20 @@ section[id] {
     gap: 2rem;
   }
   
-  .app-store-btn {
+  .download-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .app-store-btn, .play-store-btn {
     flex-direction: column;
     gap: 0.5rem;
     text-align: center;
+    width: 100%;
+    max-width: 200px;
   }
   
-  .app-store-text {
+  .app-store-text, .play-store-text {
     align-items: center;
   }
   
