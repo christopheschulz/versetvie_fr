@@ -202,9 +202,13 @@
   <section id="mission" class="mission-section reveal-on-scroll">
     <div class="section-container">
       <div class="mission-card">
-        <div class="mission-icon">🌟</div>
+        <div class="mission-icon-container">
+          <svg class="mission-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12,2L13.09,8.26L22,9L17,14L18.18,22L12,19L5.82,22L7,14L2,9L10.91,8.26L12,2Z"/>
+          </svg>
+        </div>
         <h2 class="mission-title">Notre mission</h2>
-        <p class="mission-description">Accompagner chacun dans l'approfondissement de sa relation avec Jésus-Christ, chaque jour, à travers un verset Biblique et l'encouragement qui l'accompagne.</p>
+        <p class="mission-description">Accompagner chacun dans l'approfondissement de sa relation avec Jésus-Christ, chaque jour, à travers un verset biblique et l'encouragement qui l'accompagne.</p>
         <blockquote class="mission-quote">
           "Ta parole est une lampe à mes pieds, une lumière sur mon sentier."
           <cite class="mission-cite">Psaume 119:105</cite>
@@ -216,8 +220,8 @@
   <!-- APPEL À L'ACTION FINAL -->
   <section class="w-full flex flex-col items-center justify-center my-20 px-4">
     <div class="flex flex-col items-center">
-      <h2 class="text-2xl md:text-3xl font-title font-bold text-yellow-400 mb-4">Prêt à illuminer ta journée ?</h2>
-      <p class="text-lg text-gray-200 mb-6">Télécharge gratuitement Verset Vie et reçois un verset chaque jour avec son encouragement !</p>
+      <h2 class="text-2xl md:text-3xl font-title font-bold mb-4" style="color: #d97706;">Prêt à illuminer ta journée ?</h2>
+      <p class="text-lg final-cta-text mb-6">Télécharge gratuitement Verset Vie et reçois un verset chaque jour avec son encouragement !</p>
       <div class="download-buttons">
         <a href="https://apps.apple.com/app/versetvie/id6746123018" class="app-store-btn">
           <svg class="app-store-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -242,12 +246,23 @@
   </section>
 
   <!-- PARTICIPEZ À L'AVENTURE -->
-  <section class="w-full max-w-xl mx-auto my-20 px-4 reveal-on-scroll">
-    <div class="glass-dark glass-light rounded-3xl p-10 flex flex-col items-center text-center">
-      <div class="text-4xl mb-3 text-yellow-400">✉️</div>
-      <h2 class="text-2xl font-title font-bold text-yellow-400 mb-4">Participez à l'aventure Verset Vie</h2>
-      <p class="mb-4 text-gray-200">Une idée, un bug, une suggestion ? Votre retour est précieux pour faire grandir l'application !<br>Écrivez-nous pour partager vos idées ou signaler un problème.</p>
-      <a href="contact.html" class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-8 py-3 rounded-full text-lg font-semibold shadow-lg transition">Écrire à l'équipe</a>
+  <section class="adventure-section reveal-on-scroll">
+    <div class="section-container">
+      <div class="adventure-card">
+        <div class="adventure-icon-container">
+          <svg class="adventure-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V8L12 13L2 8V6L12 11L22 6Z"/>
+          </svg>
+        </div>
+        <h2 class="adventure-title">Participez à l'aventure Verset Vie</h2>
+        <p class="adventure-description">Une idée, un bug, une suggestion ? Votre retour est précieux pour faire grandir l'application ! Écrivez-nous pour partager vos idées ou signaler un problème.</p>
+        <a href="contact.html" class="adventure-btn">
+          <span>Écrire à l'équipe</span>
+          <svg class="adventure-btn-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/>
+          </svg>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -260,7 +275,7 @@
     </div>
     <p class="mb-1">Une application créée par</p>
     <div class="flex justify-center mb-3">
-      <a href="https://codebykriss.fr" target="_blank" rel="noopener" class="text-yellow-700 dark:text-yellow-400 underline hover:text-yellow-600 transition">
+      <a href="https://codebykriss.fr" target="_blank" rel="noopener" class="underline transition" style="color: #d97706;" onmouseenter="this.style.color='#b45309'" onmouseleave="this.style.color='#d97706'">
         Code By Kriss
       </a>
     </div>
