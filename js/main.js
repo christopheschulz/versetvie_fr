@@ -12,7 +12,10 @@ const observer = new IntersectionObserver((entries) => {
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.15 });
+}, { 
+  threshold: 0.1,
+  rootMargin: '50px 0px -50px 0px'
+});
 reveals.forEach(el => observer.observe(el));
 
 // Carousel avec 3 images visibles
@@ -238,6 +241,17 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Initialiser la navigation
   navigation.init();
+  
+  // Force l'affichage des sections si les animations ne se déclenchent pas
+  setTimeout(() => {
+    const hiddenSections = document.querySelectorAll('.reveal-on-scroll:not(.visible)');
+    hiddenSections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        section.classList.add('visible');
+      }
+    });
+  }, 1000);
 });
 
 // Export pour les autres pages si nécessaire
