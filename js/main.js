@@ -3,6 +3,38 @@
  * Gestion des animations, navigation, carousel et thème
  */
 
+// Gestion de la bannière d'annonce
+const announcementBanner = {
+  banner: document.getElementById('announcementBanner'),
+  closeBtn: document.getElementById('closeAnnouncement'),
+
+  init() {
+    // Vérifier si la bannière a déjà été fermée
+    const isClosed = localStorage.getItem('announcementClosed');
+
+    if (isClosed === 'true') {
+      this.banner?.remove();
+      document.body.style.paddingTop = '80px';
+    } else {
+      // Gérer la fermeture de la bannière
+      this.closeBtn?.addEventListener('click', () => {
+        this.close();
+      });
+    }
+  },
+
+  close() {
+    this.banner?.classList.add('hidden');
+    localStorage.setItem('announcementClosed', 'true');
+
+    // Attendre la fin de l'animation avant de retirer l'élément
+    setTimeout(() => {
+      this.banner?.remove();
+      document.body.style.paddingTop = '80px';
+    }, 300);
+  }
+};
+
 // Animations de révélation au scroll
 const reveals = document.querySelectorAll('.reveal-on-scroll');
 const observer = new IntersectionObserver((entries) => {
@@ -230,15 +262,18 @@ const navigation = {
 
 // Initialisation de tous les modules
 document.addEventListener('DOMContentLoaded', () => {
+  // Initialiser la bannière d'annonce
+  announcementBanner.init();
+
   // Initialiser le carousel
   if (carousel.slides.length > 0) {
     carousel.init();
     carousel.updateSlides(); // S'assurer que l'état initial est correct
   }
-  
+
   // Initialiser la gestion du thème
   themeManager.init();
-  
+
   // Initialiser la navigation
   navigation.init();
   

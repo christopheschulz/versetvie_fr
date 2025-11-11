@@ -7,17 +7,37 @@
   <meta name="description" content="Verset Vie, l'app chrétienne qui illumine ta foi au quotidien. Un verset biblique chaque jour, gratuitement." />
   <meta name="keywords" content="verset biblique, app chrétienne, motivation, foi, bible, spiritualité" />
   <meta name="author" content="Verset Vie" />
-  <link rel="icon" href="assets/icon-versetvie.png" />
+  <link rel="icon" href="assets/icon-versetvie-compressed.jpg" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="min-h-screen flex flex-col">
+  <!-- BANNIÈRE ANNONCE V2 -->
+  <div class="announcement-banner" id="announcementBanner">
+    <div class="announcement-content">
+      <div class="announcement-badge">
+        <svg class="announcement-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12,1L9,9L1,12L9,15L12,23L15,15L23,12L15,9L12,1Z"/>
+        </svg>
+        <span>Nouveau</span>
+      </div>
+      <p class="announcement-text">
+        <strong>Version 2.0 disponible !</strong> Découvrez le nouveau design et les fonctionnalités améliorées
+      </p>
+    </div>
+    <button class="announcement-close" id="closeAnnouncement" aria-label="Fermer l'annonce">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/>
+      </svg>
+    </button>
+  </div>
+
   <!-- HEADER NAVIGATION -->
   <header class="header-nav" id="headerNav">
     <div class="nav-container">
       <div class="nav-logo">
-        <img src="assets/icon-versetvie.png" alt="Verset Vie" class="logo-img" />
+        <img src="assets/icon-versetvie-compressed.jpg" alt="Verset Vie" class="logo-img" />
         <span class="logo-text">Verset Vie</span>
       </div>
       
@@ -58,31 +78,52 @@
     <div class="hero-container">
       <div class="hero-content">
         <div class="hero-icon">
-          <img src="assets/icon-versetvie.png" alt="Logo Verset Vie" class="hero-logo" />
+          <img src="assets/icon-versetvie-compressed.jpg" alt="Logo Verset Vie" class="hero-logo" />
         </div>
         <div class="hero-text">
           <h1 class="hero-title">Verset Vie</h1>
           <p class="hero-subtitle">La Parole qui t'accompagne chaque jour</p>
           <p class="hero-description">Un verset biblique chaque jour avec son encouragement.</p>
           <div class="download-buttons">
-            <a href="https://apps.apple.com/app/versetvie/id6746123018" class="app-store-btn">
-              <svg class="app-store-icon" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-              </svg>
-              <div class="app-store-text">
-                <span class="app-store-small">Télécharger sur</span>
-                <span class="app-store-large">App Store</span>
-              </div>
+            <a href="https://apps.apple.com/app/versetvie/id6746123018" target="_blank" rel="noopener noreferrer">
+              <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/fr-fr" alt="Télécharger dans l'App Store" style="height: 56px;">
             </a>
-            <a href="https://play.google.com/store/apps/details?id=com.anonymous.versetvie&pcampaignid=web_share" class="play-store-btn">
-              <svg class="play-store-icon" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
-              </svg>
-              <div class="play-store-text">
-                <span class="play-store-small">Télécharger sur</span>
-                <span class="play-store-large">Google Play</span>
-              </div>
+            <a href="https://play.google.com/store/apps/details?id=com.anonymous.versetvie&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
+              <img src="https://play.google.com/intl/en_us/badges/static/images/badges/fr_badge_web_generic.png" alt="Disponible sur Google Play" style="height: 56px;">
             </a>
+          </div>
+
+          <!-- Badges statistiques -->
+          <div class="stats-badges">
+            <div class="stat-badge">
+              <svg class="stat-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16,17V14H9V10H16V7L21,12L16,17M14,2A2,2 0 0,1 16,4V6H14V4H5V20H14V18H16V20A2,2 0 0,1 14,22H5A2,2 0 0,1 3,20V4A2,2 0 0,1 5,2H14Z"/>
+              </svg>
+              <div class="stat-content">
+                <span class="stat-number">+3000</span>
+                <span class="stat-label">Utilisateurs</span>
+              </div>
+            </div>
+
+            <div class="stat-badge">
+              <svg class="stat-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21,4H3A2,2 0 0,0 1,6V19A2,2 0 0,0 3,21H21A2,2 0 0,0 23,19V6A2,2 0 0,0 21,4M21,19H3V6H21V19M7,9H9V10H7V9M11,9H17V10H11V9M7,12H9V13H7V12M11,12H17V13H11V12M7,15H9V16H7V15M11,15H17V16H11V15Z"/>
+              </svg>
+              <div class="stat-content">
+                <span class="stat-number">426</span>
+                <span class="stat-label">Versets</span>
+              </div>
+            </div>
+
+            <div class="stat-badge">
+              <svg class="stat-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.46,13.97L5.82,21L12,17.27Z"/>
+              </svg>
+              <div class="stat-content">
+                <span class="stat-number">5.0</span>
+                <span class="stat-label">Note moyenne</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -138,6 +179,15 @@
           </div>
           <h3 class="feature-title">Suivi des progrès</h3>
           <p class="feature-description">Visualisez votre parcours spirituel avec des statistiques détaillées sur votre assiduité et vos habitudes de lecture des versets.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-container">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M12,4.5C17,4.5 21.27,7.61 23,12C21.27,16.39 17,19.5 12,19.5C7,19.5 2.73,16.39 1,12C2.73,7.61 7,4.5 12,4.5M3.18,12C4.83,15.36 8.24,17.5 12,17.5C15.76,17.5 19.17,15.36 20.82,12C19.17,8.64 15.76,6.5 12,6.5C8.24,6.5 4.83,8.64 3.18,12Z"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">Badges de réalisation</h3>
+          <p class="feature-description">Débloquez des badges exclusifs au fil de votre parcours : Étoile Filante, Messager de Lumière, Nouveau Voyage, et bien d'autres récompenses motivantes.</p>
         </div>
       </div>
     </div>
@@ -201,35 +251,32 @@
           </button>
           
           <div class="carousel-viewport">
-            <div class="carousel-slide active" data-slide="0" style="background-image: url('assets/01.jpeg')" aria-label="Écran 1">
-            </div>
-            
-            <div class="carousel-slide next" data-slide="1" style="background-image: url('assets/02 .jpeg')" aria-label="Écran 2">
-            </div>
-            
-            <div class="carousel-slide hidden" data-slide="2" style="background-image: url('assets/03.jpeg')" aria-label="Écran 3">
+            <div class="carousel-slide active" data-slide="0" style="background-image: url('assets/01 - Moyenne.png')" aria-label="Écran 1">
             </div>
 
-            <div class="carousel-slide hidden" data-slide="3" style="background-image: url('assets/04.jpeg')" aria-label="Écran 4">
+            <div class="carousel-slide next" data-slide="1" style="background-image: url('assets/02 - Moyenne.png')" aria-label="Écran 2">
             </div>
 
-            <div class="carousel-slide hidden" data-slide="4" style="background-image: url('assets/05.jpeg')" aria-label="Écran 5">
+            <div class="carousel-slide hidden" data-slide="2" style="background-image: url('assets/03 - Moyenne.png')" aria-label="Écran 3">
             </div>
 
-            <div class="carousel-slide hidden" data-slide="5" style="background-image: url('assets/06.jpeg')" aria-label="Écran 6">
+            <div class="carousel-slide hidden" data-slide="3" style="background-image: url('assets/04 - Moyenne.png')" aria-label="Écran 4">
             </div>
 
-            <div class="carousel-slide prev" data-slide="6" style="background-image: url('assets/07.jpeg')" aria-label="Écran 7">
+            <div class="carousel-slide hidden" data-slide="4" style="background-image: url('assets/05 - Moyenne.png')" aria-label="Écran 5">
+            </div>
+
+            <div class="carousel-slide prev" data-slide="5" style="background-image: url('assets/06 - Moyenne.png')" aria-label="Écran 6">
             </div>
           </div>
-          
+
           <button class="carousel-btn carousel-btn-next" id="nextBtn" aria-label="Image suivante">
             <svg viewBox="0 0 24 24" fill="currentColor">
               <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
             </svg>
           </button>
         </div>
-        
+
         <div class="carousel-dots">
           <button class="carousel-dot active" data-slide="0" aria-label="Voir capture 1"></button>
           <button class="carousel-dot" data-slide="1" aria-label="Voir capture 2"></button>
@@ -237,7 +284,6 @@
           <button class="carousel-dot" data-slide="3" aria-label="Voir capture 4"></button>
           <button class="carousel-dot" data-slide="4" aria-label="Voir capture 5"></button>
           <button class="carousel-dot" data-slide="5" aria-label="Voir capture 6"></button>
-          <button class="carousel-dot" data-slide="6" aria-label="Voir capture 7"></button>
         </div>
       </div>
     </div>
@@ -268,23 +314,11 @@
       <h2 class="text-2xl md:text-3xl font-title font-bold mb-4" style="color: #d97706;">Prêt à illuminer ta journée ?</h2>
       <p class="text-lg final-cta-text mb-6">Télécharge gratuitement Verset Vie et reçois un verset chaque jour avec son encouragement !</p>
       <div class="download-buttons">
-        <a href="https://apps.apple.com/app/versetvie/id6746123018" class="app-store-btn">
-          <svg class="app-store-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-          </svg>
-          <div class="app-store-text">
-            <span class="app-store-small">Télécharger sur</span>
-            <span class="app-store-large">App Store</span>
-          </div>
+        <a href="https://apps.apple.com/app/versetvie/id6746123018" target="_blank" rel="noopener noreferrer">
+          <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/fr-fr" alt="Télécharger dans l'App Store" style="height: 56px;">
         </a>
-        <a href="https://play.google.com/store/apps/details?id=com.anonymous.versetvie&pcampaignid=web_share" class="play-store-btn">
-          <svg class="play-store-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
-          </svg>
-          <div class="play-store-text">
-            <span class="play-store-small">Télécharger sur</span>
-            <span class="play-store-large">Google Play</span>
-          </div>
+        <a href="https://play.google.com/store/apps/details?id=com.anonymous.versetvie&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
+          <img src="https://play.google.com/intl/en_us/badges/static/images/badges/fr_badge_web_generic.png" alt="Disponible sur Google Play" style="height: 56px;">
         </a>
       </div>
     </div>

@@ -1,0 +1,10 @@
+# robots.txt pour VersetVie.fr
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://versetvie.fr/sitemap.xml
+
+# Priorité des pages
+Crawl-delay: 0
