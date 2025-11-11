@@ -235,7 +235,7 @@ const navigation = {
   },
   
   updateActiveLink() {
-    const sections = ['accueil', 'fonctionnalites', 'apercu', 'mission'];
+    const sections = ['accueil', 'fonctionnalites', 'apercu', 'mission', 'faq'];
     const headerHeight = document.querySelector('.header-nav')?.offsetHeight || 80;
     
     let current = '';
@@ -260,6 +260,43 @@ const navigation = {
   }
 };
 
+// Gestion de la FAQ (accordéon)
+const faqManager = {
+  items: document.querySelectorAll('.faq-item'),
+
+  init() {
+    this.items.forEach(item => {
+      const question = item.querySelector('.faq-question');
+
+      question?.addEventListener('click', () => {
+        this.toggleItem(item, question);
+      });
+    });
+  },
+
+  toggleItem(item, question) {
+    const isActive = item.classList.contains('active');
+
+    // Fermer tous les autres items
+    this.items.forEach(otherItem => {
+      if (otherItem !== item) {
+        otherItem.classList.remove('active');
+        const otherQuestion = otherItem.querySelector('.faq-question');
+        otherQuestion?.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Toggle l'item actuel
+    if (isActive) {
+      item.classList.remove('active');
+      question.setAttribute('aria-expanded', 'false');
+    } else {
+      item.classList.add('active');
+      question.setAttribute('aria-expanded', 'true');
+    }
+  }
+};
+
 // Initialisation de tous les modules
 document.addEventListener('DOMContentLoaded', () => {
   // Initialiser la bannière d'annonce
@@ -276,6 +313,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialiser la navigation
   navigation.init();
+
+  // Initialiser la FAQ
+  faqManager.init();
   
   // Force l'affichage des sections si les animations ne se déclenchent pas
   setTimeout(() => {
