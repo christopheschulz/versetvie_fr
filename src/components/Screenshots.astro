@@ -4,16 +4,19 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-// Screenshots placeholders - will be replaced with actual screenshots
 const screenshots = [
-  { id: 1, alt: 'Verset du jour' },
-  { id: 2, alt: 'Encouragement' },
-  { id: 3, alt: 'Catégories' },
-  { id: 4, alt: 'Statistiques' },
+  { id: '01', alt: 'Introduction' },
+  { id: '02', alt: 'Verset du jour' },
+  { id: '03', alt: 'Encouragement' },
+  { id: '04', alt: 'Catégories' },
+  { id: '05', alt: 'Badges' },
+  { id: '06', alt: 'Thèmes' },
+  { id: '07', alt: 'Fonctionnalité 7' },
+  { id: '08', alt: 'Fonctionnalité 8' },
 ];
 ---
 
-<section id="screenshots" class="py-20 px-4 bg-[var(--color-surface)]">
+<section id="screenshots" class="py-20 px-4 bg-[var(--color-surface)] overflow-hidden">
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-12">
       <h2 class="text-3xl sm:text-4xl font-bold mb-4">
@@ -26,39 +29,160 @@ const screenshots = [
       </p>
     </div>
 
-    <!-- Screenshots grid -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-      {screenshots.map((screenshot, index) => (
-        <div
-          class="relative aspect-[9/19] rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-[var(--color-primary)]/20 to-[var(--color-secondary)]/20 border border-[var(--color-border)]"
-          style={`animation-delay: ${index * 0.1}s`}
-        >
-          <!-- Placeholder for screenshot -->
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div class="text-center p-4">
-              <svg class="w-12 h-12 mx-auto mb-2 text-[var(--color-text-tertiary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-              </svg>
-              <span class="text-xs text-[var(--color-text-tertiary)]">{screenshot.alt}</span>
+    <!-- Carousel Container -->
+    <div class="carousel-container relative">
+      <!-- Gradient overlays for smooth edges -->
+      <div class="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[var(--color-surface)] to-transparent z-10 pointer-events-none"></div>
+      <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[var(--color-surface)] to-transparent z-10 pointer-events-none"></div>
+
+      <!-- Scrolling track -->
+      <div class="carousel-track flex gap-4 sm:gap-6">
+        {/* First set of screenshots */}
+        {screenshots.map((screenshot) => (
+          <div class="carousel-item flex-shrink-0">
+            <div class="phone-mockup">
+              <div class="phone-frame">
+                <div class="phone-screen">
+                  <img
+                    src={`/screenshots/${lang}/${screenshot.id}.png`}
+                    alt={screenshot.alt}
+                    class="screenshot-img"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
             </div>
           </div>
-
-          <!-- Actual screenshot image (hidden until available) -->
-          <img
-            src={`/screenshots/screenshot-${screenshot.id}.png`}
-            alt={screenshot.alt}
-            class="absolute inset-0 w-full h-full object-cover hidden"
-            loading="lazy"
-            onerror="this.style.display='none'"
-            onload="this.classList.remove('hidden'); this.previousElementSibling.style.display='none'"
-          />
-        </div>
-      ))}
+        ))}
+        {/* Duplicated set for seamless infinite scroll */}
+        {screenshots.map((screenshot) => (
+          <div class="carousel-item flex-shrink-0">
+            <div class="phone-mockup">
+              <div class="phone-frame">
+                <div class="phone-screen">
+                  <img
+                    src={`/screenshots/${lang}/${screenshot.id}.png`}
+                    alt={screenshot.alt}
+                    class="screenshot-img"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
-
-    <!-- Note about screenshots -->
-    <p class="text-center text-sm text-[var(--color-text-tertiary)] mt-8 italic">
-      <!-- Screenshots will be added soon -->
-    </p>
   </div>
 </section>
+
+<style>
+  .carousel-container {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .carousel-track {
+    animation: scroll 45s linear infinite;
+  }
+
+  .carousel-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .carousel-item {
+    width: 180px;
+  }
+
+  @media (min-width: 640px) {
+    .carousel-item {
+      width: 220px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .carousel-item {
+      width: 260px;
+    }
+  }
+
+  /* Phone mockup styling */
+  .phone-mockup {
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+
+  .phone-mockup:hover {
+    transform: scale(1.05);
+  }
+
+  .phone-frame {
+    position: relative;
+    background: linear-gradient(145deg, #2a2a2a 0%, #1a1a1a 100%);
+    border-radius: 36px;
+    padding: 8px;
+    box-shadow:
+      0 25px 50px -12px rgba(0, 0, 0, 0.25),
+      0 0 0 1px rgba(255, 255, 255, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  @media (min-width: 640px) {
+    .phone-frame {
+      border-radius: 44px;
+      padding: 10px;
+    }
+  }
+
+  .phone-screen {
+    position: relative;
+    border-radius: 28px;
+    overflow: hidden;
+    background: #000;
+    aspect-ratio: 9 / 19.5;
+  }
+
+  @media (min-width: 640px) {
+    .phone-screen {
+      border-radius: 34px;
+    }
+  }
+
+  .screenshot-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Dynamic Island notch */
+  .phone-screen::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 24px;
+    background: #000;
+    border-radius: 20px;
+    z-index: 10;
+  }
+
+  @media (min-width: 640px) {
+    .phone-screen::before {
+      top: 10px;
+      width: 100px;
+      height: 28px;
+    }
+  }
+</style>

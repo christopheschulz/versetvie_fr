@@ -18,16 +18,19 @@ const t = useTranslations(lang);
 
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex items-center gap-8">
-        <a href={`/${lang}/`} class="text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+        <a href={`/${lang}/`} data-section="hero" class="nav-link text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
           {t('nav.home')}
         </a>
-        <a href={`/${lang}/#features`} class="text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+        <a href={`/${lang}/#screenshots`} data-section="screenshots" class="nav-link text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+          {t('nav.screenshots')}
+        </a>
+        <a href={`/${lang}/#features`} data-section="features" class="nav-link text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
           {t('nav.features')}
         </a>
-        <a href={`/${lang}/#testimonials`} class="text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+        <a href={`/${lang}/#testimonials`} data-section="testimonials" class="nav-link text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
           {t('nav.testimonials')}
         </a>
-        <a href={`/${lang}/#download`} class="text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+        <a href={`/${lang}/#download`} data-section="download" class="nav-link text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
           {t('nav.download')}
         </a>
       </nav>
@@ -67,16 +70,19 @@ const t = useTranslations(lang);
   <!-- Mobile Menu -->
   <nav id="mobile-menu" class="hidden md:hidden border-t border-[var(--color-border)] bg-[var(--color-surface)]">
     <div class="px-4 py-4 space-y-3">
-      <a href={`/${lang}/`} class="block text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+      <a href={`/${lang}/`} data-section="hero" class="nav-link block text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
         {t('nav.home')}
       </a>
-      <a href={`/${lang}/#features`} class="block text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+      <a href={`/${lang}/#screenshots`} data-section="screenshots" class="nav-link block text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+        {t('nav.screenshots')}
+      </a>
+      <a href={`/${lang}/#features`} data-section="features" class="nav-link block text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
         {t('nav.features')}
       </a>
-      <a href={`/${lang}/#testimonials`} class="block text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+      <a href={`/${lang}/#testimonials`} data-section="testimonials" class="nav-link block text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
         {t('nav.testimonials')}
       </a>
-      <a href={`/${lang}/#download`} class="block text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+      <a href={`/${lang}/#download`} data-section="download" class="nav-link block text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
         {t('nav.download')}
       </a>
     </div>
@@ -84,7 +90,7 @@ const t = useTranslations(lang);
 </header>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
+  function initNavigation() {
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
 
@@ -92,13 +98,77 @@ const t = useTranslations(lang);
       mobileMenuBtn.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
       });
+    }
 
-      // Close menu when clicking a link
-      mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.add('hidden');
-        });
+    // Active section detection
+    const sections = ['hero', 'screenshots', 'features', 'testimonials', 'download'];
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // Tailwind classes for active/inactive states
+    const activeClasses = ['text-[var(--color-primary)]', 'font-semibold'];
+    const inactiveClasses = ['text-[var(--color-text-secondary)]'];
+
+    function setActiveLink(sectionId: string) {
+      navLinks.forEach(link => {
+        const linkSection = link.getAttribute('data-section');
+        if (linkSection === sectionId) {
+          link.classList.remove(...inactiveClasses);
+          link.classList.add(...activeClasses);
+        } else {
+          link.classList.remove(...activeClasses);
+          link.classList.add(...inactiveClasses);
+        }
       });
     }
-  });
+
+    // Handle click on nav links - activate immediately
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const sectionId = link.getAttribute('data-section');
+        if (sectionId) {
+          setActiveLink(sectionId);
+        }
+        // Close mobile menu
+        if (mobileMenu) {
+          mobileMenu.classList.add('hidden');
+        }
+      });
+    });
+
+    // Set initial active state based on current scroll position or hash
+    const hash = window.location.hash.replace('#', '');
+    if (hash && sections.includes(hash)) {
+      setActiveLink(hash);
+    } else {
+      setActiveLink('hero');
+    }
+
+    // Intersection Observer for section detection on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id;
+          if (sectionId) {
+            setActiveLink(sectionId);
+          }
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: '-20% 0px -60% 0px',
+      threshold: 0
+    });
+
+    // Observe all sections
+    sections.forEach(sectionId => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+  }
+
+  // Run on initial load and page transitions
+  document.addEventListener('astro:page-load', initNavigation);
+  document.addEventListener('DOMContentLoaded', initNavigation);
 </script>
