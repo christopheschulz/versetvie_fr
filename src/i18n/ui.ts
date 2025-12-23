@@ -43,6 +43,7 @@ export const ui = {
 
     // Pricing
     'pricing.title': 'Choisissez votre formule',
+    'pricing.description': 'Nous aurions souhaité garder VersetVie entièrement gratuit, c\'était notre objectif initial. Cependant, pour continuer à vous accompagner chaque jour avec des versets inspirants et des encouragements personnalisés, nous avons dû évoluer vers un modèle Premium. Cette transition nous permet de couvrir nos frais, maintenir une application de qualité et continuer à développer de nouvelles fonctionnalités pour enrichir votre expérience spirituelle.',
     'pricing.free.title': 'Gratuit',
     'pricing.free.price': '0€',
     'pricing.free.feature1': 'Tous les 426 versets quotidiens',
@@ -77,6 +78,8 @@ export const ui = {
     'faq.a5': 'Oui ! Une fois que tu as reçu le verset du jour, tu peux le consulter à tout moment, même sans connexion Internet.',
     'faq.q6': 'Puis-je partager les versets avec mes proches ?',
     'faq.a6': 'Absolument ! L\'application te permet de partager facilement les versets et leurs encouragements via les réseaux sociaux, WhatsApp, ou tout autre moyen de communication.',
+    'faq.q7': 'L\'application est-elle vraiment gratuite ?',
+    'faq.a7': 'Oui, la grande majorité des fonctionnalités sont gratuites ! Tu as accès aux 426 versets quotidiens, à la navigation par catégories, aux favoris illimités, aux statistiques détaillées et à un encouragement par semaine. Le Premium débloque uniquement les encouragements illimités et le livre témoignage complet. Nous voulions tout offrir gratuitement, mais les coûts de maintenance nous ont conduit à proposer cette option Premium pour soutenir le projet.',
 
     // CTA
     'cta.title': 'Prêt à commencer ton voyage spirituel ?',
@@ -136,6 +139,7 @@ export const ui = {
 
     // Pricing
     'pricing.title': 'Choose your plan',
+    'pricing.description': 'We would have liked to keep VersetVie completely free, that was our initial goal. However, to continue supporting you every day with inspiring verses and personalized encouragements, we had to evolve towards a Premium model. This transition allows us to cover our costs, maintain a quality application and continue developing new features to enrich your spiritual experience.',
     'pricing.free.title': 'Free',
     'pricing.free.price': '$0',
     'pricing.free.feature1': 'All 426 daily verses',
@@ -170,6 +174,8 @@ export const ui = {
     'faq.a5': 'Yes! Once you have received the verse of the day, you can view it anytime, even without an Internet connection.',
     'faq.q6': 'Can I share verses with my loved ones?',
     'faq.a6': 'Absolutely! The app allows you to easily share verses and their encouragements via social networks, WhatsApp, or any other means of communication.',
+    'faq.q7': 'Is the app really free?',
+    'faq.a7': 'Yes, the vast majority of features are free! You have access to all 426 daily verses, category navigation, unlimited favorites, detailed statistics, and one encouragement per week. Premium only unlocks unlimited encouragements and the complete testimony book. We wanted to offer everything for free, but maintenance costs led us to offer this Premium option to support the project.',
 
     // CTA
     'cta.title': 'Ready to start your spiritual journey?',
@@ -229,6 +235,7 @@ export const ui = {
 
     // Pricing
     'pricing.title': 'Wähle deinen Plan',
+    'pricing.description': 'Wir hätten VersetVie gerne komplett kostenlos gehalten, das war unser ursprüngliches Ziel. Um dich jedoch jeden Tag weiterhin mit inspirierenden Versen und persönlichen Ermutigungen begleiten zu können, mussten wir zu einem Premium-Modell übergehen. Dieser Übergang ermöglicht es uns, unsere Kosten zu decken, eine qualitativ hochwertige App zu pflegen und neue Funktionen zu entwickeln, um dein spirituelles Erlebnis zu bereichern.',
     'pricing.free.title': 'Kostenlos',
     'pricing.free.price': '0€',
     'pricing.free.feature1': 'Alle 426 täglichen Verse',
@@ -263,6 +270,8 @@ export const ui = {
     'faq.a5': 'Ja! Sobald du den Vers des Tages erhalten hast, kannst du ihn jederzeit ansehen, auch ohne Internetverbindung.',
     'faq.q6': 'Kann ich Verse mit meinen Lieben teilen?',
     'faq.a6': 'Absolut! Die App ermöglicht es dir, Verse und ihre Ermutigungen einfach über soziale Netzwerke, WhatsApp oder andere Kommunikationsmittel zu teilen.',
+    'faq.q7': 'Ist die App wirklich kostenlos?',
+    'faq.a7': 'Ja, die große Mehrheit der Funktionen ist kostenlos! Du hast Zugang zu allen 426 täglichen Versen, Kategorienavigation, unbegrenzten Favoriten, detaillierten Statistiken und einer Ermutigung pro Woche. Premium schaltet nur unbegrenzte Ermutigungen und das vollständige Zeugnis-Buch frei. Wir wollten alles kostenlos anbieten, aber die Wartungskosten haben uns dazu geführt, diese Premium-Option anzubieten, um das Projekt zu unterstützen.',
 
     // CTA
     'cta.title': 'Bereit, deine spirituelle Reise zu beginnen?',

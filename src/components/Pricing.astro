@@ -7,11 +7,15 @@ const t = useTranslations(lang);
 
 <section id="pricing" class="py-20 px-4">
   <div class="max-w-5xl mx-auto">
-    <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12">
+    <h2 class="text-3xl sm:text-4xl font-bold text-center mb-6">
       <span class="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] bg-clip-text text-transparent">
         {t('pricing.title')}
       </span>
     </h2>
+
+    <p class="text-center text-[var(--color-text-secondary)] max-w-3xl mx-auto mb-12 leading-relaxed">
+      {t('pricing.description')}
+    </p>
 
     <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
       <!-- Free Plan -->
