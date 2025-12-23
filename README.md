@@ -1,36 +1,43 @@
-# Verset Vie – Landing Page
+# Astro Starter Kit: Minimal
 
-Ce dépôt contient la landing page statique de l'application Verset Vie.
+```sh
+npm create astro@latest -- --template minimal
+```
 
-## Structure des fichiers
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-- `index.html` : page d'accueil
-- `mentions-legales.html` : mentions légales obligatoires
-- `politique-confidentialite.html` : politique de confidentialité
-- `contact.html` : page de contact
-- `assets/bg-landing.jpg` : image de fond (à placer dans un dossier `assets`)
+## 🚀 Project Structure
 
-## Publier sur GitHub Pages
+Inside of your Astro project, you'll see the following folders and files:
 
-1. **Crée un nouveau dépôt GitHub** (ex : `versetvie`)
-2. Place tous les fichiers à la racine du dépôt (ou dans un dossier `/docs` si tu préfères)
-3. Ajoute, commit et pousse les fichiers sur GitHub :
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git branch -M main
-   git remote add origin https://github.com/ton-utilisateur/versetvie.git
-   git push -u origin main
-   ```
-4. Va dans les paramètres du dépôt > Pages > choisis la branche `main` et le dossier `/root` (ou `/docs` si tu utilises ce dossier)
-5. Ton site sera accessible à l'adresse `https://ton-utilisateur.github.io/versetvie/`
+```text
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
 
-## Conseils
-- Utilise des **chemins relatifs** pour les liens et images (ex : `assets/bg-landing.jpg`)
-- Personnalise les mentions légales avec tes informations d'éditeur
-- Si tu ajoutes Google Analytics ou des cookies, adapte la politique de confidentialité et ajoute une bannière cookies
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
----
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-Pour toute question, contacte : contact@versetvie.app # versetvie_fr
+Any static assets, like images, can be placed in the `public/` directory.
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

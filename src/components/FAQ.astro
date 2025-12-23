@@ -1,0 +1,79 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const faqs = [
+  { question: t('faq.q1'), answer: t('faq.a1') },
+  { question: t('faq.q2'), answer: t('faq.a2') },
+  { question: t('faq.q3'), answer: t('faq.a3') },
+  { question: t('faq.q4'), answer: t('faq.a4') },
+  { question: t('faq.q5'), answer: t('faq.a5') },
+  { question: t('faq.q6'), answer: t('faq.a6') },
+];
+---
+
+<section id="faq" class="py-20 px-4">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12">
+      <span class="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] bg-clip-text text-transparent">
+        {t('faq.title')}
+      </span>
+    </h2>
+
+    <div class="space-y-4">
+      {faqs.map((faq, index) => (
+        <div class="faq-item rounded-xl bg-[var(--color-card)] border border-[var(--color-border)] overflow-hidden">
+          <button
+            class="faq-button w-full px-6 py-4 flex items-center justify-between text-left font-medium hover:bg-[var(--color-background)]/50 transition-colors"
+            aria-expanded="false"
+          >
+            <span>{faq.question}</span>
+            <svg class="faq-icon w-5 h-5 text-[var(--color-text-tertiary)] transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="faq-answer hidden px-6 pb-4">
+            <p class="text-[var(--color-text-secondary)]">{faq.answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+      const button = item.querySelector('.faq-button');
+      const answer = item.querySelector('.faq-answer');
+      const icon = item.querySelector('.faq-icon');
+
+      if (button && answer && icon) {
+        button.addEventListener('click', () => {
+          const isOpen = button.getAttribute('aria-expanded') === 'true';
+
+          // Close all other items
+          faqItems.forEach(otherItem => {
+            const otherButton = otherItem.querySelector('.faq-button');
+            const otherAnswer = otherItem.querySelector('.faq-answer');
+            const otherIcon = otherItem.querySelector('.faq-icon');
+            if (otherButton && otherAnswer && otherIcon && otherItem !== item) {
+              otherButton.setAttribute('aria-expanded', 'false');
+              otherAnswer.classList.add('hidden');
+              otherIcon.classList.remove('rotate-180');
+            }
+          });
+
+          // Toggle current item
+          button.setAttribute('aria-expanded', (!isOpen).toString());
+          answer.classList.toggle('hidden');
+          icon.classList.toggle('rotate-180');
+        });
+      }
+    });
+  });
+</script>

@@ -1,0 +1,82 @@
+---
+import { getLangFromUrl } from '../i18n/utils';
+import { languages } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+
+// Map page paths between languages
+const pageMapping: Record<string, Record<string, string>> = {
+  '/': { fr: '/', en: '/', de: '/' },
+  '/confidentialite': { fr: '/confidentialite', en: '/privacy', de: '/datenschutz' },
+  '/conditions': { fr: '/conditions', en: '/terms', de: '/nutzungsbedingungen' },
+  '/privacy': { fr: '/confidentialite', en: '/privacy', de: '/datenschutz' },
+  '/terms': { fr: '/conditions', en: '/terms', de: '/nutzungsbedingungen' },
+  '/datenschutz': { fr: '/confidentialite', en: '/privacy', de: '/datenschutz' },
+  '/nutzungsbedingungen': { fr: '/conditions', en: '/terms', de: '/nutzungsbedingungen' },
+};
+
+const currentPath = Astro.url.pathname.replace(`/${lang}`, '') || '/';
+
+function getTargetPath(targetLang: string): string {
+  const mapping = pageMapping[currentPath];
+  if (mapping && mapping[targetLang]) {
+    return `/${targetLang}${mapping[targetLang]}`;
+  }
+  // Default to home page for unmapped paths
+  return `/${targetLang}/`;
+}
+---
+
+<div class="relative" id="language-switcher">
+  <button
+    id="lang-btn"
+    class="flex items-center gap-1 px-3 py-1.5 rounded-lg hover:bg-[var(--color-surface)] transition-colors text-sm font-medium"
+    aria-label="Change language"
+  >
+    <span class="uppercase">{lang}</span>
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+    </svg>
+  </button>
+
+  <div
+    id="lang-dropdown"
+    class="absolute right-0 mt-2 w-32 py-2 bg-[var(--color-surface)] rounded-xl shadow-lg border border-[var(--color-border)] hidden"
+  >
+    {Object.entries(languages).map(([code, name]) => (
+      <a
+        href={getTargetPath(code)}
+        class:list={[
+          "block px-4 py-2 text-sm hover:bg-[var(--color-background)] transition-colors",
+          code === lang ? "text-[var(--color-primary)] font-medium" : "text-[var(--color-text-secondary)]"
+        ]}
+      >
+        {name}
+      </a>
+    ))}
+  </div>
+</div>
+
+<script>
+  function initLanguageSwitcher() {
+    const langBtn = document.getElementById('lang-btn');
+    const langDropdown = document.getElementById('lang-dropdown');
+
+    if (langBtn && langDropdown) {
+      langBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        langDropdown.classList.toggle('hidden');
+      });
+
+      document.addEventListener('click', () => {
+        langDropdown.classList.add('hidden');
+      });
+    }
+  }
+
+  // Run on initial load
+  initLanguageSwitcher();
+
+  // Also run on Astro page transitions
+  document.addEventListener('astro:page-load', initLanguageSwitcher);
+</script>

@@ -1,0 +1,68 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const testimonials = [
+  {
+    name: 'Manon',
+    text: t('testimonials.manon.text'),
+    rating: 5,
+  },
+  {
+    name: 'Jérémie',
+    text: t('testimonials.jeremie.text'),
+    rating: 5,
+  },
+  {
+    name: 'Nadia',
+    text: t('testimonials.nadia.text'),
+    rating: 5,
+  },
+];
+---
+
+<section id="testimonials" class="py-20 px-4 bg-gradient-to-b from-transparent via-[var(--color-primary)]/5 to-transparent">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl sm:text-4xl font-bold text-center mb-4">
+      <span class="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] bg-clip-text text-transparent">
+        {t('testimonials.title')}
+      </span>
+    </h2>
+    <p class="text-center text-sm text-[var(--color-text-tertiary)] italic mb-12">
+      {lang === 'fr' ? t('testimonials.storeNote') : t('testimonials.translationNote')}
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      {testimonials.map((testimonial, index) => (
+        <div
+          class="p-6 rounded-2xl bg-[var(--color-card)] border border-[var(--color-border)] hover:border-[var(--color-primary)]/30 transition-all duration-300"
+          style={`animation-delay: ${index * 0.1}s`}
+        >
+          <!-- Stars -->
+          <div class="flex gap-1 mb-4">
+            {[...Array(testimonial.rating)].map(() => (
+              <svg class="w-5 h-5 text-[var(--color-premium)]" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+            ))}
+          </div>
+
+          <!-- Quote -->
+          <blockquote class="text-[var(--color-text-secondary)] text-sm mb-4 italic">
+            "{testimonial.text}"
+          </blockquote>
+
+          <!-- Author -->
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-secondary)] flex items-center justify-center text-white font-semibold">
+              {testimonial.name.charAt(0)}
+            </div>
+            <span class="font-medium">{testimonial.name}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

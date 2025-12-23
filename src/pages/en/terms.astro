@@ -1,0 +1,90 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const currentDate = new Date().toLocaleDateString('en-US', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric'
+});
+---
+
+<Layout title="Terms of Service - VersetVie">
+  <Header />
+  <main class="pt-24 pb-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">
+        <span class="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] bg-clip-text text-transparent">
+          Terms of Service
+        </span>
+      </h1>
+
+      <p class="text-sm text-[var(--color-text-tertiary)] italic mb-8">
+        Last updated: {currentDate}
+      </p>
+
+      <div class="space-y-6">
+        <p class="text-[var(--color-text-secondary)]">
+          Welcome to VersetVie. By using our app, you accept the following terms of service.
+        </p>
+
+        <!-- Section 1 -->
+        <section class="p-6 rounded-2xl bg-[var(--color-card)] border border-[var(--color-border)]">
+          <h2 class="text-xl font-semibold mb-4">1. Acceptance of terms</h2>
+          <p class="text-[var(--color-text-secondary)]">
+            By accessing and using VersetVie, you agree to be bound by these terms of service. If you do not accept these terms, please do not use the app.
+          </p>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="p-6 rounded-2xl bg-[var(--color-card)] border border-[var(--color-border)]">
+          <h2 class="text-xl font-semibold mb-4">2. Use of service</h2>
+          <p class="text-[var(--color-text-secondary)] mb-3">You agree to:</p>
+          <ul class="list-disc list-inside space-y-1 text-[var(--color-text-secondary)] ml-2">
+            <li>Use the app in accordance with applicable laws</li>
+            <li>Not use the app for illegal purposes</li>
+            <li>Not disrupt normal app operation</li>
+            <li>Respect intellectual property rights</li>
+          </ul>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="p-6 rounded-2xl bg-[var(--color-card)] border border-[var(--color-border)]">
+          <h2 class="text-xl font-semibold mb-4">3. User account</h2>
+          <p class="text-[var(--color-text-secondary)] mb-3">You are responsible for:</p>
+          <ul class="list-disc list-inside space-y-1 text-[var(--color-text-secondary)] ml-2">
+            <li>The confidentiality of your account</li>
+            <li>All activities performed under your account</li>
+            <li>The accuracy of information provided</li>
+          </ul>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="p-6 rounded-2xl bg-[var(--color-card)] border border-[var(--color-border)]">
+          <h2 class="text-xl font-semibold mb-4">4. Premium Subscription</h2>
+          <p class="text-[var(--color-text-secondary)]">
+            Premium subscription is managed via the App Store (iOS) or Google Play (Android). Renewal and cancellation terms are governed by these platforms' policies. The subscription will automatically renew unless cancelled. You can cancel at any time from your Apple or Google account settings.
+          </p>
+        </section>
+
+        <!-- Section 5 -->
+        <section class="p-6 rounded-2xl bg-[var(--color-card)] border border-[var(--color-border)]">
+          <h2 class="text-xl font-semibold mb-4">5. Terms modifications</h2>
+          <p class="text-[var(--color-text-secondary)]">
+            We reserve the right to modify these terms at any time. Changes will take effect upon publication in the app. Your continued use after modification constitutes acceptance of the new terms.
+          </p>
+        </section>
+
+        <!-- Section 6 -->
+        <section class="p-6 rounded-2xl bg-[var(--color-card)] border border-[var(--color-border)]">
+          <h2 class="text-xl font-semibold mb-4">6. Contact</h2>
+          <p class="text-[var(--color-text-secondary)]">
+            For any questions regarding these terms of service, please contact us via the "Help and Support" section of the app or by email at <a href="mailto:contact@versetvie.fr" class="text-[var(--color-primary)] hover:underline">contact@versetvie.fr</a>.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
