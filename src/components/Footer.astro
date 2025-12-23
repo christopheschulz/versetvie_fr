@@ -43,13 +43,13 @@ const badges = {
         </p>
         <!-- Contact Email -->
         <a
-          href="mailto:contact@versetvie.fr"
+          href="mailto:contact@codebykriss.fr"
           class="inline-flex items-center gap-2 text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
         >
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
           </svg>
-          contact@versetvie.fr
+          contact@codebykriss.fr
         </a>
       </div>
 
@@ -88,6 +88,9 @@ const badges = {
           </a>
           <a href={paths.terms} class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
             {t('footer.terms')}
+          </a>
+          <a href={lang === 'de' ? `/${lang}/kontakt` : `/${lang}/contact`} class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+            {t('footer.contact')}
           </a>
         </nav>
       </div>

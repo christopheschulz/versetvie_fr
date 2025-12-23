@@ -18,6 +18,7 @@ export const ui = {
     'nav.features': 'Fonctionnalités',
     'nav.testimonials': 'Témoignages',
     'nav.download': 'Télécharger',
+    'nav.contact': 'Contact',
 
     // Hero
     'hero.title': 'Un message de Jésus pour toi, chaque jour',
@@ -102,6 +103,15 @@ export const ui = {
     // Screenshots
     'screenshots.title': 'Découvre l\'application',
     'screenshots.subtitle': 'Une interface simple et inspirante pour ta vie spirituelle',
+
+    // Contact
+    'contact.title': 'Contact',
+    'contact.subtitle': 'Une question, une suggestion ou un encouragement ? Remplis ce formulaire, nous te répondrons rapidement.',
+    'contact.name': 'Nom',
+    'contact.email': 'Email',
+    'contact.message': 'Message',
+    'contact.send': 'Envoyer',
+    'contact.privacy': 'Ton adresse ne sera utilisée que pour répondre à ton message. Aucune donnée n\'est stockée sur ce site.',
   },
   en: {
     // Meta
@@ -114,6 +124,7 @@ export const ui = {
     'nav.features': 'Features',
     'nav.testimonials': 'Testimonials',
     'nav.download': 'Download',
+    'nav.contact': 'Contact',
 
     // Hero
     'hero.title': 'A message from Jesus for you, every day',
@@ -198,6 +209,15 @@ export const ui = {
     // Screenshots
     'screenshots.title': 'Discover the app',
     'screenshots.subtitle': 'A simple and inspiring interface for your spiritual life',
+
+    // Contact
+    'contact.title': 'Contact',
+    'contact.subtitle': 'A question, a suggestion or an encouragement? Fill out this form, we will respond quickly.',
+    'contact.name': 'Name',
+    'contact.email': 'Email',
+    'contact.message': 'Message',
+    'contact.send': 'Send',
+    'contact.privacy': 'Your email will only be used to respond to your message. No data is stored on this site.',
   },
   de: {
     // Meta
@@ -210,6 +230,7 @@ export const ui = {
     'nav.features': 'Funktionen',
     'nav.testimonials': 'Erfahrungen',
     'nav.download': 'Herunterladen',
+    'nav.contact': 'Kontakt',
 
     // Hero
     'hero.title': 'Eine Botschaft von Jesus für dich, jeden Tag',
@@ -294,6 +315,15 @@ export const ui = {
     // Screenshots
     'screenshots.title': 'Entdecke die App',
     'screenshots.subtitle': 'Eine einfache und inspirierende Oberfläche für dein geistliches Leben',
+
+    // Contact
+    'contact.title': 'Kontakt',
+    'contact.subtitle': 'Eine Frage, ein Vorschlag oder eine Ermutigung? Fülle dieses Formular aus, wir werden dir schnell antworten.',
+    'contact.name': 'Name',
+    'contact.email': 'E-Mail',
+    'contact.message': 'Nachricht',
+    'contact.send': 'Senden',
+    'contact.privacy': 'Deine E-Mail wird nur verwendet, um auf deine Nachricht zu antworten. Keine Daten werden auf dieser Seite gespeichert.',
   },
 } as const;
 
