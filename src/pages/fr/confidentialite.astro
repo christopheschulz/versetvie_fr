@@ -38,7 +38,7 @@ const currentDate = new Date().toLocaleDateString('fr-FR', {
               <ul class="list-disc list-inside space-y-1 ml-2">
                 <li>Prénom (optionnel, pour personnalisation)</li>
                 <li>Genre (pour adapter le contenu)</li>
-                <li>Mode d'abonnement (standard/premium)</li>
+                <li>Statut de soutien (utilisateur/soutien)</li>
                 <li>Préférences d'application</li>
               </ul>
             </div>
@@ -46,7 +46,7 @@ const currentDate = new Date().toLocaleDateString('fr-FR', {
               <h3 class="font-medium text-[var(--color-text)] mb-2">Données d'usage anonymisées (via Mixpanel EU) :</h3>
               <ul class="list-disc list-inside space-y-1 ml-2">
                 <li>Genre de l'utilisateur (m/f)</li>
-                <li>Mode d'abonnement (premium/standard)</li>
+                <li>Statut de soutien (soutien/utilisateur)</li>
                 <li>Statut de completion de l'onboarding</li>
                 <li>Événements d'utilisation (écrans visités, boutons cliqués)</li>
                 <li>Interactions avec le contenu (versets découverts)</li>
@@ -124,8 +124,8 @@ const currentDate = new Date().toLocaleDateString('fr-FR', {
               <p class="ml-2">Nous utilisons Tenjin pour mesurer l'efficacité de nos campagnes marketing. Sur iOS, cela nécessite votre consentement ATT (App Tracking Transparency). Vous pouvez refuser à tout moment.</p>
             </div>
             <div>
-              <h3 class="font-medium text-[var(--color-text)] mb-1">RevenueCat (gestion des abonnements) :</h3>
-              <p class="ml-2">RevenueCat gère les abonnements Premium et communique avec Apple/Google pour vérifier les achats. Seules les données nécessaires à la gestion d'abonnement sont partagées.</p>
+              <h3 class="font-medium text-[var(--color-text)] mb-1">RevenueCat (gestion des soutiens) :</h3>
+              <p class="ml-2">RevenueCat gère les soutiens volontaires et communique avec Apple/Google pour vérifier les achats. Seules les données nécessaires à la gestion des soutiens sont partagées.</p>
             </div>
             <div>
               <h3 class="font-medium text-[var(--color-text)] mb-1">Supabase (retours utilisateurs) :</h3>

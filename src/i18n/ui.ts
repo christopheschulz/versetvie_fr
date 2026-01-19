@@ -43,20 +43,19 @@ export const ui = {
     'features.testimony.description': 'Lis le parcours de foi et de transformation de Christophe Schulz.',
 
     // Pricing
-    'pricing.title': 'Choisissez votre formule',
-    'pricing.description': 'Nous aurions souhaité garder VersetVie entièrement gratuit, c\'était notre objectif initial. Cependant, pour continuer à vous accompagner chaque jour avec des versets inspirants et des encouragements personnalisés, nous avons dû évoluer vers un modèle Premium. Cette transition nous permet de couvrir nos frais, maintenir une application de qualité et continuer à développer de nouvelles fonctionnalités pour enrichir votre expérience spirituelle.',
+    'pricing.title': 'Soutenez VersetVie',
+    'pricing.description': 'VersetVie est 100% gratuite avec encouragements illimités ! Nous croyons que la Parole de Dieu doit être accessible à tous. Si tu souhaites soutenir le projet, tu peux contribuer volontairement pour aider à couvrir les coûts de serveurs et de développement, et accéder en remerciement au livre témoignage personnel du créateur.',
     'pricing.free.title': 'Gratuit',
     'pricing.free.price': '0€',
+    'pricing.features.title': 'Toutes les fonctionnalités incluses',
     'pricing.free.feature1': 'Tous les 426 versets quotidiens',
     'pricing.free.feature2': 'Navigation par catégories et thèmes',
     'pricing.free.feature3': 'Favoris illimités',
     'pricing.free.feature4': 'Statistiques détaillées',
-    'pricing.free.feature5': '1 encouragement par semaine',
-    'pricing.premium.title': 'Premium',
-    'pricing.premium.price': 'Débloquer',
-    'pricing.premium.feature1': 'Encouragements personnalisés illimités',
-    'pricing.premium.feature2': 'Livre témoignage complet (13 chapitres)',
-    'pricing.premium.includes': 'Inclut toutes les fonctionnalités gratuites',
+    'pricing.free.feature5': 'Encouragements personnalisés illimités',
+    'pricing.support.title': 'Envie de soutenir le projet ?',
+    'pricing.support.description': 'En soutenant VersetVie, tu aides à couvrir les frais de serveurs et de développement, et tu accèdes au livre témoignage personnel du créateur :',
+    'pricing.premium.feature1': 'Livre témoignage complet (13 chapitres)',
 
     // Testimonials
     'testimonials.title': 'Ce que disent nos utilisateurs',
@@ -80,7 +79,7 @@ export const ui = {
     'faq.q6': 'Puis-je partager les versets avec mes proches ?',
     'faq.a6': 'Absolument ! L\'application te permet de partager facilement les versets et leurs encouragements via les réseaux sociaux, WhatsApp, ou tout autre moyen de communication.',
     'faq.q7': 'L\'application est-elle vraiment gratuite ?',
-    'faq.a7': 'Oui, la grande majorité des fonctionnalités sont gratuites ! Tu as accès aux 426 versets quotidiens, à la navigation par catégories, aux favoris illimités, aux statistiques détaillées et à un encouragement par semaine. Le Premium débloque uniquement les encouragements illimités et le livre témoignage complet. Nous voulions tout offrir gratuitement, mais les coûts de maintenance nous ont conduit à proposer cette option Premium pour soutenir le projet.',
+    'faq.a7': 'Oui, totalement gratuite ! Tu as accès à TOUT : les 426 versets quotidiens, la navigation par catégories, les favoris illimités, les statistiques détaillées ET les encouragements personnalisés illimités. Le seul contenu exclusif aux soutiens est le livre témoignage personnel du créateur (13 chapitres). Si tu souhaites soutenir le projet, tu peux contribuer volontairement pour aider à couvrir les coûts de serveurs et de développement. Mais l\'application restera toujours 100% fonctionnelle gratuitement !',
 
     // CTA
     'cta.title': 'Prêt à commencer ton voyage spirituel ?',
@@ -149,20 +148,19 @@ export const ui = {
     'features.testimony.description': 'Read Christophe Schulz\'s journey of faith and transformation.',
 
     // Pricing
-    'pricing.title': 'Choose your plan',
-    'pricing.description': 'We would have liked to keep VersetVie completely free, that was our initial goal. However, to continue supporting you every day with inspiring verses and personalized encouragements, we had to evolve towards a Premium model. This transition allows us to cover our costs, maintain a quality application and continue developing new features to enrich your spiritual experience.',
+    'pricing.title': 'Support VersetVie',
+    'pricing.description': 'VersetVie is 100% free with unlimited encouragements! We believe that God\'s Word should be accessible to everyone. If you wish to support the project, you can contribute voluntarily to help cover server and development costs, and receive access to the creator\'s personal testimony book as a thank you.',
     'pricing.free.title': 'Free',
     'pricing.free.price': '$0',
+    'pricing.features.title': 'All features included',
     'pricing.free.feature1': 'All 426 daily verses',
     'pricing.free.feature2': 'Navigation by categories and themes',
     'pricing.free.feature3': 'Unlimited favorites',
     'pricing.free.feature4': 'Detailed statistics',
-    'pricing.free.feature5': '1 encouragement per week',
-    'pricing.premium.title': 'Premium',
-    'pricing.premium.price': 'Unlock',
-    'pricing.premium.feature1': 'Unlimited personalized encouragements',
-    'pricing.premium.feature2': 'Complete testimony book (13 chapters, French only)',
-    'pricing.premium.includes': 'Includes all free features',
+    'pricing.free.feature5': 'Unlimited personalized encouragements',
+    'pricing.support.title': 'Want to support the project?',
+    'pricing.support.description': 'By supporting VersetVie, you help cover server and development costs, and you get access to the creator\'s personal testimony book:',
+    'pricing.premium.feature1': 'Complete testimony book (13 chapters, French only)',
 
     // Testimonials
     'testimonials.title': 'What our users say',
@@ -186,7 +184,7 @@ export const ui = {
     'faq.q6': 'Can I share verses with my loved ones?',
     'faq.a6': 'Absolutely! The app allows you to easily share verses and their encouragements via social networks, WhatsApp, or any other means of communication.',
     'faq.q7': 'Is the app really free?',
-    'faq.a7': 'Yes, the vast majority of features are free! You have access to all 426 daily verses, category navigation, unlimited favorites, detailed statistics, and one encouragement per week. Premium only unlocks unlimited encouragements and the complete testimony book. We wanted to offer everything for free, but maintenance costs led us to offer this Premium option to support the project.',
+    'faq.a7': 'Yes, totally free! You have access to EVERYTHING: all 426 daily verses, category navigation, unlimited favorites, detailed statistics AND unlimited personalized encouragements. The only exclusive content for supporters is the creator\'s personal testimony book (13 chapters). If you wish to support the project, you can contribute voluntarily to help cover server and development costs. But the app will always remain 100% functional for free!',
 
     // CTA
     'cta.title': 'Ready to start your spiritual journey?',
@@ -255,20 +253,19 @@ export const ui = {
     'features.testimony.description': 'Lies Christophe Schulz\' Weg des Glaubens und der Transformation.',
 
     // Pricing
-    'pricing.title': 'Wähle deinen Plan',
-    'pricing.description': 'Wir hätten VersetVie gerne komplett kostenlos gehalten, das war unser ursprüngliches Ziel. Um dich jedoch jeden Tag weiterhin mit inspirierenden Versen und persönlichen Ermutigungen begleiten zu können, mussten wir zu einem Premium-Modell übergehen. Dieser Übergang ermöglicht es uns, unsere Kosten zu decken, eine qualitativ hochwertige App zu pflegen und neue Funktionen zu entwickeln, um dein spirituelles Erlebnis zu bereichern.',
+    'pricing.title': 'VersetVie unterstützen',
+    'pricing.description': 'VersetVie ist 100% kostenlos mit unbegrenzten Ermutigungen! Wir glauben, dass Gottes Wort für alle zugänglich sein sollte. Wenn du das Projekt unterstützen möchtest, kannst du freiwillig beitragen, um die Server- und Entwicklungskosten zu decken, und erhältst als Dankeschön Zugang zum persönlichen Zeugnis-Buch des Erstellers.',
     'pricing.free.title': 'Kostenlos',
     'pricing.free.price': '0€',
+    'pricing.features.title': 'Alle Funktionen inklusive',
     'pricing.free.feature1': 'Alle 426 täglichen Verse',
     'pricing.free.feature2': 'Navigation nach Kategorien und Themen',
     'pricing.free.feature3': 'Unbegrenzte Favoriten',
     'pricing.free.feature4': 'Detaillierte Statistiken',
-    'pricing.free.feature5': '1 Ermutigung pro Woche',
-    'pricing.premium.title': 'Premium',
-    'pricing.premium.price': 'Freischalten',
-    'pricing.premium.feature1': 'Unbegrenzte persönliche Ermutigungen',
-    'pricing.premium.feature2': 'Vollständiges Zeugnis-Buch (13 Kapitel, nur auf Französisch)',
-    'pricing.premium.includes': 'Enthält alle kostenlosen Funktionen',
+    'pricing.free.feature5': 'Unbegrenzte persönliche Ermutigungen',
+    'pricing.support.title': 'Möchtest du das Projekt unterstützen?',
+    'pricing.support.description': 'Durch die Unterstützung von VersetVie hilfst du, die Server- und Entwicklungskosten zu decken, und erhältst Zugang zum persönlichen Zeugnis-Buch des Erstellers:',
+    'pricing.premium.feature1': 'Vollständiges Zeugnis-Buch (13 Kapitel, nur auf Französisch)',
 
     // Testimonials
     'testimonials.title': 'Was unsere Nutzer sagen',
@@ -292,7 +289,7 @@ export const ui = {
     'faq.q6': 'Kann ich Verse mit meinen Lieben teilen?',
     'faq.a6': 'Absolut! Die App ermöglicht es dir, Verse und ihre Ermutigungen einfach über soziale Netzwerke, WhatsApp oder andere Kommunikationsmittel zu teilen.',
     'faq.q7': 'Ist die App wirklich kostenlos?',
-    'faq.a7': 'Ja, die große Mehrheit der Funktionen ist kostenlos! Du hast Zugang zu allen 426 täglichen Versen, Kategorienavigation, unbegrenzten Favoriten, detaillierten Statistiken und einer Ermutigung pro Woche. Premium schaltet nur unbegrenzte Ermutigungen und das vollständige Zeugnis-Buch frei. Wir wollten alles kostenlos anbieten, aber die Wartungskosten haben uns dazu geführt, diese Premium-Option anzubieten, um das Projekt zu unterstützen.',
+    'faq.a7': 'Ja, völlig kostenlos! Du hast Zugang zu ALLEM: allen 426 täglichen Versen, Kategorienavigation, unbegrenzten Favoriten, detaillierten Statistiken UND unbegrenzten persönlichen Ermutigungen. Der einzige exklusive Inhalt für Unterstützer ist das persönliche Zeugnis-Buch des Erstellers (13 Kapitel). Wenn du das Projekt unterstützen möchtest, kannst du freiwillig beitragen, um die Server- und Entwicklungskosten zu decken. Aber die App bleibt immer 100% kostenlos funktionsfähig!',
 
     // CTA
     'cta.title': 'Bereit, deine spirituelle Reise zu beginnen?',

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Landing page for **VersetVie**, a Christian mobile app providing daily Bible verses with personalized encouragements. Built with Astro and Tailwind CSS v4, deployed on GitHub Pages.
+Landing page for **VersetVie**, a Christian mobile app providing daily Bible verses with personalized encouragements. The app is 100% free with unlimited features, supported by optional voluntary contributions. Built with Astro and Tailwind CSS v4, deployed on GitHub Pages.
 
 ## Commands
 
@@ -29,7 +29,7 @@ Components in `src/components/` are locale-aware via URL parsing:
 - `Hero.astro` - Main hero section with app store links
 - `Features.astro` - Feature grid
 - `Testimonials.astro` - User reviews carousel
-- `Pricing.astro` - Free/Premium comparison
+- `Pricing.astro` - User/Support comparison (100% free model with voluntary support)
 - `FAQ.astro` - Accordion FAQ
 - `DownloadCTA.astro` - Call-to-action section
 - `Footer.astro` - Footer with legal links

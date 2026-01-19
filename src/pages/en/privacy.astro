@@ -38,7 +38,7 @@ const currentDate = new Date().toLocaleDateString('en-US', {
               <ul class="list-disc list-inside space-y-1 ml-2">
                 <li>First name (optional, for personalization)</li>
                 <li>Gender (to adapt content)</li>
-                <li>Subscription mode (standard/premium)</li>
+                <li>Support status (user/supporter)</li>
                 <li>App preferences</li>
               </ul>
             </div>
@@ -46,7 +46,7 @@ const currentDate = new Date().toLocaleDateString('en-US', {
               <h3 class="font-medium text-[var(--color-text)] mb-2">Anonymized usage data (via Mixpanel EU):</h3>
               <ul class="list-disc list-inside space-y-1 ml-2">
                 <li>User gender (m/f)</li>
-                <li>Subscription mode (premium/standard)</li>
+                <li>Support status (supporter/user)</li>
                 <li>Onboarding completion status</li>
                 <li>Usage events (screens visited, buttons clicked)</li>
                 <li>Content interactions (verses discovered)</li>
@@ -124,8 +124,8 @@ const currentDate = new Date().toLocaleDateString('en-US', {
               <p>We use Tenjin to measure marketing campaign effectiveness. On iOS, this requires your ATT (App Tracking Transparency) consent. You can refuse at any time.</p>
             </div>
             <div>
-              <h3 class="font-medium text-[var(--color-text)] mb-2">RevenueCat (subscription management):</h3>
-              <p>RevenueCat manages Premium subscriptions and communicates with Apple/Google to verify purchases. Only data necessary for subscription management is shared.</p>
+              <h3 class="font-medium text-[var(--color-text)] mb-2">RevenueCat (support management):</h3>
+              <p>RevenueCat manages voluntary support and communicates with Apple/Google to verify purchases. Only data necessary for support management is shared.</p>
             </div>
             <div>
               <h3 class="font-medium text-[var(--color-text)] mb-2">Supabase (user feedback):</h3>
