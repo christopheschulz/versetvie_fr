@@ -75,8 +75,8 @@ export const ui = {
     'faq.a5': 'Oui ! Une fois que tu as reçu le verset du jour, tu peux le consulter à tout moment, même sans connexion Internet.',
     'faq.q6': 'Puis-je partager les versets avec mes proches ?',
     'faq.a6': 'Absolument ! L\'application te permet de partager facilement les versets et leurs encouragements via les réseaux sociaux, WhatsApp, ou tout autre moyen de communication.',
-    'faq.q7': 'L\'application est-elle vraiment gratuite ?',
-    'faq.a7': 'Oui, totalement gratuite ! Tu as accès à TOUT : les 426 versets quotidiens, la navigation par catégories, les favoris illimités, les statistiques détaillées ET les encouragements personnalisés illimités. Le seul contenu exclusif aux soutiens est le livre témoignage personnel du créateur (13 chapitres). Si tu souhaites soutenir le projet, tu peux contribuer volontairement pour aider à couvrir les coûts de serveurs et de développement. Mais l\'application restera toujours 100% fonctionnelle gratuitement !',
+    'faq.q7': 'Comment soutenir VersetVie ?',
+    'faq.a7': 'VersetVie fonctionne grâce au soutien de sa communauté. En devenant partenaire, tu aides à couvrir les frais de serveurs et de développement, et tu reçois des avantages exclusifs : navigation par catégories et thèmes, le livre témoignage du créateur (13 chapitres) et l\'avant-première des nouvelles fonctionnalités. Chaque soutien compte et permet à l\'application de continuer à grandir.',
 
     // CTA
     'cta.title': 'Prêt à commencer ton voyage spirituel ?',
@@ -177,8 +177,8 @@ export const ui = {
     'faq.a5': 'Yes! Once you have received the verse of the day, you can view it anytime, even without an Internet connection.',
     'faq.q6': 'Can I share verses with my loved ones?',
     'faq.a6': 'Absolutely! The app allows you to easily share verses and their encouragements via social networks, WhatsApp, or any other means of communication.',
-    'faq.q7': 'Is the app really free?',
-    'faq.a7': 'Yes, totally free! You have access to EVERYTHING: all 426 daily verses, category navigation, unlimited favorites, detailed statistics AND unlimited personalized encouragements. The only exclusive content for supporters is the creator\'s personal testimony book (13 chapters). If you wish to support the project, you can contribute voluntarily to help cover server and development costs. But the app will always remain 100% functional for free!',
+    'faq.q7': 'How can I support VersetVie?',
+    'faq.a7': 'VersetVie runs thanks to the support of its community. By becoming a partner, you help cover server and development costs, and you receive exclusive benefits: navigation by categories and themes, the creator\'s testimony book (13 chapters) and early access to new features. Every contribution counts and helps the app continue to grow.',
 
     // CTA
     'cta.title': 'Ready to start your spiritual journey?',
@@ -279,8 +279,8 @@ export const ui = {
     'faq.a5': 'Ja! Sobald du den Vers des Tages erhalten hast, kannst du ihn jederzeit ansehen, auch ohne Internetverbindung.',
     'faq.q6': 'Kann ich Verse mit meinen Lieben teilen?',
     'faq.a6': 'Absolut! Die App ermöglicht es dir, Verse und ihre Ermutigungen einfach über soziale Netzwerke, WhatsApp oder andere Kommunikationsmittel zu teilen.',
-    'faq.q7': 'Ist die App wirklich kostenlos?',
-    'faq.a7': 'Ja, völlig kostenlos! Du hast Zugang zu ALLEM: allen 426 täglichen Versen, Kategorienavigation, unbegrenzten Favoriten, detaillierten Statistiken UND unbegrenzten persönlichen Ermutigungen. Der einzige exklusive Inhalt für Unterstützer ist das persönliche Zeugnis-Buch des Erstellers (13 Kapitel). Wenn du das Projekt unterstützen möchtest, kannst du freiwillig beitragen, um die Server- und Entwicklungskosten zu decken. Aber die App bleibt immer 100% kostenlos funktionsfähig!',
+    'faq.q7': 'Wie kann ich VersetVie unterstützen?',
+    'faq.a7': 'VersetVie funktioniert dank der Unterstützung seiner Gemeinschaft. Als Partner hilfst du, die Server- und Entwicklungskosten zu decken, und erhältst exklusive Vorteile: Navigation nach Kategorien und Themen, das Zeugnis-Buch des Erstellers (13 Kapitel) und frühzeitigen Zugang zu neuen Funktionen. Jede Unterstützung zählt und hilft der App, weiter zu wachsen.',
 
     // CTA
     'cta.title': 'Bereit, deine spirituelle Reise zu beginnen?',
