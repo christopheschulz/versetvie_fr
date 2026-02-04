@@ -10,7 +10,7 @@ export const ui = {
   fr: {
     // Meta
     'meta.title': 'VersetVie - Un message pour toi, chaque jour',
-    'meta.description': 'Découvre chaque matin une parole personnalisée pour t\'encourager et te guider. Application chrétienne gratuite.',
+    'meta.description': 'Découvre chaque matin une parole personnalisée pour t\'encourager et te guider.',
 
     // Navigation
     'nav.home': 'Accueil',
@@ -25,7 +25,7 @@ export const ui = {
     // Hero
     'hero.title': 'Un message de Jésus pour toi, chaque jour',
     'hero.subtitle': 'Découvre chaque matin une parole personnalisée pour t\'encourager et te guider.',
-    'hero.cta': 'Télécharger gratuitement',
+    'hero.cta': 'Découvrir l\'application',
     'hero.socialProof': 'Rejoins plus de 4000 croyants',
     'hero.stats.users': 'Utilisateurs',
     'hero.stats.verses': 'Versets',
@@ -80,7 +80,7 @@ export const ui = {
 
     // CTA
     'cta.title': 'Prêt à commencer ton voyage spirituel ?',
-    'cta.subtitle': 'Télécharge VersetVie gratuitement et reçois ta première parole d\'encouragement.',
+    'cta.subtitle': 'Télécharge VersetVie et reçois ta première parole d\'encouragement.',
 
     // Footer
     'footer.description': 'Une application chrétienne pour t\'encourager chaque jour avec la Parole de Dieu.',
@@ -112,7 +112,7 @@ export const ui = {
   en: {
     // Meta
     'meta.title': 'VersetVie - A message for you, every day',
-    'meta.description': 'Discover each morning a personalized word to encourage and guide you. Free Christian app.',
+    'meta.description': 'Discover each morning a personalized word to encourage and guide you.',
 
     // Navigation
     'nav.home': 'Home',
@@ -127,7 +127,7 @@ export const ui = {
     // Hero
     'hero.title': 'A message from Jesus for you, every day',
     'hero.subtitle': 'Discover each morning a personalized word to encourage and guide you.',
-    'hero.cta': 'Download for free',
+    'hero.cta': 'Discover the app',
     'hero.socialProof': 'Join over 4,000 believers',
     'hero.stats.users': 'Users',
     'hero.stats.verses': 'Verses',
@@ -182,7 +182,7 @@ export const ui = {
 
     // CTA
     'cta.title': 'Ready to start your spiritual journey?',
-    'cta.subtitle': 'Download VersetVie for free and receive your first word of encouragement.',
+    'cta.subtitle': 'Download VersetVie and receive your first word of encouragement.',
 
     // Footer
     'footer.description': 'A Christian app to encourage you every day with God\'s Word.',
@@ -214,7 +214,7 @@ export const ui = {
   de: {
     // Meta
     'meta.title': 'VersetVie - Eine Botschaft für dich, jeden Tag',
-    'meta.description': 'Entdecke jeden Morgen ein persönliches Wort, um dich zu ermutigen und zu führen. Kostenlose christliche App.',
+    'meta.description': 'Entdecke jeden Morgen ein persönliches Wort, um dich zu ermutigen und zu führen.',
 
     // Navigation
     'nav.home': 'Start',
@@ -229,7 +229,7 @@ export const ui = {
     // Hero
     'hero.title': 'Eine Botschaft von Jesus für dich, jeden Tag',
     'hero.subtitle': 'Entdecke jeden Morgen ein persönliches Wort, um dich zu ermutigen und zu führen.',
-    'hero.cta': 'Kostenlos herunterladen',
+    'hero.cta': 'App entdecken',
     'hero.socialProof': 'Schließe dich über 4.000 Gläubigen an',
     'hero.stats.users': 'Benutzer',
     'hero.stats.verses': 'Verse',
@@ -284,7 +284,7 @@ export const ui = {
 
     // CTA
     'cta.title': 'Bereit, deine spirituelle Reise zu beginnen?',
-    'cta.subtitle': 'Lade VersetVie kostenlos herunter und erhalte dein erstes Wort der Ermutigung.',
+    'cta.subtitle': 'Lade VersetVie herunter und erhalte dein erstes Wort der Ermutigung.',
 
     // Footer
     'footer.description': 'Eine christliche App, die dich jeden Tag mit Gottes Wort ermutigt.',
