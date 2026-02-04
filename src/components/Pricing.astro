@@ -17,60 +17,30 @@ const t = useTranslations(lang);
       {t('pricing.description')}
     </p>
 
-    <!-- Single unified card -->
     <div class="max-w-3xl mx-auto">
       <div class="p-8 rounded-2xl bg-[var(--color-card)] border-2 border-[var(--color-primary)]/20">
-        <div class="text-center mb-8">
-          <div class="text-5xl font-bold text-[var(--color-primary)] mb-2">100% {t('pricing.free.title')}</div>
-          <p class="text-[var(--color-text-secondary)] text-lg">{t('pricing.free.price')}</p>
-        </div>
+        <h3 class="text-xl font-semibold mb-6 text-center">{t('pricing.support.subtitle')}</h3>
 
-        <div class="space-y-6 mb-8">
-          <h3 class="text-xl font-semibold text-center">{t('pricing.features.title')}</h3>
-          <ul class="space-y-3">
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              <span class="text-[var(--color-text-secondary)]">{t('pricing.free.feature1')}</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              <span class="text-[var(--color-text-secondary)]">{t('pricing.free.feature2')}</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              <span class="text-[var(--color-text-secondary)]">{t('pricing.free.feature3')}</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              <span class="text-[var(--color-text-secondary)]">{t('pricing.free.feature4')}</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              <span class="text-[var(--color-text-secondary)]">{t('pricing.free.feature5')}</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="border-t border-[var(--color-border)] pt-6">
-          <h3 class="text-lg font-semibold mb-3 text-center">{t('pricing.support.title')}</h3>
-          <p class="text-[var(--color-text-secondary)] text-center mb-4">{t('pricing.support.description')}</p>
-          <div class="flex items-center justify-center gap-2 text-[var(--color-primary)]">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-[var(--color-primary)] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
             </svg>
-            <span class="font-medium">{t('pricing.premium.feature1')}</span>
-          </div>
-        </div>
+            <span class="text-[var(--color-text-secondary)]">{t('pricing.support.feature1')}</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-[var(--color-primary)] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <span class="text-[var(--color-text-secondary)]">{t('pricing.support.feature2')}</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-[var(--color-primary)] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <span class="text-[var(--color-text-secondary)]">{t('pricing.support.feature3')}</span>
+          </li>
+        </ul>
       </div>
     </div>
   </div>

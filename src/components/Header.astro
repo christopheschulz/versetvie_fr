@@ -30,6 +30,12 @@ const t = useTranslations(lang);
         <a href={`/${lang}/#testimonials`} data-section="testimonials" class="nav-link text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
           {t('nav.testimonials')}
         </a>
+        <a href={`/${lang}/#pricing`} data-section="pricing" class="nav-link text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+          {t('nav.support')}
+        </a>
+        <a href={`/${lang}/#faq`} data-section="faq" class="nav-link text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+          {t('nav.faq')}
+        </a>
         <a href={`/${lang}/#download`} data-section="download" class="nav-link text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
           {t('nav.download')}
         </a>
@@ -85,6 +91,12 @@ const t = useTranslations(lang);
       <a href={`/${lang}/#testimonials`} data-section="testimonials" class="nav-link block text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
         {t('nav.testimonials')}
       </a>
+      <a href={`/${lang}/#pricing`} data-section="pricing" class="nav-link block text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+        {t('nav.support')}
+      </a>
+      <a href={`/${lang}/#faq`} data-section="faq" class="nav-link block text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+        {t('nav.faq')}
+      </a>
       <a href={`/${lang}/#download`} data-section="download" class="nav-link block text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
         {t('nav.download')}
       </a>
@@ -107,7 +119,7 @@ const t = useTranslations(lang);
     }
 
     // Active section detection
-    const sections = ['hero', 'screenshots', 'features', 'testimonials', 'download'];
+    const sections = ['hero', 'screenshots', 'features', 'testimonials', 'pricing', 'faq', 'download'];
     const navLinks = document.querySelectorAll('.nav-link');
 
     // Tailwind classes for active/inactive states

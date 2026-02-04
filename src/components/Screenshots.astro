@@ -29,160 +29,334 @@ const screenshots = [
       </p>
     </div>
 
-    <!-- Carousel Container -->
-    <div class="carousel-container relative">
-      <!-- Gradient overlays for smooth edges -->
-      <div class="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[var(--color-surface)] to-transparent z-10 pointer-events-none"></div>
-      <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[var(--color-surface)] to-transparent z-10 pointer-events-none"></div>
+    <div class="relative">
+      <!-- Gradient edges -->
+      <div class="absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-[var(--color-surface)] to-transparent z-10 pointer-events-none"></div>
+      <div class="absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-[var(--color-surface)] to-transparent z-10 pointer-events-none"></div>
 
-      <!-- Scrolling track -->
-      <div class="carousel-track flex gap-4 sm:gap-6">
-        {/* First set of screenshots */}
-        {screenshots.map((screenshot) => (
-          <div class="carousel-item flex-shrink-0">
-            <div class="phone-mockup">
-              <div class="phone-frame">
-                <div class="phone-screen">
-                  <img
-                    src={`/screenshots/${lang}/${screenshot.id}.png`}
-                    alt={screenshot.alt}
-                    class="screenshot-img"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-        {/* Duplicated set for seamless infinite scroll */}
-        {screenshots.map((screenshot) => (
-          <div class="carousel-item flex-shrink-0">
-            <div class="phone-mockup">
-              <div class="phone-frame">
-                <div class="phone-screen">
-                  <img
-                    src={`/screenshots/${lang}/${screenshot.id}.png`}
-                    alt={screenshot.alt}
-                    class="screenshot-img"
-                    loading="lazy"
-                  />
-                </div>
+      <!-- Prev / Next arrows (desktop) -->
+      <button
+        id="carousel-prev"
+        class="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 items-center justify-center rounded-full bg-[var(--color-card)] border border-[var(--color-border)] shadow-lg hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors cursor-pointer"
+        aria-label="Previous"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 19l-7-7 7-7"/>
+        </svg>
+      </button>
+      <button
+        id="carousel-next"
+        class="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 items-center justify-center rounded-full bg-[var(--color-card)] border border-[var(--color-border)] shadow-lg hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors cursor-pointer"
+        aria-label="Next"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 5l7 7-7 7"/>
+        </svg>
+      </button>
+
+      <!-- Scrollable track -->
+      <div id="carousel-track" class="carousel-track" role="region" aria-label="App screenshots">
+        {screenshots.map((screenshot, i) => (
+          <div class={`carousel-slide ${i === 0 ? 'active' : ''}`} data-index={i}>
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img
+                  src={`/screenshots/${lang}/${screenshot.id}.png`}
+                  alt={screenshot.alt}
+                  loading={i < 3 ? 'eager' : 'lazy'}
+                  draggable="false"
+                />
               </div>
             </div>
           </div>
         ))}
       </div>
     </div>
+
+    <!-- Dot indicators -->
+    <div id="carousel-dots" class="flex justify-center items-center gap-2 mt-8">
+      {screenshots.map((_, i) => (
+        <button
+          class={`carousel-dot ${i === 0 ? 'active' : ''}`}
+          data-index={i}
+          aria-label={`Slide ${i + 1}`}
+        ></button>
+      ))}
+    </div>
   </div>
 </section>
 
 <style>
-  .carousel-container {
-    width: 100%;
-    overflow: hidden;
-  }
-
+  /* ── Track ── */
   .carousel-track {
-    animation: scroll 45s linear infinite;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 1.25rem;
+    padding: 2rem 0;
+    /* Center first & last slides: 50% − half slide width */
+    padding-left: calc(50% - 100px);
+    padding-right: calc(50% - 100px);
   }
 
-  .carousel-track:hover {
-    animation-play-state: paused;
+  .carousel-track::-webkit-scrollbar {
+    display: none;
   }
 
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
+  /* ── Slides ── */
+  .carousel-slide {
+    flex: 0 0 200px;
+    scroll-snap-align: center;
+    transition:
+      transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      filter 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 0.35;
+    transform: scale(0.82);
+    filter: saturate(0.2) brightness(0.85);
+    cursor: pointer;
+    will-change: transform, opacity, filter;
   }
 
-  .carousel-item {
-    width: 180px;
+  .carousel-slide.active {
+    opacity: 1;
+    transform: scale(1);
+    filter: saturate(1) brightness(1);
   }
 
-  @media (min-width: 640px) {
-    .carousel-item {
-      width: 220px;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .carousel-item {
-      width: 260px;
-    }
-  }
-
-  /* Phone mockup styling */
-  .phone-mockup {
-    position: relative;
-    transition: transform 0.3s ease;
-  }
-
-  .phone-mockup:hover {
-    transform: scale(1.05);
-  }
-
+  /* ── Phone frame ── */
   .phone-frame {
     position: relative;
     background: linear-gradient(145deg, #2a2a2a 0%, #1a1a1a 100%);
-    border-radius: 36px;
-    padding: 8px;
+    border-radius: 2rem;
+    padding: 6px;
     box-shadow:
-      0 25px 50px -12px rgba(0, 0, 0, 0.25),
-      0 0 0 1px rgba(255, 255, 255, 0.1),
+      0 25px 60px -12px rgba(0, 0, 0, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.08),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
-  @media (min-width: 640px) {
-    .phone-frame {
-      border-radius: 44px;
-      padding: 10px;
-    }
-  }
-
   .phone-screen {
-    position: relative;
-    border-radius: 28px;
+    border-radius: calc(2rem - 6px);
     overflow: hidden;
     background: #000;
     aspect-ratio: 9 / 19.5;
   }
 
-  @media (min-width: 640px) {
-    .phone-screen {
-      border-radius: 34px;
-    }
-  }
-
-  .screenshot-img {
+  .phone-screen img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
+    user-select: none;
+    -webkit-user-drag: none;
   }
 
-  /* Dynamic Island notch */
-  .phone-screen::before {
-    content: '';
-    position: absolute;
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 24px;
-    background: #000;
-    border-radius: 20px;
-    z-index: 10;
+  /* ── Dots ── */
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-border);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                border-radius 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                background 0.4s ease;
   }
 
+  .carousel-dot.active {
+    width: 24px;
+    border-radius: 4px;
+    background: var(--color-primary);
+  }
+
+  /* ── Responsive ── */
   @media (min-width: 640px) {
-    .phone-screen::before {
-      top: 10px;
-      width: 100px;
-      height: 28px;
+    .carousel-track {
+      gap: 1.75rem;
+      padding-left: calc(50% - 130px);
+      padding-right: calc(50% - 130px);
+    }
+
+    .carousel-slide {
+      flex-basis: 260px;
+    }
+
+    .phone-frame {
+      border-radius: 2.5rem;
+      padding: 8px;
+    }
+
+    .phone-notch {
+      top: 12px;
+      width: 80px;
+      height: 22px;
+    }
+
+    .phone-screen {
+      border-radius: calc(2.5rem - 8px);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .carousel-track {
+      gap: 2rem;
+      padding-left: calc(50% - 140px);
+      padding-right: calc(50% - 140px);
+    }
+
+    .carousel-slide {
+      flex-basis: 280px;
+    }
+  }
+
+  /* ── Reduced motion ── */
+  @media (prefers-reduced-motion: reduce) {
+    .carousel-slide {
+      transition: none;
+    }
+
+    .carousel-track {
+      scroll-behavior: auto;
     }
   }
 </style>
+
+<script>
+  function initCarousel() {
+    const track = document.getElementById('carousel-track');
+    const slides = document.querySelectorAll<HTMLElement>('.carousel-slide');
+    const dots = document.querySelectorAll<HTMLButtonElement>('.carousel-dot');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+
+    if (!track || !slides.length) return;
+
+    let activeIndex = 0;
+
+    function updateActive(index: number) {
+      if (index === activeIndex) return;
+      activeIndex = index;
+      slides.forEach((s, i) => s.classList.toggle('active', i === index));
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    }
+
+    // Detect which slide is closest to center
+    function detectCenter() {
+      const trackRect = track.getBoundingClientRect();
+      const center = trackRect.left + trackRect.width / 2;
+      let closest = 0;
+      let minDist = Infinity;
+
+      slides.forEach((slide, i) => {
+        const rect = slide.getBoundingClientRect();
+        const slideCenter = rect.left + rect.width / 2;
+        const dist = Math.abs(slideCenter - center);
+        if (dist < minDist) {
+          minDist = dist;
+          closest = i;
+        }
+      });
+
+      updateActive(closest);
+    }
+
+    // Scroll listener (throttled via rAF)
+    let ticking = false;
+    track.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          detectCenter();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // Navigate to slide
+    function goTo(index: number) {
+      const clamped = Math.max(0, Math.min(slides.length - 1, index));
+      slides[clamped].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+
+    // ── Autoplay ──
+    const AUTOPLAY_DELAY = 4000;
+    let autoplayTimer: ReturnType<typeof setInterval> | null = null;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function startAutoplay() {
+      stopAutoplay();
+      if (prefersReducedMotion) return;
+      autoplayTimer = setInterval(() => {
+        const next = activeIndex < slides.length - 1 ? activeIndex + 1 : 0;
+        goTo(next);
+      }, AUTOPLAY_DELAY);
+    }
+
+    function stopAutoplay() {
+      if (autoplayTimer) {
+        clearInterval(autoplayTimer);
+        autoplayTimer = null;
+      }
+    }
+
+    // Pause on hover / touch, resume on leave
+    track.addEventListener('mouseenter', stopAutoplay);
+    track.addEventListener('mouseleave', startAutoplay);
+    track.addEventListener('touchstart', stopAutoplay, { passive: true });
+    track.addEventListener('touchend', () => {
+      // Resume after a delay so snap finishes first
+      setTimeout(startAutoplay, 3000);
+    }, { passive: true });
+
+    // Stop autoplay on manual interaction, restart after delay
+    function onManualNav() {
+      stopAutoplay();
+      setTimeout(startAutoplay, 6000);
+    }
+
+    // Dot clicks
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => { goTo(i); onManualNav(); });
+    });
+
+    // Arrow clicks
+    prevBtn?.addEventListener('click', () => { goTo(activeIndex - 1); onManualNav(); });
+    nextBtn?.addEventListener('click', () => { goTo(activeIndex + 1); onManualNav(); });
+
+    // Keyboard navigation when carousel is focused
+    track.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(activeIndex - 1); onManualNav(); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); goTo(activeIndex + 1); onManualNav(); }
+    });
+
+    // Click on slide to center it
+    slides.forEach((slide, i) => {
+      slide.addEventListener('click', () => {
+        if (i !== activeIndex) { goTo(i); onManualNav(); }
+      });
+    });
+
+    // Pause when section not visible
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) startAutoplay();
+        else stopAutoplay();
+      });
+    }, { threshold: 0.3 });
+
+    const section = track.closest('section');
+    if (section) sectionObserver.observe(section);
+
+    // Initial detection
+    detectCenter();
+  }
+
+  document.addEventListener('DOMContentLoaded', initCarousel);
+  document.addEventListener('astro:page-load', initCarousel);
+</script>
