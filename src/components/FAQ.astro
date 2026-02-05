@@ -33,7 +33,7 @@ const faqs = [
             </svg>
           </summary>
           <div class="faq-answer">
-            <div class="px-6 pb-4">
+            <div class="faq-answer-inner px-6 pb-4">
               <p class="text-[var(--color-text-secondary)] leading-relaxed">{faq.answer}</p>
             </div>
           </div>
@@ -49,17 +49,26 @@ const faqs = [
     display: none;
   }
 
-  /* Rotate icon when open */
-  details[open] .faq-icon {
+  /* Icon rotation */
+  .faq-icon {
+    transition: transform 0.3s ease-out;
+  }
+
+  details[open] .faq-icon,
+  details.closing .faq-icon {
     transform: rotate(180deg);
   }
 
-  /* Animate answer */
+  details.closing .faq-icon {
+    transform: rotate(0deg);
+  }
+
+  /* Animate answer with CSS Grid */
   .faq-answer {
     display: grid;
     grid-template-rows: 0fr;
     opacity: 0;
-    transition: grid-template-rows 0.3s ease-out, opacity 0.25s ease-out;
+    transition: grid-template-rows 0.3s ease-out, opacity 0.2s ease-out;
   }
 
   details[open] .faq-answer {
@@ -67,7 +76,13 @@ const faqs = [
     opacity: 1;
   }
 
-  .faq-answer > div {
+  /* Closing state: animate back to closed */
+  details.closing .faq-answer {
+    grid-template-rows: 0fr;
+    opacity: 0;
+  }
+
+  .faq-answer-inner {
     overflow: hidden;
   }
 </style>
@@ -77,18 +92,38 @@ const faqs = [
     const container = document.querySelector('.faq-container');
     if (!container) return;
 
-    // Accordion behavior: close others when one opens
-    container.addEventListener('toggle', (e) => {
-      const target = e.target as HTMLDetailsElement;
-      if (target.tagName === 'DETAILS' && target.open) {
-        const allDetails = container.querySelectorAll('details');
-        allDetails.forEach(details => {
-          if (details !== target && details.open) {
+    const allDetails = container.querySelectorAll('details');
+    const ANIMATION_DURATION = 300;
+
+    allDetails.forEach(details => {
+      const summary = details.querySelector('summary');
+      if (!summary) return;
+
+      summary.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        if (details.open) {
+          // Closing: add class, wait for animation, then close
+          details.classList.add('closing');
+          setTimeout(() => {
             details.open = false;
-          }
-        });
-      }
-    }, true);
+            details.classList.remove('closing');
+          }, ANIMATION_DURATION);
+        } else {
+          // Opening: close others first (with animation), then open this one
+          allDetails.forEach(other => {
+            if (other !== details && other.open) {
+              other.classList.add('closing');
+              setTimeout(() => {
+                other.open = false;
+                other.classList.remove('closing');
+              }, ANIMATION_DURATION);
+            }
+          });
+          details.open = true;
+        }
+      });
+    });
   }
 
   document.addEventListener('DOMContentLoaded', initFAQ);
