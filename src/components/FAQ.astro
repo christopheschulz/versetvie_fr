@@ -23,30 +23,38 @@ const faqs = [
       </span>
     </h2>
 
-    <div class="space-y-4">
-      {faqs.map((faq, index) => (
-        <div class="faq-item rounded-xl bg-[var(--color-card)] border border-[var(--color-border)] overflow-hidden">
-          <button
-            class="faq-button w-full px-6 py-4 flex items-center justify-between text-left font-medium hover:bg-[var(--color-background)]/50 transition-colors cursor-pointer"
-            aria-expanded="false"
-          >
+    <div class="faq-container space-y-4">
+      {faqs.map((faq) => (
+        <details class="faq-item rounded-xl bg-[var(--color-card)] border border-[var(--color-border)] overflow-hidden">
+          <summary class="px-6 py-4 flex items-center justify-between font-medium hover:bg-[var(--color-background)]/50 transition-colors cursor-pointer list-none">
             <span>{faq.question}</span>
-            <svg class="faq-icon w-5 h-5 text-[var(--color-text-tertiary)] transition-transform duration-300 ease-out" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="faq-icon w-5 h-5 text-[var(--color-text-tertiary)] transition-transform duration-300 ease-out flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
-          </button>
+          </summary>
           <div class="faq-answer">
-            <div class="faq-answer-inner px-6 pb-4">
+            <div class="px-6 pb-4">
               <p class="text-[var(--color-text-secondary)] leading-relaxed">{faq.answer}</p>
             </div>
           </div>
-        </div>
+        </details>
       ))}
     </div>
   </div>
 </section>
 
 <style>
+  /* Remove default marker */
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  /* Rotate icon when open */
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+
+  /* Animate answer */
   .faq-answer {
     display: grid;
     grid-template-rows: 0fr;
@@ -54,65 +62,35 @@ const faqs = [
     transition: grid-template-rows 0.3s ease-out, opacity 0.25s ease-out;
   }
 
-  .faq-answer.open {
+  details[open] .faq-answer {
     grid-template-rows: 1fr;
     opacity: 1;
   }
 
-  .faq-answer-inner {
+  .faq-answer > div {
     overflow: hidden;
-  }
-
-  .faq-icon {
-    flex-shrink: 0;
   }
 </style>
 
 <script>
   function initFAQ() {
-    const faqItems = document.querySelectorAll('.faq-item');
+    const container = document.querySelector('.faq-container');
+    if (!container) return;
 
-    faqItems.forEach(item => {
-      const button = item.querySelector('.faq-button');
-      const answer = item.querySelector('.faq-answer');
-      const icon = item.querySelector('.faq-icon');
-
-      if (button && answer && icon) {
-        // Remove existing listeners by cloning
-        const newButton = button.cloneNode(true);
-        button.parentNode?.replaceChild(newButton, button);
-
-        newButton.addEventListener('click', () => {
-          const isOpen = newButton.getAttribute('aria-expanded') === 'true';
-
-          // Close all other items with animation
-          faqItems.forEach(otherItem => {
-            const otherButton = otherItem.querySelector('.faq-button');
-            const otherAnswer = otherItem.querySelector('.faq-answer');
-            const otherIcon = otherItem.querySelector('.faq-icon');
-            if (otherButton && otherAnswer && otherIcon && otherItem !== item) {
-              otherButton.setAttribute('aria-expanded', 'false');
-              otherAnswer.classList.remove('open');
-              otherIcon.classList.remove('rotate-180');
-            }
-          });
-
-          // Toggle current item with animation
-          newButton.setAttribute('aria-expanded', (!isOpen).toString());
-          answer.classList.toggle('open', !isOpen);
-          icon.classList.toggle('rotate-180', !isOpen);
+    // Accordion behavior: close others when one opens
+    container.addEventListener('toggle', (e) => {
+      const target = e.target as HTMLDetailsElement;
+      if (target.tagName === 'DETAILS' && target.open) {
+        const allDetails = container.querySelectorAll('details');
+        allDetails.forEach(details => {
+          if (details !== target && details.open) {
+            details.open = false;
+          }
         });
       }
-    });
+    }, true);
   }
 
-  // Run on initial load
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initFAQ);
-  } else {
-    initFAQ();
-  }
-
-  // Run on Astro page transitions
+  document.addEventListener('DOMContentLoaded', initFAQ);
   document.addEventListener('astro:page-load', initFAQ);
 </script>
