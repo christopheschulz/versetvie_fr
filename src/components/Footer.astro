@@ -33,8 +33,8 @@ const badges = {
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
 
       <!-- Brand Column -->
-      <div class="lg:col-span-1">
-        <a href={`/${lang}/`} class="flex items-center gap-3 mb-4">
+      <div class="lg:col-span-1 text-center md:text-left">
+        <a href={`/${lang}/`} class="inline-flex items-center gap-3 mb-4">
           <img src="/icon.png" alt="VersetVie" class="w-12 h-12 rounded-xl" />
           <span class="font-bold text-xl">VersetVie</span>
         </a>
@@ -54,11 +54,11 @@ const badges = {
       </div>
 
       <!-- Navigation Column -->
-      <div>
+      <div class="text-center md:text-left">
         <h3 class="font-semibold text-sm uppercase tracking-wider mb-4 text-[var(--color-text-tertiary)]">
           {t('footer.navigation')}
         </h3>
-        <nav class="flex flex-col gap-3">
+        <nav class="flex flex-col gap-3 items-center md:items-start">
           <a href={`/${lang}/`} class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
             {t('nav.home')}
           </a>
@@ -78,11 +78,11 @@ const badges = {
       </div>
 
       <!-- Legal Column -->
-      <div>
+      <div class="text-center md:text-left">
         <h3 class="font-semibold text-sm uppercase tracking-wider mb-4 text-[var(--color-text-tertiary)]">
           {t('footer.legal')}
         </h3>
-        <nav class="flex flex-col gap-3">
+        <nav class="flex flex-col gap-3 items-center md:items-start">
           <a href={paths.privacy} class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
             {t('footer.privacy')}
           </a>
@@ -99,11 +99,11 @@ const badges = {
       </div>
 
       <!-- Download Column (CTA) -->
-      <div>
+      <div class="text-center md:text-left">
         <h3 class="font-semibold text-sm uppercase tracking-wider mb-4 text-[var(--color-text-tertiary)]">
           {t('footer.download')}
         </h3>
-        <div class="flex flex-col gap-3">
+        <div class="flex flex-col gap-3 items-center md:items-start">
           <a
             href={storeUrls.appStore}
             target="_blank"

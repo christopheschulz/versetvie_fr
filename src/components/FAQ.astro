@@ -31,18 +31,42 @@ const faqs = [
             aria-expanded="false"
           >
             <span>{faq.question}</span>
-            <svg class="faq-icon w-5 h-5 text-[var(--color-text-tertiary)] transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="faq-icon w-5 h-5 text-[var(--color-text-tertiary)] transition-transform duration-300 ease-out" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </button>
-          <div class="faq-answer hidden px-6 pt-2 pb-5">
-            <p class="text-[var(--color-text-secondary)] leading-relaxed">{faq.answer}</p>
+          <div class="faq-answer">
+            <div class="faq-answer-inner px-6 pt-2 pb-5">
+              <p class="text-[var(--color-text-secondary)] leading-relaxed">{faq.answer}</p>
+            </div>
           </div>
         </div>
       ))}
     </div>
   </div>
 </section>
+
+<style>
+  .faq-answer {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 0.3s ease-out, opacity 0.25s ease-out;
+  }
+
+  .faq-answer.open {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+
+  .faq-answer-inner {
+    overflow: hidden;
+  }
+
+  .faq-icon {
+    flex-shrink: 0;
+  }
+</style>
 
 <script>
   function initFAQ() {
@@ -61,22 +85,22 @@ const faqs = [
         newButton.addEventListener('click', () => {
           const isOpen = newButton.getAttribute('aria-expanded') === 'true';
 
-          // Close all other items
+          // Close all other items with animation
           faqItems.forEach(otherItem => {
             const otherButton = otherItem.querySelector('.faq-button');
             const otherAnswer = otherItem.querySelector('.faq-answer');
             const otherIcon = otherItem.querySelector('.faq-icon');
             if (otherButton && otherAnswer && otherIcon && otherItem !== item) {
               otherButton.setAttribute('aria-expanded', 'false');
-              otherAnswer.classList.add('hidden');
+              otherAnswer.classList.remove('open');
               otherIcon.classList.remove('rotate-180');
             }
           });
 
-          // Toggle current item
+          // Toggle current item with animation
           newButton.setAttribute('aria-expanded', (!isOpen).toString());
-          answer.classList.toggle('hidden');
-          icon.classList.toggle('rotate-180');
+          answer.classList.toggle('open', !isOpen);
+          icon.classList.toggle('rotate-180', !isOpen);
         });
       }
     });
