@@ -8,9 +8,9 @@ const currentYear = new Date().getFullYear();
 
 // Localized paths for legal pages
 const legalPaths = {
-  fr: { privacy: '/fr/confidentialite', terms: '/fr/conditions' },
-  en: { privacy: '/en/privacy', terms: '/en/terms' },
-  de: { privacy: '/de/datenschutz', terms: '/de/nutzungsbedingungen' },
+  fr: { privacy: '/fr/confidentialite', terms: '/fr/conditions', legalNotice: '/fr/mentions-legales' },
+  en: { privacy: '/en/privacy', terms: '/en/terms', legalNotice: '/en/legal-notice' },
+  de: { privacy: '/de/datenschutz', terms: '/de/nutzungsbedingungen', legalNotice: '/de/impressum' },
 };
 const paths = legalPaths[lang as keyof typeof legalPaths];
 
@@ -88,6 +88,9 @@ const badges = {
           </a>
           <a href={paths.terms} class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
             {t('footer.terms')}
+          </a>
+          <a href={paths.legalNotice} class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+            {t('footer.legalNotice')}
           </a>
           <a href={lang === 'de' ? `/${lang}/kontakt` : `/${lang}/contact`} class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
             {t('footer.contact')}

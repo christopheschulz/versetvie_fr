@@ -27,7 +27,7 @@ const faqs = [
       {faqs.map((faq, index) => (
         <div class="faq-item rounded-xl bg-[var(--color-card)] border border-[var(--color-border)] overflow-hidden">
           <button
-            class="faq-button w-full px-6 py-4 flex items-center justify-between text-left font-medium hover:bg-[var(--color-background)]/50 transition-colors"
+            class="faq-button w-full px-6 py-4 flex items-center justify-between text-left font-medium hover:bg-[var(--color-background)]/50 transition-colors cursor-pointer"
             aria-expanded="false"
           >
             <span>{faq.question}</span>
@@ -35,8 +35,8 @@ const faqs = [
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </button>
-          <div class="faq-answer hidden px-6 pb-4">
-            <p class="text-[var(--color-text-secondary)]">{faq.answer}</p>
+          <div class="faq-answer hidden px-6 pt-2 pb-5">
+            <p class="text-[var(--color-text-secondary)] leading-relaxed">{faq.answer}</p>
           </div>
         </div>
       ))}

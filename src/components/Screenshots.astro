@@ -278,10 +278,19 @@ const screenshots = [
       }
     }, { passive: true });
 
-    // Navigate to slide
+    // Navigate to slide (horizontal only, no page scroll)
     function goTo(index: number) {
       const clamped = Math.max(0, Math.min(slides.length - 1, index));
-      slides[clamped].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      const slide = slides[clamped];
+      const trackRect = track.getBoundingClientRect();
+      const slideRect = slide.getBoundingClientRect();
+
+      // Calculate offset to center the slide
+      const slideCenter = slide.offsetLeft + slideRect.width / 2;
+      const trackCenter = trackRect.width / 2;
+      const scrollTarget = slideCenter - trackCenter;
+
+      track.scrollTo({ left: scrollTarget, behavior: 'smooth' });
     }
 
     // ── Autoplay ──

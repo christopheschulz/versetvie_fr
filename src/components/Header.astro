@@ -17,29 +17,29 @@ const t = useTranslations(lang);
       </a>
 
       <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center gap-8">
-        <a href={`/${lang}/`} data-section="hero" class="nav-link text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+      <nav class="hidden md:flex items-center gap-1">
+        <a href={`/${lang}/`} data-section="hero" class="nav-link">
           {t('nav.home')}
         </a>
-        <a href={`/${lang}/#screenshots`} data-section="screenshots" class="nav-link text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+        <a href={`/${lang}/#screenshots`} data-section="screenshots" class="nav-link">
           {t('nav.screenshots')}
         </a>
-        <a href={`/${lang}/#features`} data-section="features" class="nav-link text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+        <a href={`/${lang}/#features`} data-section="features" class="nav-link">
           {t('nav.features')}
         </a>
-        <a href={`/${lang}/#testimonials`} data-section="testimonials" class="nav-link text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+        <a href={`/${lang}/#testimonials`} data-section="testimonials" class="nav-link">
           {t('nav.testimonials')}
         </a>
-        <a href={`/${lang}/#pricing`} data-section="pricing" class="nav-link text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+        <a href={`/${lang}/#pricing`} data-section="pricing" class="nav-link">
           {t('nav.support')}
         </a>
-        <a href={`/${lang}/#faq`} data-section="faq" class="nav-link text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+        <a href={`/${lang}/#faq`} data-section="faq" class="nav-link">
           {t('nav.faq')}
         </a>
-        <a href={`/${lang}/#download`} data-section="download" class="nav-link text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+        <a href={`/${lang}/#download`} data-section="download" class="nav-link">
           {t('nav.download')}
         </a>
-        <a href={lang === 'de' ? `/${lang}/kontakt` : `/${lang}/contact`} class="nav-link text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+        <a href={lang === 'de' ? `/${lang}/kontakt` : `/${lang}/contact`} class="nav-link">
           {t('nav.contact')}
         </a>
       </nav>
@@ -51,7 +51,7 @@ const t = useTranslations(lang);
         <!-- Theme Toggle -->
         <button
           id="theme-toggle"
-          class="p-2 rounded-lg hover:bg-[var(--color-surface)] transition-colors"
+          class="p-2 rounded-lg hover:bg-[var(--color-surface)] transition-colors cursor-pointer"
           aria-label="Toggle theme"
         >
           <svg class="w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20">
@@ -78,34 +78,95 @@ const t = useTranslations(lang);
 
   <!-- Mobile Menu -->
   <nav id="mobile-menu" class="hidden md:hidden border-t border-[var(--color-border)] bg-[var(--color-surface)]">
-    <div class="px-4 py-4 space-y-3">
-      <a href={`/${lang}/`} data-section="hero" class="nav-link block text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+    <div class="px-4 py-4 space-y-1">
+      <a href={`/${lang}/`} data-section="hero" class="nav-link nav-link--mobile">
         {t('nav.home')}
       </a>
-      <a href={`/${lang}/#screenshots`} data-section="screenshots" class="nav-link block text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+      <a href={`/${lang}/#screenshots`} data-section="screenshots" class="nav-link nav-link--mobile">
         {t('nav.screenshots')}
       </a>
-      <a href={`/${lang}/#features`} data-section="features" class="nav-link block text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+      <a href={`/${lang}/#features`} data-section="features" class="nav-link nav-link--mobile">
         {t('nav.features')}
       </a>
-      <a href={`/${lang}/#testimonials`} data-section="testimonials" class="nav-link block text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+      <a href={`/${lang}/#testimonials`} data-section="testimonials" class="nav-link nav-link--mobile">
         {t('nav.testimonials')}
       </a>
-      <a href={`/${lang}/#pricing`} data-section="pricing" class="nav-link block text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+      <a href={`/${lang}/#pricing`} data-section="pricing" class="nav-link nav-link--mobile">
         {t('nav.support')}
       </a>
-      <a href={`/${lang}/#faq`} data-section="faq" class="nav-link block text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+      <a href={`/${lang}/#faq`} data-section="faq" class="nav-link nav-link--mobile">
         {t('nav.faq')}
       </a>
-      <a href={`/${lang}/#download`} data-section="download" class="nav-link block text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+      <a href={`/${lang}/#download`} data-section="download" class="nav-link nav-link--mobile">
         {t('nav.download')}
       </a>
-      <a href={lang === 'de' ? `/${lang}/kontakt` : `/${lang}/contact`} class="nav-link block text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+      <a href={lang === 'de' ? `/${lang}/kontakt` : `/${lang}/contact`} class="nav-link nav-link--mobile">
         {t('nav.contact')}
       </a>
     </div>
   </nav>
 </header>
+
+<style>
+  /* Desktop nav links */
+  .nav-link {
+    position: relative;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    transition: color 0.2s ease;
+    border-radius: 0.5rem;
+  }
+
+  .nav-link:hover {
+    color: var(--color-text);
+    background: var(--color-surface);
+  }
+
+  /* Active indicator (underline) */
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    border-radius: 1px;
+    transform: translateX(-50%);
+    transition: width 0.25s ease;
+  }
+
+  .nav-link.active {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .nav-link.active::after {
+    width: calc(100% - 1.5rem);
+  }
+
+  /* Mobile nav links */
+  .nav-link--mobile {
+    display: block;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+  }
+
+  .nav-link--mobile::after {
+    display: none;
+  }
+
+  .nav-link--mobile.active {
+    background: var(--color-primary);
+    color: white;
+    font-weight: 600;
+  }
+
+  .nav-link--mobile:hover:not(.active) {
+    background: var(--color-surface);
+  }
+</style>
 
 <script>
   function initNavigation() {
@@ -122,20 +183,10 @@ const t = useTranslations(lang);
     const sections = ['hero', 'screenshots', 'features', 'testimonials', 'pricing', 'faq', 'download'];
     const navLinks = document.querySelectorAll('.nav-link');
 
-    // Tailwind classes for active/inactive states
-    const activeClasses = ['text-[var(--color-primary)]', 'font-semibold'];
-    const inactiveClasses = ['text-[var(--color-text-secondary)]'];
-
     function setActiveLink(sectionId: string) {
       navLinks.forEach(link => {
         const linkSection = link.getAttribute('data-section');
-        if (linkSection === sectionId) {
-          link.classList.remove(...inactiveClasses);
-          link.classList.add(...activeClasses);
-        } else {
-          link.classList.remove(...activeClasses);
-          link.classList.add(...inactiveClasses);
-        }
+        link.classList.toggle('active', linkSection === sectionId);
       });
     }
 
