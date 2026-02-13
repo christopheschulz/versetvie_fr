@@ -1,14 +1,16 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getLangFromUrl, useTranslations, getLocalePrefix } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const prefix = getLocalePrefix(lang);
+const home = prefix ? `${prefix}/` : '/';
 
 const currentYear = new Date().getFullYear();
 
 // Localized paths for legal pages
 const legalPaths = {
-  fr: { privacy: '/fr/confidentialite', terms: '/fr/conditions', legalNotice: '/fr/mentions-legales' },
+  fr: { privacy: '/confidentialite', terms: '/conditions', legalNotice: '/mentions-legales' },
   en: { privacy: '/en/privacy', terms: '/en/terms', legalNotice: '/en/legal-notice' },
   de: { privacy: '/de/datenschutz', terms: '/de/nutzungsbedingungen', legalNotice: '/de/impressum' },
 };
@@ -34,7 +36,7 @@ const badges = {
 
       <!-- Brand Column -->
       <div class="lg:col-span-1 text-center md:text-left">
-        <a href={`/${lang}/`} class="inline-flex items-center gap-3 mb-4">
+        <a href={home} class="inline-flex items-center gap-3 mb-4">
           <img src="/icon.png" alt="VersetVie" class="w-12 h-12 rounded-xl" />
           <span class="font-bold text-xl">VersetVie</span>
         </a>
@@ -59,19 +61,19 @@ const badges = {
           {t('footer.navigation')}
         </h3>
         <nav class="flex flex-col gap-3 items-center md:items-start">
-          <a href={`/${lang}/`} class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+          <a href={home} class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
             {t('nav.home')}
           </a>
-          <a href={`/${lang}/#screenshots`} class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+          <a href={`${prefix}/#screenshots`} class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
             {t('nav.screenshots')}
           </a>
-          <a href={`/${lang}/#features`} class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+          <a href={`${prefix}/#features`} class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
             {t('nav.features')}
           </a>
-          <a href={`/${lang}/#testimonials`} class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+          <a href={`${prefix}/#testimonials`} class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
             {t('nav.testimonials')}
           </a>
-          <a href={`/${lang}/#faq`} class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+          <a href={`${prefix}/#faq`} class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
             FAQ
           </a>
         </nav>
@@ -92,7 +94,7 @@ const badges = {
           <a href={paths.legalNotice} class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
             {t('footer.legalNotice')}
           </a>
-          <a href={lang === 'de' ? `/${lang}/kontakt` : `/${lang}/contact`} class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+          <a href={lang === 'de' ? `${prefix}/kontakt` : `${prefix}/contact`} class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
             {t('footer.contact')}
           </a>
         </nav>

@@ -1,45 +1,47 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getLangFromUrl, useTranslations, getLocalePrefix } from '../i18n/utils';
 import { languages } from '../i18n/ui';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const prefix = getLocalePrefix(lang);
+const home = prefix ? `${prefix}/` : '/';
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50 glass border-b border-[var(--color-border)]">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <!-- Logo -->
-      <a href={`/${lang}/`} class="flex items-center gap-2">
+      <a href={home} class="flex items-center gap-2">
         <img src="/icon.png" alt="VersetVie" class="w-10 h-10 rounded-xl" />
         <span class="font-semibold text-lg hidden sm:block">VersetVie</span>
       </a>
 
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex items-center gap-1">
-        <a href={`/${lang}/`} data-section="hero" class="nav-link">
+        <a href={home} data-section="hero" class="nav-link">
           {t('nav.home')}
         </a>
-        <a href={`/${lang}/#screenshots`} data-section="screenshots" class="nav-link">
+        <a href={`${prefix}/#screenshots`} data-section="screenshots" class="nav-link">
           {t('nav.screenshots')}
         </a>
-        <a href={`/${lang}/#features`} data-section="features" class="nav-link">
+        <a href={`${prefix}/#features`} data-section="features" class="nav-link">
           {t('nav.features')}
         </a>
-        <a href={`/${lang}/#testimonials`} data-section="testimonials" class="nav-link">
+        <a href={`${prefix}/#testimonials`} data-section="testimonials" class="nav-link">
           {t('nav.testimonials')}
         </a>
-        <a href={`/${lang}/#pricing`} data-section="pricing" class="nav-link">
+        <a href={`${prefix}/#pricing`} data-section="pricing" class="nav-link">
           {t('nav.support')}
         </a>
-        <a href={`/${lang}/#faq`} data-section="faq" class="nav-link">
+        <a href={`${prefix}/#faq`} data-section="faq" class="nav-link">
           {t('nav.faq')}
         </a>
-        <a href={`/${lang}/#download`} data-section="download" class="nav-link">
+        <a href={`${prefix}/#download`} data-section="download" class="nav-link">
           {t('nav.download')}
         </a>
-        <a href={lang === 'de' ? `/${lang}/kontakt` : `/${lang}/contact`} class="nav-link">
+        <a href={lang === 'de' ? `${prefix}/kontakt` : `${prefix}/contact`} class="nav-link">
           {t('nav.contact')}
         </a>
       </nav>
@@ -79,28 +81,28 @@ const t = useTranslations(lang);
   <!-- Mobile Menu -->
   <nav id="mobile-menu" class="hidden md:hidden border-t border-[var(--color-border)] bg-[var(--color-surface)]">
     <div class="px-4 py-4 space-y-1">
-      <a href={`/${lang}/`} data-section="hero" class="nav-link nav-link--mobile">
+      <a href={home} data-section="hero" class="nav-link nav-link--mobile">
         {t('nav.home')}
       </a>
-      <a href={`/${lang}/#screenshots`} data-section="screenshots" class="nav-link nav-link--mobile">
+      <a href={`${prefix}/#screenshots`} data-section="screenshots" class="nav-link nav-link--mobile">
         {t('nav.screenshots')}
       </a>
-      <a href={`/${lang}/#features`} data-section="features" class="nav-link nav-link--mobile">
+      <a href={`${prefix}/#features`} data-section="features" class="nav-link nav-link--mobile">
         {t('nav.features')}
       </a>
-      <a href={`/${lang}/#testimonials`} data-section="testimonials" class="nav-link nav-link--mobile">
+      <a href={`${prefix}/#testimonials`} data-section="testimonials" class="nav-link nav-link--mobile">
         {t('nav.testimonials')}
       </a>
-      <a href={`/${lang}/#pricing`} data-section="pricing" class="nav-link nav-link--mobile">
+      <a href={`${prefix}/#pricing`} data-section="pricing" class="nav-link nav-link--mobile">
         {t('nav.support')}
       </a>
-      <a href={`/${lang}/#faq`} data-section="faq" class="nav-link nav-link--mobile">
+      <a href={`${prefix}/#faq`} data-section="faq" class="nav-link nav-link--mobile">
         {t('nav.faq')}
       </a>
-      <a href={`/${lang}/#download`} data-section="download" class="nav-link nav-link--mobile">
+      <a href={`${prefix}/#download`} data-section="download" class="nav-link nav-link--mobile">
         {t('nav.download')}
       </a>
-      <a href={lang === 'de' ? `/${lang}/kontakt` : `/${lang}/contact`} class="nav-link nav-link--mobile">
+      <a href={lang === 'de' ? `${prefix}/kontakt` : `${prefix}/contact`} class="nav-link nav-link--mobile">
         {t('nav.contact')}
       </a>
     </div>

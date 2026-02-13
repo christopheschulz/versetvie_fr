@@ -12,7 +12,17 @@ export function useTranslations(lang: Lang) {
   };
 }
 
+/**
+ * Returns the locale prefix for URLs.
+ * French (default) has no prefix, other locales get /{lang}
+ */
+export function getLocalePrefix(lang: Lang): string {
+  if (lang === defaultLang) return '';
+  return `/${lang}`;
+}
+
 export function getLocalizedPath(path: string, lang: Lang): string {
+  if (lang === defaultLang) return path;
   return `/${lang}${path}`;
 }
 

@@ -1,29 +1,39 @@
 ---
-import { getLangFromUrl } from '../i18n/utils';
-import { languages } from '../i18n/ui';
+import { getLangFromUrl, getLocalePrefix } from '../i18n/utils';
+import { languages, defaultLang } from '../i18n/ui';
 
 const lang = getLangFromUrl(Astro.url);
+const prefix = getLocalePrefix(lang);
 
 // Map page paths between languages
 const pageMapping: Record<string, Record<string, string>> = {
   '/': { fr: '/', en: '/', de: '/' },
   '/confidentialite': { fr: '/confidentialite', en: '/privacy', de: '/datenschutz' },
   '/conditions': { fr: '/conditions', en: '/terms', de: '/nutzungsbedingungen' },
+  '/contact': { fr: '/contact', en: '/contact', de: '/kontakt' },
+  '/mentions-legales': { fr: '/mentions-legales', en: '/legal-notice', de: '/impressum' },
   '/privacy': { fr: '/confidentialite', en: '/privacy', de: '/datenschutz' },
   '/terms': { fr: '/conditions', en: '/terms', de: '/nutzungsbedingungen' },
   '/datenschutz': { fr: '/confidentialite', en: '/privacy', de: '/datenschutz' },
   '/nutzungsbedingungen': { fr: '/conditions', en: '/terms', de: '/nutzungsbedingungen' },
+  '/kontakt': { fr: '/contact', en: '/contact', de: '/kontakt' },
+  '/legal-notice': { fr: '/mentions-legales', en: '/legal-notice', de: '/impressum' },
+  '/impressum': { fr: '/mentions-legales', en: '/legal-notice', de: '/impressum' },
 };
 
-const currentPath = Astro.url.pathname.replace(`/${lang}`, '') || '/';
+// Strip locale prefix to get the current page path
+const currentPath = prefix
+  ? (Astro.url.pathname.replace(prefix, '') || '/')
+  : (Astro.url.pathname || '/');
 
 function getTargetPath(targetLang: string): string {
   const mapping = pageMapping[currentPath];
+  const targetPrefix = targetLang === defaultLang ? '' : `/${targetLang}`;
   if (mapping && mapping[targetLang]) {
-    return `/${targetLang}${mapping[targetLang]}`;
+    const pagePath = mapping[targetLang];
+    return pagePath === '/' ? (targetPrefix ? `${targetPrefix}/` : '/') : `${targetPrefix}${pagePath}`;
   }
-  // Default to home page for unmapped paths
-  return `/${targetLang}/`;
+  return targetPrefix ? `${targetPrefix}/` : '/';
 }
 ---
 

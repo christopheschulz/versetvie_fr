@@ -1,0 +1,456 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const currentDate = new Date().toLocaleDateString('fr-FR', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric'
+});
+---
+
+<Layout title="Politique de confidentialité - VersetVie">
+  <Header />
+  <main class="pt-24 pb-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">
+        <span class="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] bg-clip-text text-transparent">
+          Politique de confidentialité
+        </span>
+      </h1>
+
+      <p class="text-sm text-[var(--color-text-tertiary)] italic mb-8">
+        Dernière mise à jour : 17 octobre 2025<br/>
+        Version : 1.0
+      </p>
+
+      <div class="space-y-6">
+        <section>
+          <h2 class="text-2xl font-semibold mb-4">Introduction</h2>
+          <p class="text-[var(--color-text-secondary)] mb-4">
+            Bienvenue sur <strong>VersetVie</strong> ! Nous accordons une grande importance à la protection de vos données personnelles et à la transparence sur l'utilisation que nous en faisons.
+          </p>
+          <p class="text-[var(--color-text-secondary)] mb-4">
+            Cette politique de confidentialité explique :
+          </p>
+          <ul class="list-disc list-inside space-y-1 text-[var(--color-text-secondary)] ml-4 mb-4">
+            <li>Quelles données nous collectons</li>
+            <li>Comment nous les utilisons</li>
+            <li>Comment nous les protégeons</li>
+            <li>Quels sont vos droits</li>
+          </ul>
+          <p class="text-[var(--color-text-secondary)]">
+            En utilisant VersetVie, vous acceptez les pratiques décrites dans cette politique.
+          </p>
+        </section>
+
+        <!-- Section 1 -->
+        <section class="p-6 rounded-2xl bg-[var(--color-card)] border border-[var(--color-border)]">
+          <h2 class="text-xl font-semibold mb-4">1. Données Collectées</h2>
+
+          <div class="space-y-4 text-[var(--color-text-secondary)]">
+            <div>
+              <h3 class="font-medium text-[var(--color-text)] mb-2">1.1 Données que vous nous fournissez</h3>
+              <p class="mb-3">Lors de votre utilisation de l'application, nous collectons les informations suivantes <strong>uniquement avec votre consentement</strong> :</p>
+
+              <h4 class="font-medium text-[var(--color-text)] mb-2 mt-3">Données stockées localement sur votre appareil :</h4>
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li><strong>Prénom</strong> : Utilisé pour personnaliser vos encouragements quotidiens</li>
+                <li><strong>Genre</strong> (Masculin/Féminin) : Permet d'adapter la version de l'encouragement</li>
+                <li><strong>Email</strong> (100% optionnel) : Uniquement si vous choisissez de nous le donner pendant l'onboarding. Utilisé pour vous envoyer des nouvelles importantes sur l'app. Vous pouvez utiliser l'app complètement sans email.</li>
+                <li><strong>Préférences d'utilisation</strong> : Thème visuel, vitesse d'animation, retour haptique, taille de texte, heure de notification quotidienne</li>
+              </ul>
+
+              <h4 class="font-medium text-[var(--color-text)] mb-2 mt-3">Données collectées de manière anonymisée :</h4>
+              <p class="mb-2 text-sm">(envoyées à Supabase avec un identifiant anonyme)</p>
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li><strong>Tranche d'âge</strong> : Utilisée pour des statistiques anonymisées</li>
+                <li><strong>Confession chrétienne</strong> : Permet de comprendre notre audience (données sensibles Article 9 RGPD - collectées avec votre consentement explicite)</li>
+                <li><strong>Choix de soutien</strong> : Avec ou sans soutien actif</li>
+                <li><strong>Préférences de notifications</strong> : Période et horaire choisis</li>
+                <li>Ces données sont liées à un <strong>identifiant anonyme</strong> (analytics_user_id), pas à votre identité réelle</li>
+              </ul>
+
+              <h4 class="font-medium text-[var(--color-text)] mb-2 mt-3">Données optionnelles partagées publiquement :</h4>
+              <p class="mb-2 text-sm">(avec votre consentement explicite)</p>
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li><strong>Intention de prière</strong> : Si vous choisissez de la partager sur le mur de prière communautaire, votre prénom et votre prière seront visibles par les autres utilisateurs</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-medium text-[var(--color-text)] mb-2">1.2 Données collectées automatiquement</h3>
+              <p class="mb-3">Pour améliorer l'application et comprendre comment elle est utilisée, nous collectons automatiquement certaines données <strong>anonymes</strong> :</p>
+
+              <h4 class="font-medium text-[var(--color-text)] mb-2">Données d'utilisation (via Mixpanel - serveurs EU) :</h4>
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li>Événements d'interaction (ouverture de l'app, consultation d'un verset, etc.)</li>
+                <li>Statistiques d'utilisation (nombre de versets vus, séries, etc.)</li>
+                <li>Type d'appareil et version du système d'exploitation</li>
+                <li>Version de l'application</li>
+              </ul>
+
+              <h4 class="font-medium text-[var(--color-text)] mb-2 mt-3">Données d'attribution (via Tenjin - uniquement avec consentement ATT) :</h4>
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li>Source d'installation de l'application</li>
+                <li>Interactions avec les publicités (si vous avez accepté le tracking ATT sur iOS)</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-medium text-[var(--color-text)] mb-2">1.3 Données que nous ne collectons PAS</h3>
+              <p class="mb-2">Nous ne collectons <strong>JAMAIS</strong> les données suivantes :</p>
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li>❌ Adresse email (sauf si vous choisissez de nous la donner pendant l'onboarding)</li>
+                <li>❌ Numéro de téléphone</li>
+                <li>❌ Adresse postale</li>
+                <li>❌ Localisation géographique précise</li>
+                <li>❌ Informations bancaires ou de paiement (gérées directement par Apple/Google)</li>
+                <li>❌ Contacts ou photos de votre appareil</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="p-6 rounded-2xl bg-[var(--color-card)] border border-[var(--color-border)]">
+          <h2 class="text-xl font-semibold mb-4">2. Utilisation des Données</h2>
+
+          <div class="space-y-4 text-[var(--color-text-secondary)]">
+            <div>
+              <h3 class="font-medium text-[var(--color-text)] mb-2">2.1 Finalités</h3>
+              <p class="mb-2">Nous utilisons vos données uniquement pour les finalités suivantes :</p>
+
+              <h4 class="font-medium text-[var(--color-text)] mb-2 mt-3">Personnalisation de l'expérience :</h4>
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li>Afficher votre prénom dans les encouragements</li>
+                <li>Adapter le genre de l'encouragement (masculin/féminin)</li>
+                <li>Appliquer vos préférences d'affichage (thème, taille de texte, etc.)</li>
+              </ul>
+
+              <h4 class="font-medium text-[var(--color-text)] mb-2 mt-3">Amélioration de l'application :</h4>
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li>Comprendre comment l'application est utilisée (analytics anonymes)</li>
+                <li>Identifier les bugs et problèmes techniques</li>
+                <li>Développer de nouvelles fonctionnalités</li>
+              </ul>
+
+              <h4 class="font-medium text-[var(--color-text)] mb-2 mt-3">Communication avec vous :</h4>
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li>Envoi de notifications quotidiennes (uniquement si vous avez activé cette option)</li>
+                <li>Rappel pour découvrir votre encouragement du jour</li>
+              </ul>
+
+              <h4 class="font-medium text-[var(--color-text)] mb-2 mt-3">Attribution publicitaire (uniquement avec votre consentement) :</h4>
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li>Mesurer l'efficacité de nos campagnes publicitaires</li>
+                <li>Comprendre comment les utilisateurs découvrent l'application</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-medium text-[var(--color-text)] mb-2">2.2 Base légale (RGPD)</h3>
+              <p class="mb-2">Le traitement de vos données repose sur les bases légales suivantes :</p>
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li><strong>Consentement</strong> : Vous acceptez explicitement nos conditions d'utilisation et cette politique lors de l'onboarding</li>
+                <li><strong>Exécution du contrat</strong> : Nécessaire pour vous fournir les fonctionnalités de l'application</li>
+                <li><strong>Intérêt légitime</strong> : Amélioration de l'application et mesure d'audience anonyme</li>
+                <li><strong>Consentement explicite (Article 9 RGPD)</strong> : Pour les données sensibles concernant vos convictions religieuses (confession chrétienne, prières partagées), nous obtenons votre consentement explicite pendant l'onboarding. Vous pouvez retirer ce consentement à tout moment en supprimant vos données via les paramètres de l'application</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="p-6 rounded-2xl bg-[var(--color-card)] border border-[var(--color-border)]">
+          <h2 class="text-xl font-semibold mb-4">3. Stockage et Sécurité des Données</h2>
+
+          <div class="space-y-4 text-[var(--color-text-secondary)]">
+            <div>
+              <h3 class="font-medium text-[var(--color-text)] mb-2">3.1 Où sont stockées vos données ?</h3>
+
+              <h4 class="font-medium text-[var(--color-text)] mb-2 mt-3">Stockage local (sur votre appareil) :</h4>
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li>Votre prénom, genre et préférences sont stockés <strong>localement</strong> sur votre appareil via AsyncStorage</li>
+                <li>Ces données <strong>ne quittent jamais votre appareil</strong></li>
+                <li>Elles sont supprimées si vous désinstallez l'application</li>
+              </ul>
+
+              <h4 class="font-medium text-[var(--color-text)] mb-2 mt-3">Stockage serveur (données anonymes uniquement) :</h4>
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li><strong>Mixpanel</strong> (serveurs dans l'Union Européenne 🇪🇺) : Analytics anonymes</li>
+                <li><strong>Tenjin</strong> (avec consentement ATT) : Attribution marketing et publicité</li>
+                <li><strong>RevenueCat</strong> : Gestion des abonnements (aucune donnée personnelle, uniquement les informations d'abonnement)</li>
+                <li><strong>Supabase</strong> (Union Européenne 🇪🇺) : Données communautaires (mur de prière, feedback, données onboarding anonymisées)</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-medium text-[var(--color-text)] mb-2">3.2 Sécurité</h3>
+              <p class="mb-2">Nous prenons la sécurité de vos données très au sérieux :</p>
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li>✅ Communications chiffrées (HTTPS uniquement)</li>
+                <li>✅ Données locales protégées par le système d'exploitation (iOS/Android)</li>
+                <li>✅ Aucune donnée personnelle identifiable envoyée à nos serveurs</li>
+                <li>✅ Serveurs Mixpanel situés dans l'UE (conformité RGPD)</li>
+                <li>✅ Pas de partage de données avec des tiers non autorisés</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="p-6 rounded-2xl bg-[var(--color-card)] border border-[var(--color-border)]">
+          <h2 class="text-xl font-semibold mb-4">4. Partage des Données avec des Tiers</h2>
+
+          <div class="space-y-4 text-[var(--color-text-secondary)]">
+            <div>
+              <h3 class="font-medium text-[var(--color-text)] mb-2">4.1 Services tiers utilisés</h3>
+
+              <div class="overflow-x-auto">
+                <table class="w-full border-collapse text-sm mt-3">
+                  <thead>
+                    <tr class="bg-[var(--color-background)]">
+                      <th class="border border-[var(--color-border)] p-2 text-left">Service</th>
+                      <th class="border border-[var(--color-border)] p-2 text-left">Finalité</th>
+                      <th class="border border-[var(--color-border)] p-2 text-left">Données partagées</th>
+                      <th class="border border-[var(--color-border)] p-2 text-left">Localisation</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="border border-[var(--color-border)] p-2"><strong>Mixpanel</strong></td>
+                      <td class="border border-[var(--color-border)] p-2">Analytics anonymes</td>
+                      <td class="border border-[var(--color-border)] p-2">Événements d'usage, ID utilisateur anonyme</td>
+                      <td class="border border-[var(--color-border)] p-2">🇪🇺 Union Européenne</td>
+                    </tr>
+                    <tr>
+                      <td class="border border-[var(--color-border)] p-2"><strong>Tenjin</strong></td>
+                      <td class="border border-[var(--color-border)] p-2">Attribution marketing (avec consentement ATT)</td>
+                      <td class="border border-[var(--color-border)] p-2">Device ID (IDFA/GAID), événements d'attribution</td>
+                      <td class="border border-[var(--color-border)] p-2">International</td>
+                    </tr>
+                    <tr>
+                      <td class="border border-[var(--color-border)] p-2"><strong>RevenueCat</strong></td>
+                      <td class="border border-[var(--color-border)] p-2">Gestion des abonnements</td>
+                      <td class="border border-[var(--color-border)] p-2">Informations d'abonnement (pas de données personnelles)</td>
+                      <td class="border border-[var(--color-border)] p-2">États-Unis 🇺🇸</td>
+                    </tr>
+                    <tr>
+                      <td class="border border-[var(--color-border)] p-2"><strong>Supabase</strong></td>
+                      <td class="border border-[var(--color-border)] p-2">Données communautaires (mur de prière, feedback, données onboarding anonymisées)</td>
+                      <td class="border border-[var(--color-border)] p-2">Prénom, genre, tranche d'âge, confession, email (optionnel), prières (optionnelles), feedback, choix de soutien - liés à un ID anonyme</td>
+                      <td class="border border-[var(--color-border)] p-2">🇪🇺 Union Européenne</td>
+                    </tr>
+                    <tr>
+                      <td class="border border-[var(--color-border)] p-2"><strong>Apple App Store</strong></td>
+                      <td class="border border-[var(--color-border)] p-2">Paiements iOS</td>
+                      <td class="border border-[var(--color-border)] p-2">Informations de facturation (gérées par Apple)</td>
+                      <td class="border border-[var(--color-border)] p-2">International</td>
+                    </tr>
+                    <tr>
+                      <td class="border border-[var(--color-border)] p-2"><strong>Google Play</strong></td>
+                      <td class="border border-[var(--color-border)] p-2">Paiements Android</td>
+                      <td class="border border-[var(--color-border)] p-2">Informations de facturation (gérées par Google)</td>
+                      <td class="border border-[var(--color-border)] p-2">International</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="font-medium text-[var(--color-text)] mb-2">4.2 Garanties</h3>
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li>Nous ne vendons <strong>jamais</strong> vos données à des tiers</li>
+                <li>Nous ne partageons vos données qu'avec des services <strong>essentiels</strong> au fonctionnement de l'application</li>
+                <li>Ces services sont soumis à des obligations contractuelles de protection des données</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 5 -->
+        <section class="p-6 rounded-2xl bg-[var(--color-card)] border border-[var(--color-border)]">
+          <h2 class="text-xl font-semibold mb-4">5. Vos Droits (RGPD)</h2>
+
+          <div class="space-y-4 text-[var(--color-text-secondary)]">
+            <p>En vertu du Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants :</p>
+
+            <div>
+              <h3 class="font-medium text-[var(--color-text)] mb-2">5.1 Droit d'accès</h3>
+              <p class="mb-2">Vous pouvez consulter toutes vos données à tout moment dans l'application :</p>
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li>Profil > Mes Informations : Prénom, genre</li>
+                <li>Profil > Réglages : Préférences d'affichage</li>
+                <li>Profil > Statistiques : Données d'utilisation</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-medium text-[var(--color-text)] mb-2">5.2 Droit de rectification</h3>
+              <p>Vous pouvez modifier vos informations à tout moment : <strong>Profil > Mes Informations > Modifier</strong></p>
+            </div>
+
+            <div>
+              <h3 class="font-medium text-[var(--color-text)] mb-2">5.3 Droit à l'effacement</h3>
+              <p class="mb-2">Vous pouvez supprimer toutes vos données locales : <strong>Profil > Réglages > Confidentialité > Effacer toutes mes données</strong></p>
+              <p class="mb-2"><strong>Important</strong> : Cette action est irréversible et supprime toutes vos données locales (favoris, statistiques, préférences).</p>
+              <p class="text-sm">Concernant les données analytics anonymes (Mixpanel), elles ne sont pas liées à votre identité réelle et ne peuvent donc pas être supprimées individuellement conformément au RGPD.</p>
+            </div>
+
+            <div>
+              <h3 class="font-medium text-[var(--color-text)] mb-2">5.4 Droit d'opposition</h3>
+              <p class="mb-2">Vous pouvez vous opposer au tracking publicitaire :</p>
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li><strong>iOS</strong> : Refuser le consentement ATT lors de la demande</li>
+                <li><strong>Android</strong> : Désactiver le tracking dans les paramètres de l'app</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-medium text-[var(--color-text)] mb-2">5.5 Droit à la portabilité</h3>
+              <p>Les données que vous fournissez (prénom, genre) sont déjà visibles et accessibles dans l'application. Étant donné le caractère minimal de ces données, nous n'offrons pas d'export automatique. Si vous souhaitez récupérer ces données, contactez-nous.</p>
+            </div>
+
+            <div>
+              <h3 class="font-medium text-[var(--color-text)] mb-2">5.6 Droit de retirer le consentement</h3>
+              <p>Vous pouvez retirer votre consentement au tracking publicitaire à tout moment dans les réglages de votre appareil (iOS) ou de l'application (Android).</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 6 -->
+        <section class="p-6 rounded-2xl bg-[var(--color-card)] border border-[var(--color-border)]">
+          <h2 class="text-xl font-semibold mb-4">6. Cookies et Technologies Similaires</h2>
+
+          <div class="space-y-4 text-[var(--color-text-secondary)]">
+            <div>
+              <h3 class="font-medium text-[var(--color-text)] mb-2">6.1 Application mobile</h3>
+              <p class="mb-2">VersetVie est une <strong>application mobile native</strong> (iOS/Android) et <strong>n'utilise pas de cookies</strong> (spécifiques au web).</p>
+              <p class="mb-2">Nous utilisons des technologies similaires pour :</p>
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li>Stocker vos préférences localement (AsyncStorage)</li>
+                <li>Identifier votre appareil de manière anonyme (Device ID)</li>
+                <li>Mesurer l'utilisation de l'application (analytics)</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-medium text-[var(--color-text)] mb-2">6.2 Version web</h3>
+              <p><strong>Il n'existe pas de version web de VersetVie</strong>. L'application est disponible uniquement sur iOS et Android.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 7 -->
+        <section class="p-6 rounded-2xl bg-[var(--color-card)] border border-[var(--color-border)]">
+          <h2 class="text-xl font-semibold mb-4">7. Protection des Mineurs</h2>
+          <div class="space-y-3 text-[var(--color-text-secondary)]">
+            <p>VersetVie est une application de contenu spirituel accessible à tous les âges. Cependant :</p>
+            <ul class="list-disc list-inside space-y-2 ml-2">
+              <li>Nous ne collectons <strong>volontairement</strong> aucune donnée personnelle d'enfants de moins de 13 ans</li>
+              <li>Si vous êtes parent et constatez que votre enfant a fourni des données personnelles, contactez-nous pour les supprimer</li>
+              <li>Conformément au RGPD, les mineurs de moins de 16 ans doivent obtenir le consentement de leurs parents pour utiliser l'application</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Section 8 -->
+        <section class="p-6 rounded-2xl bg-[var(--color-card)] border border-[var(--color-border)]">
+          <h2 class="text-xl font-semibold mb-4">8. Durée de Conservation des Données</h2>
+
+          <div class="space-y-4 text-[var(--color-text-secondary)]">
+            <div>
+              <h3 class="font-medium text-[var(--color-text)] mb-2">8.1 Données locales</h3>
+              <p class="mb-2">Les données stockées sur votre appareil sont conservées :</p>
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li><strong>Indéfiniment</strong> tant que vous utilisez l'application</li>
+                <li><strong>Supprimées automatiquement</strong> si vous désinstallez l'application</li>
+                <li><strong>Supprimées manuellement</strong> si vous utilisez la fonction "Effacer mes données"</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-medium text-[var(--color-text)] mb-2">8.2 Données analytics</h3>
+              <p>Les données analytics anonymes (Mixpanel) sont conservées <strong>maximum 2 ans</strong> après leur collecte, puis supprimées automatiquement.</p>
+            </div>
+
+            <div>
+              <h3 class="font-medium text-[var(--color-text)] mb-2">8.3 Données d'attribution</h3>
+              <p>Les données d'attribution (Tenjin) sont conservées pendant <strong>24 mois maximum</strong> après leur collecte, conformément à leur politique de rétention des données.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 9 -->
+        <section class="p-6 rounded-2xl bg-[var(--color-card)] border border-[var(--color-border)]">
+          <h2 class="text-xl font-semibold mb-4">9. Transferts Internationaux de Données</h2>
+
+          <div class="space-y-4 text-[var(--color-text-secondary)]">
+            <div>
+              <h3 class="font-medium text-[var(--color-text)] mb-2">9.1 Serveurs EU</h3>
+              <p>Les données analytics sont stockées sur les serveurs Mixpanel situés dans l'<strong>Union Européenne</strong> 🇪🇺, garantissant ainsi la conformité RGPD.</p>
+            </div>
+
+            <div>
+              <h3 class="font-medium text-[var(--color-text)] mb-2">9.2 Autres services</h3>
+              <ul class="list-disc list-inside space-y-2 ml-2">
+                <li><strong>RevenueCat</strong> (États-Unis 🇺🇸) : Encadré par des clauses contractuelles types (SCC) pour garantir un niveau de protection équivalent au RGPD</li>
+                <li><strong>Tenjin</strong> (États-Unis 🇺🇸) : Transferts encadrés par des clauses contractuelles types et des garanties appropriées conformes au RGPD</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 10 -->
+        <section class="p-6 rounded-2xl bg-[var(--color-card)] border border-[var(--color-border)]">
+          <h2 class="text-xl font-semibold mb-4">10. Modifications de cette Politique</h2>
+          <div class="space-y-3 text-[var(--color-text-secondary)]">
+            <p>Nous nous réservons le droit de modifier cette politique de confidentialité à tout moment.</p>
+            <p class="mb-2">En cas de modification substantielle :</p>
+            <ul class="list-disc list-inside space-y-1 ml-2">
+              <li>Vous serez informé via une notification dans l'application</li>
+              <li>La nouvelle version sera accessible dans l'application</li>
+              <li>Vous devrez accepter la nouvelle politique pour continuer à utiliser l'application</li>
+            </ul>
+            <p class="mt-3">La date de dernière mise à jour est indiquée en haut de ce document.</p>
+          </div>
+        </section>
+
+        <!-- Section 11 -->
+        <section class="p-6 rounded-2xl bg-[var(--color-card)] border border-[var(--color-border)]">
+          <h2 class="text-xl font-semibold mb-4">11. Contact et Questions</h2>
+          <div class="space-y-3 text-[var(--color-text-secondary)]">
+            <p>Pour toute question concernant cette politique de confidentialité ou pour exercer vos droits RGPD, vous pouvez nous contacter :</p>
+            <p><strong>Email</strong> : <a href="mailto:privacy@versetvie.com" class="text-[var(--color-primary)] hover:underline">privacy@versetvie.com</a></p>
+            <p><strong>Délai de réponse</strong> : Maximum 30 jours (conformément au RGPD)</p>
+          </div>
+        </section>
+
+        <!-- Section 12 -->
+        <section class="p-6 rounded-2xl bg-[var(--color-card)] border border-[var(--color-border)]">
+          <h2 class="text-xl font-semibold mb-4">12. Autorité de Contrôle</h2>
+          <div class="space-y-3 text-[var(--color-text-secondary)]">
+            <p>Si vous estimez que vos droits ne sont pas respectés, vous avez le droit de déposer une plainte auprès de l'autorité de contrôle compétente :</p>
+            <p><strong>France</strong> : Commission Nationale de l'Informatique et des Libertés (CNIL)</p>
+            <p>Site web : <a href="https://www.cnil.fr" class="text-[var(--color-primary)] hover:underline" target="_blank" rel="noopener noreferrer">https://www.cnil.fr</a></p>
+            <p>Adresse : 3 Place de Fontenoy, 75007 Paris, France</p>
+          </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section class="p-6 rounded-2xl bg-gradient-to-r from-[var(--color-primary)]/10 to-[var(--color-secondary)]/10 border border-[var(--color-border)] text-center">
+          <p class="text-[var(--color-text)] text-lg mb-2">
+            <strong>Merci d'utiliser VersetVie ! 🙏</strong>
+          </p>
+          <p class="text-[var(--color-text-secondary)]">
+            Nous nous engageons à protéger vos données et à respecter votre vie privée.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
