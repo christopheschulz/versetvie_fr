@@ -27,8 +27,7 @@ export const ui = {
     'hero.subtitle': 'Découvre chaque matin une parole personnalisée pour t\'encourager et te guider.',
     'hero.cta': 'Découvrir l\'application',
     'hero.socialProof': 'Rejoins plus de 7000 croyants',
-    'hero.stats.installs': 'Installations',
-    'hero.stats.users': 'Utilisateurs actifs',
+    'hero.stats.downloads': 'Téléchargements',
 
     // Features
     'features.title': 'Fonctionnalités',
@@ -129,8 +128,7 @@ export const ui = {
     'hero.subtitle': 'Discover each morning a personalized word to encourage and guide you.',
     'hero.cta': 'Discover the app',
     'hero.socialProof': 'Join over 7,000 believers',
-    'hero.stats.installs': 'Installs',
-    'hero.stats.users': 'Active users',
+    'hero.stats.downloads': 'Downloads',
 
     // Features
     'features.title': 'Features',
@@ -231,8 +229,7 @@ export const ui = {
     'hero.subtitle': 'Entdecke jeden Morgen ein persönliches Wort, um dich zu ermutigen und zu führen.',
     'hero.cta': 'App entdecken',
     'hero.socialProof': 'Schließe dich über 7.000 Gläubigen an',
-    'hero.stats.installs': 'Installationen',
-    'hero.stats.users': 'Aktive Nutzer',
+    'hero.stats.downloads': 'Downloads',
 
     // Features
     'features.title': 'Funktionen',
