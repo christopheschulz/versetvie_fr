@@ -33,15 +33,15 @@ export const storeUrls = {
 
 export const storeBadges = {
   fr: {
-    appStore: 'https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/fr-fr',
-    googlePlay: 'https://play.google.com/intl/en_us/badges/static/images/badges/fr_badge_web_generic.png',
+    appStore: '/badges/appstore-fr.svg',
+    googlePlay: '/badges/googleplay-fr.png',
   },
   en: {
-    appStore: 'https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us',
-    googlePlay: 'https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png',
+    appStore: '/badges/appstore-en.svg',
+    googlePlay: '/badges/googleplay-en.png',
   },
   de: {
-    appStore: 'https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/de-de',
-    googlePlay: 'https://play.google.com/intl/en_us/badges/static/images/badges/de_badge_web_generic.png',
+    appStore: '/badges/appstore-de.svg',
+    googlePlay: '/badges/googleplay-de.png',
   },
 };

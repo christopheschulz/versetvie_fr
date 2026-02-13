@@ -13,6 +13,10 @@ export default defineConfig({
       redirectToDefaultLocale: false
     }
   },
+  prefetch: {
+    defaultStrategy: 'hover',
+    prefetchAll: true
+  },
   vite: {
     plugins: [tailwindcss()]
   }
