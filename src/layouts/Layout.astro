@@ -1,14 +1,16 @@
 ---
 import '../styles/global.css';
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getLangFromUrl, useTranslations, storeBadges } from '../i18n/utils';
+import type { Lang } from '../i18n/ui';
 
 interface Props {
   title?: string;
   description?: string;
 }
 
-const lang = getLangFromUrl(Astro.url);
+const lang = getLangFromUrl(Astro.url) as Lang;
 const t = useTranslations(lang);
+const badges = storeBadges[lang];
 
 const {
   title = t('meta.title'),
@@ -28,6 +30,11 @@ const {
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" href="/icon.png" />
     <link rel="apple-touch-icon" href="/icon.png" />
+
+    <!-- Preload store badges -->
+    <link rel="preload" href={badges.appStore} as="image" type="image/svg+xml" />
+    <link rel="preload" href={badges.googlePlay} as="image" type="image/png" />
+    <link rel="preload" href="/icon.png" as="image" type="image/png" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
