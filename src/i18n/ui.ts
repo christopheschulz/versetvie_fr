@@ -26,10 +26,9 @@ export const ui = {
     'hero.title': 'Un message de Jésus pour toi, chaque jour',
     'hero.subtitle': 'Découvre chaque matin une parole personnalisée pour t\'encourager et te guider.',
     'hero.cta': 'Découvrir l\'application',
-    'hero.socialProof': 'Rejoins plus de 4000 croyants',
-    'hero.stats.users': 'Utilisateurs',
-    'hero.stats.verses': 'Versets',
-    'hero.stats.rating': 'Note moyenne',
+    'hero.socialProof': 'Rejoins plus de 7000 croyants',
+    'hero.stats.installs': 'Installations',
+    'hero.stats.users': 'Utilisateurs actifs',
 
     // Features
     'features.title': 'Fonctionnalités',
@@ -129,10 +128,9 @@ export const ui = {
     'hero.title': 'A message from Jesus for you, every day',
     'hero.subtitle': 'Discover each morning a personalized word to encourage and guide you.',
     'hero.cta': 'Discover the app',
-    'hero.socialProof': 'Join over 4,000 believers',
-    'hero.stats.users': 'Users',
-    'hero.stats.verses': 'Verses',
-    'hero.stats.rating': 'Average rating',
+    'hero.socialProof': 'Join over 7,000 believers',
+    'hero.stats.installs': 'Installs',
+    'hero.stats.users': 'Active users',
 
     // Features
     'features.title': 'Features',
@@ -232,10 +230,9 @@ export const ui = {
     'hero.title': 'Eine Botschaft von Jesus für dich, jeden Tag',
     'hero.subtitle': 'Entdecke jeden Morgen ein persönliches Wort, um dich zu ermutigen und zu führen.',
     'hero.cta': 'App entdecken',
-    'hero.socialProof': 'Schließe dich über 4.000 Gläubigen an',
-    'hero.stats.users': 'Benutzer',
-    'hero.stats.verses': 'Verse',
-    'hero.stats.rating': 'Durchschnittsbewertung',
+    'hero.socialProof': 'Schließe dich über 7.000 Gläubigen an',
+    'hero.stats.installs': 'Installationen',
+    'hero.stats.users': 'Aktive Nutzer',
 
     // Features
     'features.title': 'Funktionen',
