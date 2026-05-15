@@ -6,6 +6,7 @@ const t = useTranslations(lang);
 
 const faqs = [
   { question: t('faq.q7'), answer: t('faq.a7') },
+  { question: t('faq.q8'), answer: t('faq.a8') },
   { question: t('faq.q1'), answer: t('faq.a1') },
   { question: t('faq.q2'), answer: t('faq.a2') },
   { question: t('faq.q3'), answer: t('faq.a3') },
@@ -34,7 +35,9 @@ const faqs = [
           </summary>
           <div class="faq-answer">
             <div class="faq-answer-inner px-6 pb-4">
-              <p class="text-[var(--color-text-secondary)] leading-relaxed">{faq.answer}</p>
+              {faq.answer.split('\n\n').map((para) => (
+                <p class="text-[var(--color-text-secondary)] leading-relaxed mb-2 last:mb-0">{para}</p>
+              ))}
             </div>
           </div>
         </details>

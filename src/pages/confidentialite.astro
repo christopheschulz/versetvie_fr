@@ -83,7 +83,7 @@ const currentDate = new Date().toLocaleDateString('fr-FR', {
               <h3 class="font-medium text-[var(--color-text)] mb-2">1.2 Données collectées automatiquement</h3>
               <p class="mb-3">Pour améliorer l'application et comprendre comment elle est utilisée, nous collectons automatiquement certaines données <strong>anonymes</strong> :</p>
 
-              <h4 class="font-medium text-[var(--color-text)] mb-2">Données d'utilisation (via Mixpanel - serveurs EU) :</h4>
+              <h4 class="font-medium text-[var(--color-text)] mb-2">Données d'utilisation (via PostHog — serveurs EU, endpoint eu.i.posthog.com — conformité RGPD, identifiants anonymes uniquement) :</h4>
               <ul class="list-disc list-inside space-y-1 ml-2">
                 <li>Événements d'interaction (ouverture de l'app, consultation d'un verset, etc.)</li>
                 <li>Statistiques d'utilisation (nombre de versets vus, séries, etc.)</li>
@@ -91,7 +91,7 @@ const currentDate = new Date().toLocaleDateString('fr-FR', {
                 <li>Version de l'application</li>
               </ul>
 
-              <h4 class="font-medium text-[var(--color-text)] mb-2 mt-3">Données d'attribution (via Tenjin - uniquement avec consentement ATT) :</h4>
+              <h4 class="font-medium text-[var(--color-text)] mb-2 mt-3">Données d'attribution (via AppsFlyer et Tenjin - uniquement avec consentement ATT) :</h4>
               <ul class="list-disc list-inside space-y-1 ml-2">
                 <li>Source d'installation de l'application</li>
                 <li>Interactions avec les publicités (si vous avez accepté le tracking ATT sur iOS)</li>
@@ -179,7 +179,8 @@ const currentDate = new Date().toLocaleDateString('fr-FR', {
 
               <h4 class="font-medium text-[var(--color-text)] mb-2 mt-3">Stockage serveur (données anonymes uniquement) :</h4>
               <ul class="list-disc list-inside space-y-1 ml-2">
-                <li><strong>Mixpanel</strong> (serveurs dans l'Union Européenne 🇪🇺) : Analytics anonymes</li>
+                <li><strong>PostHog</strong> (serveurs EU, endpoint eu.i.posthog.com — conformité RGPD) : Analytics anonymes (identifiants anonymes uniquement)</li>
+                <li><strong>AppsFlyer</strong> (avec consentement ATT) : Attribution marketing et publicité</li>
                 <li><strong>Tenjin</strong> (avec consentement ATT) : Attribution marketing et publicité</li>
                 <li><strong>RevenueCat</strong> : Gestion des abonnements (aucune donnée personnelle, uniquement les informations d'abonnement)</li>
                 <li><strong>Supabase</strong> (Union Européenne 🇪🇺) : Données communautaires (mur de prière, feedback, données onboarding anonymisées)</li>
@@ -193,7 +194,7 @@ const currentDate = new Date().toLocaleDateString('fr-FR', {
                 <li>✅ Communications chiffrées (HTTPS uniquement)</li>
                 <li>✅ Données locales protégées par le système d'exploitation (iOS/Android)</li>
                 <li>✅ Aucune donnée personnelle identifiable envoyée à nos serveurs</li>
-                <li>✅ Serveurs Mixpanel situés dans l'UE (conformité RGPD)</li>
+                <li>✅ Serveurs PostHog situés dans l'UE (conformité RGPD, endpoint eu.i.posthog.com)</li>
                 <li>✅ Pas de partage de données avec des tiers non autorisés</li>
               </ul>
             </div>
@@ -220,10 +221,16 @@ const currentDate = new Date().toLocaleDateString('fr-FR', {
                   </thead>
                   <tbody>
                     <tr>
-                      <td class="border border-[var(--color-border)] p-2"><strong>Mixpanel</strong></td>
-                      <td class="border border-[var(--color-border)] p-2">Analytics anonymes</td>
-                      <td class="border border-[var(--color-border)] p-2">Événements d'usage, ID utilisateur anonyme</td>
+                      <td class="border border-[var(--color-border)] p-2"><strong>PostHog</strong></td>
+                      <td class="border border-[var(--color-border)] p-2">Analytics anonymes (eu.i.posthog.com)</td>
+                      <td class="border border-[var(--color-border)] p-2">Événements d'usage, identifiant anonyme uniquement</td>
                       <td class="border border-[var(--color-border)] p-2">🇪🇺 Union Européenne</td>
+                    </tr>
+                    <tr>
+                      <td class="border border-[var(--color-border)] p-2"><strong>AppsFlyer</strong></td>
+                      <td class="border border-[var(--color-border)] p-2">Attribution marketing (avec consentement ATT)</td>
+                      <td class="border border-[var(--color-border)] p-2">Device ID (IDFA/GAID), événements d'attribution</td>
+                      <td class="border border-[var(--color-border)] p-2">International</td>
                     </tr>
                     <tr>
                       <td class="border border-[var(--color-border)] p-2"><strong>Tenjin</strong></td>
@@ -297,7 +304,7 @@ const currentDate = new Date().toLocaleDateString('fr-FR', {
               <h3 class="font-medium text-[var(--color-text)] mb-2">5.3 Droit à l'effacement</h3>
               <p class="mb-2">Vous pouvez supprimer toutes vos données locales : <strong>Profil > Réglages > Confidentialité > Effacer toutes mes données</strong></p>
               <p class="mb-2"><strong>Important</strong> : Cette action est irréversible et supprime toutes vos données locales (favoris, statistiques, préférences).</p>
-              <p class="text-sm">Concernant les données analytics anonymes (Mixpanel), elles ne sont pas liées à votre identité réelle et ne peuvent donc pas être supprimées individuellement conformément au RGPD.</p>
+              <p class="text-sm">Concernant les données analytics anonymes (PostHog), elles ne sont pas liées à votre identité réelle et ne peuvent donc pas être supprimées individuellement conformément au RGPD.</p>
             </div>
 
             <div>
@@ -374,7 +381,7 @@ const currentDate = new Date().toLocaleDateString('fr-FR', {
 
             <div>
               <h3 class="font-medium text-[var(--color-text)] mb-2">8.2 Données analytics</h3>
-              <p>Les données analytics anonymes (Mixpanel) sont conservées <strong>maximum 2 ans</strong> après leur collecte, puis supprimées automatiquement.</p>
+              <p>Les données analytics anonymes (PostHog) sont conservées <strong>maximum 2 ans</strong> après leur collecte, puis supprimées automatiquement.</p>
             </div>
 
             <div>
@@ -391,7 +398,7 @@ const currentDate = new Date().toLocaleDateString('fr-FR', {
           <div class="space-y-4 text-[var(--color-text-secondary)]">
             <div>
               <h3 class="font-medium text-[var(--color-text)] mb-2">9.1 Serveurs EU</h3>
-              <p>Les données analytics sont stockées sur les serveurs Mixpanel situés dans l'<strong>Union Européenne</strong> 🇪🇺, garantissant ainsi la conformité RGPD.</p>
+              <p>Les données analytics sont stockées sur les serveurs PostHog situés dans l'<strong>Union Européenne</strong> 🇪🇺 (endpoint eu.i.posthog.com), garantissant ainsi la conformité RGPD.</p>
             </div>
 
             <div>
