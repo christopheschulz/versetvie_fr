@@ -41,7 +41,7 @@ const home = prefix ? `${prefix}/` : '/';
         <a href={`${prefix}/#download`} data-section="download" class="nav-link">
           {t('nav.download')}
         </a>
-        <a href={lang === 'de' ? `${prefix}/kontakt` : `${prefix}/contact`} class="nav-link">
+        <a href={lang === 'de' ? `${prefix}/kontakt` : `${prefix}/contact`} data-section="contact" class="nav-link">
           {t('nav.contact')}
         </a>
       </nav>
@@ -102,7 +102,7 @@ const home = prefix ? `${prefix}/` : '/';
       <a href={`${prefix}/#download`} data-section="download" class="nav-link nav-link--mobile">
         {t('nav.download')}
       </a>
-      <a href={lang === 'de' ? `${prefix}/kontakt` : `${prefix}/contact`} class="nav-link nav-link--mobile">
+      <a href={lang === 'de' ? `${prefix}/kontakt` : `${prefix}/contact`} data-section="contact" class="nav-link nav-link--mobile">
         {t('nav.contact')}
       </a>
     </div>
@@ -195,19 +195,34 @@ const home = prefix ? `${prefix}/` : '/';
 
     // Handle click on nav links - activate immediately
     navLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
+      link.addEventListener('click', () => {
         const sectionId = link.getAttribute('data-section');
         if (sectionId) {
           setActiveLink(sectionId);
         }
-        // Close mobile menu
         if (mobileMenu) {
           mobileMenu.classList.add('hidden');
         }
       });
     });
 
-    // Set initial active state based on current scroll position or hash
+    // Detect current page from pathname to set the correct active link
+    const pathSegments = window.location.pathname.split('/').filter(Boolean);
+    const lastSegment = pathSegments[pathSegments.length - 1] || '';
+    const homepageSegments = ['', 'fr', 'en', 'de'];
+    const contactSegments = ['contact', 'kontakt'];
+
+    if (contactSegments.includes(lastSegment)) {
+      setActiveLink('contact');
+      return; // no scroll detection on contact page
+    }
+
+    if (!homepageSegments.includes(lastSegment)) {
+      // Legal pages and other sub-pages: no active nav item
+      return;
+    }
+
+    // Homepage: detect active section via hash then IntersectionObserver
     const hash = window.location.hash.replace('#', '');
     if (hash && sections.includes(hash)) {
       setActiveLink(hash);
@@ -215,7 +230,6 @@ const home = prefix ? `${prefix}/` : '/';
       setActiveLink('hero');
     }
 
-    // Intersection Observer for section detection on scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -231,7 +245,6 @@ const home = prefix ? `${prefix}/` : '/';
       threshold: 0
     });
 
-    // Observe all sections
     sections.forEach(sectionId => {
       const element = document.getElementById(sectionId);
       if (element) {
