@@ -1,0 +1,352 @@
+---
+import { getLangFromUrl, getLocalePrefix, storeBadges, storeUrls, useTranslations } from '../i18n/utils';
+import type { Lang } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url) as Lang;
+const t = useTranslations(lang);
+const badges = storeBadges[lang];
+const prefix = getLocalePrefix(lang);
+const home = prefix ? `${prefix}/` : '/';
+---
+
+<main class="download-page">
+  <section class="download-hero">
+    <div class="download-copy">
+      <a href={home} class="back-link">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M19 12H5"></path>
+          <path d="M12 19l-7-7 7-7"></path>
+        </svg>
+        {t('download.backHome')}
+      </a>
+
+      <div class="brand-mark">
+        <img src="/icon.png" alt="VersetVie" width="72" height="72" />
+        <span>VersetVie</span>
+      </div>
+
+      <div class="headline-block">
+        <p class="eyebrow">{t('pricing.support.cta')}</p>
+        <h1>{t('download.title')}</h1>
+        <p class="lead">{t('download.subtitle')}</p>
+      </div>
+
+      <div class="store-zone" aria-label={t('download.storeTitle')}>
+        <div class="store-zone__header">
+          <span>{t('download.storeTitle')}</span>
+          <small>{t('download.storeSubtitle')}</small>
+        </div>
+
+        <div class="store-buttons">
+          <a
+            href={storeUrls.appStore}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="App Store"
+          >
+            <img
+              src={badges.appStore}
+              alt="App Store"
+              width="174"
+              height="56"
+            />
+          </a>
+          <a
+            href={storeUrls.googlePlay}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Google Play"
+          >
+            <img
+              src={badges.googlePlay}
+              alt="Google Play"
+              width="174"
+              height="56"
+            />
+          </a>
+        </div>
+
+        <p>{t('download.trialNote')}</p>
+      </div>
+    </div>
+
+    <div class="download-preview" aria-hidden="true">
+      <div class="preview-frame">
+        <img src={`/screenshots/${lang}/02.png`} alt="" loading="eager" />
+      </div>
+    </div>
+  </section>
+</main>
+
+<style>
+  .download-page {
+    min-height: 100vh;
+    padding: 6rem 1rem 3rem;
+    overflow: hidden;
+    background:
+      linear-gradient(90deg, color-mix(in srgb, var(--color-primary) 9%, transparent) 1px, transparent 1px),
+      linear-gradient(0deg, color-mix(in srgb, var(--color-primary) 8%, transparent) 1px, transparent 1px),
+      var(--color-background);
+    background-size: 56px 56px;
+  }
+
+  .download-hero {
+    width: min(1180px, 100%);
+    min-height: calc(100vh - 9rem);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.55fr);
+    align-items: center;
+    gap: clamp(2rem, 5vw, 5rem);
+  }
+
+  .download-copy {
+    position: relative;
+    z-index: 2;
+  }
+
+  .back-link {
+    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .back-link:hover {
+    color: var(--color-primary);
+  }
+
+  .back-link svg {
+    width: 1rem;
+    height: 1rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .brand-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 2rem;
+    padding: 0.55rem 1rem 0.55rem 0.55rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-card) 82%, transparent);
+    box-shadow: 0 20px 60px color-mix(in srgb, var(--color-text) 10%, transparent);
+  }
+
+  .brand-mark img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1rem;
+  }
+
+  .brand-mark span {
+    font-weight: 800;
+    letter-spacing: 0;
+  }
+
+  .headline-block {
+    max-width: 620px;
+  }
+
+  .eyebrow {
+    width: fit-content;
+    margin: 0 0 1rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-premium) 24%, transparent);
+    color: color-mix(in srgb, var(--color-text) 82%, var(--color-premium));
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  h1 {
+    max-width: 10ch;
+    margin: 0;
+    font-size: clamp(3.6rem, 8vw, 7.5rem);
+    line-height: 0.88;
+    letter-spacing: 0;
+    color: var(--color-text);
+  }
+
+  .lead {
+    max-width: 34rem;
+    margin: 1.5rem 0 0;
+    color: var(--color-text-secondary);
+    font-size: clamp(1.08rem, 2vw, 1.35rem);
+    line-height: 1.55;
+  }
+
+  .store-zone {
+    max-width: 520px;
+    margin-top: 2.25rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .store-zone__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 1rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .store-zone__header span {
+    font-size: 1.1rem;
+    font-weight: 800;
+  }
+
+  .store-zone__header small,
+  .store-zone p {
+    color: var(--color-text-tertiary);
+  }
+
+  .store-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+  }
+
+  .store-buttons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 174px;
+    min-height: 56px;
+    transition:
+      transform 0.2s ease,
+      filter 0.2s ease;
+  }
+
+  .store-buttons a:hover {
+    transform: translateY(-2px);
+    filter: saturate(1.08);
+  }
+
+  .store-buttons img {
+    width: 174px;
+    height: 56px;
+    object-fit: contain;
+  }
+
+  .store-zone p {
+    max-width: 30rem;
+    margin: 1rem 0 0;
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .download-preview {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .preview-frame {
+    width: min(310px, 100%);
+    aspect-ratio: 1320 / 2868;
+    overflow: hidden;
+    border: 10px solid var(--color-text);
+    border-radius: 42px;
+    background: var(--color-text);
+    box-shadow: 0 30px 90px color-mix(in srgb, var(--color-text) 18%, transparent);
+  }
+
+  .preview-frame img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 960px) {
+    .download-page {
+      padding-top: 5.5rem;
+    }
+
+    .download-hero {
+      min-height: auto;
+      grid-template-columns: 1fr;
+      gap: 2.25rem;
+    }
+
+    .download-copy {
+      text-align: center;
+    }
+
+    .back-link,
+    .brand-mark,
+    .eyebrow {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    h1 {
+      max-width: none;
+    }
+
+    .lead,
+    .store-zone,
+    .store-zone p {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .store-zone__header,
+    .store-buttons {
+      justify-content: center;
+    }
+
+    .download-preview {
+      width: min(560px, 100%);
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .download-page {
+      padding: 5rem 1rem 2.5rem;
+      background-size: 42px 42px;
+    }
+
+    .back-link {
+      margin-bottom: 1.75rem;
+    }
+
+    .brand-mark {
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: clamp(3.2rem, 16vw, 4.5rem);
+    }
+
+    .store-zone {
+      margin-top: 1.75rem;
+    }
+
+    .store-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .preview-frame {
+      width: min(245px, 100%);
+      border-width: 8px;
+      border-radius: 34px;
+    }
+  }
+</style>

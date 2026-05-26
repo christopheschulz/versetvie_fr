@@ -1,9 +1,9 @@
 ---
-import { getLangFromUrl, useTranslations, getLocalePrefix } from '../i18n/utils';
+import { getDownloadPath, getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const prefix = getLocalePrefix(lang);
+const downloadPath = getDownloadPath(lang);
 
 const features = [
   t('pricing.support.feature1'),
@@ -45,7 +45,7 @@ const features = [
 
         <div class="text-center">
           <a
-            href={`${prefix}/#download`}
+            href={downloadPath}
             class="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] text-white font-semibold rounded-xl hover:opacity-90 transition-opacity"
           >
             {t('pricing.support.cta')}

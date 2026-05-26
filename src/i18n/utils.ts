@@ -26,6 +26,12 @@ export function getLocalizedPath(path: string, lang: Lang): string {
   return `/${lang}${path}`;
 }
 
+export function getDownloadPath(lang: Lang): string {
+  if (lang === 'en') return '/en/download';
+  if (lang === 'de') return '/de/herunterladen';
+  return '/telecharger';
+}
+
 export const storeUrls = {
   appStore: 'https://apps.apple.com/app/versetvie/id6746123018',
   googlePlay: 'https://play.google.com/store/apps/details?id=com.anonymous.versetvie&pcampaignid=web_share',

@@ -89,6 +89,16 @@ export const ui = {
     'cta.title': 'Prêt à commencer ton voyage spirituel ?',
     'cta.subtitle': 'Télécharge VersetVie et reçois ta première parole d\'encouragement.',
 
+    // Download
+    'download.meta.title': 'Télécharger VersetVie',
+    'download.meta.description': 'Télécharge VersetVie sur iPhone ou Android et commence ton essai gratuit Premium.',
+    'download.title': 'Télécharger VersetVie',
+    'download.subtitle': 'Installe l\'application, puis démarre ton essai gratuit Premium directement depuis VersetVie.',
+    'download.storeTitle': 'Choisis ton store',
+    'download.storeSubtitle': 'Disponible sur iPhone et Android.',
+    'download.trialNote': 'L\'essai gratuit Premium se lance dans l\'application via l\'App Store ou Google Play.',
+    'download.backHome': 'Retour à l\'accueil',
+
     // Footer
     'footer.description': 'Une application chrétienne pour t\'encourager chaque jour avec la Parole de Dieu.',
     'footer.navigation': 'Navigation',
@@ -199,6 +209,16 @@ export const ui = {
     'cta.title': 'Ready to start your spiritual journey?',
     'cta.subtitle': 'Download VersetVie and receive your first word of encouragement.',
 
+    // Download
+    'download.meta.title': 'Download VersetVie',
+    'download.meta.description': 'Download VersetVie on iPhone or Android and start your free Premium trial.',
+    'download.title': 'Download VersetVie',
+    'download.subtitle': 'Install the app, then start your free Premium trial directly inside VersetVie.',
+    'download.storeTitle': 'Choose your store',
+    'download.storeSubtitle': 'Available on iPhone and Android.',
+    'download.trialNote': 'The free Premium trial starts in the app through the App Store or Google Play.',
+    'download.backHome': 'Back to home',
+
     // Footer
     'footer.description': 'A Christian app to encourage you every day with God\'s Word.',
     'footer.navigation': 'Navigation',
@@ -308,6 +328,16 @@ export const ui = {
     // CTA
     'cta.title': 'Bereit, deine spirituelle Reise zu beginnen?',
     'cta.subtitle': 'Lade VersetVie herunter und erhalte dein erstes Wort der Ermutigung.',
+
+    // Download
+    'download.meta.title': 'VersetVie herunterladen',
+    'download.meta.description': 'Lade VersetVie auf iPhone oder Android herunter und starte deine kostenlose Premium-Testphase.',
+    'download.title': 'VersetVie herunterladen',
+    'download.subtitle': 'Installiere die App und starte deine kostenlose Premium-Testphase direkt in VersetVie.',
+    'download.storeTitle': 'Wähle deinen Store',
+    'download.storeSubtitle': 'Verfügbar auf iPhone und Android.',
+    'download.trialNote': 'Die kostenlose Premium-Testphase startet in der App über den App Store oder Google Play.',
+    'download.backHome': 'Zurück zur Startseite',
 
     // Footer
     'footer.description': 'Eine christliche App, die dich jeden Tag mit Gottes Wort ermutigt.',

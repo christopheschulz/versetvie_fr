@@ -1,9 +1,8 @@
 ---
-import { getLangFromUrl, getLocalePrefix } from '../i18n/utils';
+import { getLangFromUrl } from '../i18n/utils';
 import { languages, defaultLang } from '../i18n/ui';
 
 const lang = getLangFromUrl(Astro.url);
-const prefix = getLocalePrefix(lang);
 
 // Map page paths between languages
 const pageMapping: Record<string, Record<string, string>> = {
@@ -12,19 +11,21 @@ const pageMapping: Record<string, Record<string, string>> = {
   '/conditions': { fr: '/conditions', en: '/terms', de: '/nutzungsbedingungen' },
   '/contact': { fr: '/contact', en: '/contact', de: '/kontakt' },
   '/mentions-legales': { fr: '/mentions-legales', en: '/legal-notice', de: '/impressum' },
+  '/telecharger': { fr: '/telecharger', en: '/download', de: '/herunterladen' },
   '/privacy': { fr: '/confidentialite', en: '/privacy', de: '/datenschutz' },
   '/terms': { fr: '/conditions', en: '/terms', de: '/nutzungsbedingungen' },
+  '/download': { fr: '/telecharger', en: '/download', de: '/herunterladen' },
   '/datenschutz': { fr: '/confidentialite', en: '/privacy', de: '/datenschutz' },
   '/nutzungsbedingungen': { fr: '/conditions', en: '/terms', de: '/nutzungsbedingungen' },
   '/kontakt': { fr: '/contact', en: '/contact', de: '/kontakt' },
   '/legal-notice': { fr: '/mentions-legales', en: '/legal-notice', de: '/impressum' },
   '/impressum': { fr: '/mentions-legales', en: '/legal-notice', de: '/impressum' },
+  '/herunterladen': { fr: '/telecharger', en: '/download', de: '/herunterladen' },
 };
 
-// Strip locale prefix to get the current page path
-const currentPath = prefix
-  ? (Astro.url.pathname.replace(prefix, '') || '/')
-  : (Astro.url.pathname || '/');
+// Strip any locale prefix to get the current page path.
+const localePattern = new RegExp(`^/(${Object.keys(languages).join('|')})(?=/|$)`);
+const currentPath = Astro.url.pathname.replace(localePattern, '') || '/';
 
 function getTargetPath(targetLang: string): string {
   const mapping = pageMapping[currentPath];
