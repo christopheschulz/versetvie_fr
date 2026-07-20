@@ -1,89 +1,224 @@
 ---
-import { getLangFromUrl, useTranslations, storeUrls, storeBadges } from '../i18n/utils';
+import { getDownloadPath, getLangFromUrl, useTranslations, storeUrls, storeBadges } from '../i18n/utils';
 import type { Lang } from '../i18n/ui';
 
 const lang = getLangFromUrl(Astro.url) as Lang;
 const t = useTranslations(lang);
 const badges = storeBadges[lang];
+const downloadPath = getDownloadPath(lang);
 ---
 
-<section id="hero" class="relative min-h-screen flex items-center justify-center pt-16 pb-20 px-4 overflow-hidden">
-  <!-- Background gradient -->
-  <div class="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/10 via-transparent to-[var(--color-secondary)]/10"></div>
+<section id="hero" class="hero-shell relative overflow-hidden px-4 pb-20 pt-28 sm:pt-32 lg:pb-28">
+  <div class="hero-aurora" aria-hidden="true"></div>
 
-  <div class="relative max-w-4xl mx-auto text-center">
-    <!-- App icon -->
-    <div class="mb-8">
-      <img src="/icon.png" alt="VersetVie" width="96" height="96" fetchpriority="high" class="w-24 h-24 rounded-3xl shadow-2xl mx-auto" />
-    </div>
+  <div class="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1.05fr_.95fr] lg:gap-8">
+    <div class="relative z-10 mx-auto max-w-3xl text-center lg:mx-0 lg:text-left">
+      <div class="mb-7 inline-flex items-center gap-3 text-sm font-semibold text-[var(--color-text-secondary)]">
+        <span class="relative flex h-9 w-9 items-center justify-center">
+          <span class="absolute inset-0 rounded-full bg-[var(--color-primary)]/15"></span>
+          <img src="/icon.png" alt="" width="28" height="28" fetchpriority="high" class="relative h-7 w-7 rounded-[9px]" />
+        </span>
+        <span>{t('hero.kicker')}</span>
+      </div>
 
-    <!-- Title -->
-    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-      <span class="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] bg-clip-text text-transparent">
+      <h1 class="hero-title text-[var(--color-text)]">
         {t('hero.title')}
-      </span>
-    </h1>
+      </h1>
 
-    <!-- Subtitle -->
-    <p class="text-lg sm:text-xl text-[var(--color-text-secondary)] mb-8 max-w-2xl mx-auto">
-      {t('hero.subtitle')}
-    </p>
+      <p class="mx-auto mt-7 max-w-2xl text-base leading-relaxed text-[var(--color-text-secondary)] sm:text-lg lg:mx-0 lg:max-w-xl">
+        {t('hero.subtitle')}
+      </p>
 
-    <!-- Social proof -->
-    <p class="text-sm text-[var(--color-text-tertiary)] mb-8">
-      <span class="inline-flex items-center gap-2">
-        <svg class="w-5 h-5 text-[var(--color-premium)]" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-        </svg>
-        {t('hero.socialProof')}
-      </span>
-    </p>
+      <div class="mt-8 flex flex-col items-center gap-3 sm:flex-row lg:justify-start">
+        <a href={downloadPath} class="hero-cta group inline-flex min-h-13 items-center justify-center gap-3 rounded-full bg-[var(--color-primary)] px-6 text-sm font-bold text-white shadow-[0_14px_35px_rgba(98,100,232,.3)] transition hover:-translate-y-1 hover:shadow-[0_20px_45px_rgba(98,100,232,.38)]">
+          {t('hero.cta')}
+          <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-6-6 6 6-6 6"/>
+          </svg>
+        </a>
+        <a href="#screenshots" class="inline-flex min-h-13 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]/65 px-6 text-sm font-bold text-[var(--color-text)] transition hover:border-[var(--color-primary)] hover:bg-[var(--color-surface)]">
+          {t('nav.screenshots')}
+        </a>
+      </div>
 
-    <!-- Download buttons -->
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-      <a
-        href={storeUrls.appStore}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="transition-transform hover:scale-105"
-      >
-        <img
-          src={badges.appStore}
-          alt="App Store"
-          width="160"
-          height="52"
-          fetchpriority="high"
-          class="h-[52px] w-[160px] object-contain"
-        />
-      </a>
-      <a
-        href={storeUrls.googlePlay}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="transition-transform hover:scale-105"
-      >
-        <img
-          src={badges.googlePlay}
-          alt="Google Play"
-          width="160"
-          height="52"
-          fetchpriority="high"
-          class="h-[52px] w-[160px] object-contain"
-        />
-      </a>
+      <div class="mt-7 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
+        <a href={storeUrls.appStore} target="_blank" rel="noopener noreferrer" class="transition-transform hover:-translate-y-1">
+          <img src={badges.appStore} alt="App Store" width="140" height="45" fetchpriority="high" class="h-11 w-auto" />
+        </a>
+        <a href={storeUrls.googlePlay} target="_blank" rel="noopener noreferrer" class="transition-transform hover:-translate-y-1">
+          <img src={badges.googlePlay} alt="Google Play" width="140" height="45" fetchpriority="high" class="h-11 w-auto" />
+        </a>
+      </div>
+
+      <dl class="mx-auto mt-10 grid max-w-xl grid-cols-3 border-y border-[var(--color-border)] py-4 text-left lg:mx-0">
+        <div class="border-r border-[var(--color-border)] pr-3">
+          <dt class="text-[10px] font-bold uppercase tracking-[.13em] text-[var(--color-text-tertiary)]">{t('hero.stats.downloads')}</dt>
+          <dd class="mt-1 font-serif text-3xl font-semibold text-[var(--color-text)]">7k+</dd>
+        </div>
+        <div class="border-r border-[var(--color-border)] px-3 sm:px-6">
+          <dt class="text-[10px] font-bold uppercase tracking-[.13em] text-[var(--color-text-tertiary)]">{t('hero.stats.trial')}</dt>
+          <dd class="mt-1 font-serif text-3xl font-semibold text-[var(--color-text)]">7</dd>
+        </div>
+        <div class="pl-3 sm:pl-6">
+          <dt class="text-[10px] font-bold uppercase tracking-[.13em] text-[var(--color-text-tertiary)]">{t('hero.stats.verses')}</dt>
+          <dd class="mt-1 font-serif text-3xl font-semibold text-[var(--color-text)]">427</dd>
+        </div>
+      </dl>
     </div>
 
-    <!-- Stats -->
-    <div class="flex flex-col items-center">
-      <div class="text-2xl sm:text-3xl font-bold text-[var(--color-primary)]">+7000</div>
-      <div class="text-xs sm:text-sm text-[var(--color-text-tertiary)]">{t('hero.stats.downloads')}</div>
-    </div>
-  </div>
+    <div class="hero-visual relative mx-auto flex min-h-[550px] w-full max-w-[590px] items-center justify-center sm:min-h-[650px]">
+      <div class="sun-disc" aria-hidden="true"></div>
+      <div class="orbit orbit-one" aria-hidden="true"></div>
+      <div class="orbit orbit-two" aria-hidden="true"></div>
 
-  <!-- Scroll indicator -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-    <svg class="w-6 h-6 text-[var(--color-text-tertiary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-    </svg>
+      <figure class="app-preview">
+        <img
+          src={`/screenshots/${lang}/02.png`}
+          alt={t('hero.previewAltMain')}
+          width="1320"
+          height="2868"
+          fetchpriority="high"
+        />
+      </figure>
+
+      <div class="verse-note">
+        <span class="mb-2 block font-serif text-3xl leading-none text-[var(--color-primary)]">“</span>
+        <p class="text-sm font-semibold leading-snug text-[var(--color-text)]">{t('hero.previewTitle')}</p>
+        <p class="mt-1 text-xs leading-relaxed text-[var(--color-text-secondary)]">{t('hero.previewText')}</p>
+      </div>
+
+      <div class="morning-chip">
+        <span class="h-2 w-2 rounded-full bg-[var(--color-accent)] shadow-[0_0_0_5px_rgba(240,123,101,.14)]"></span>
+        <span>{t('features.group.daily')}</span>
+      </div>
+    </div>
   </div>
 </section>
+
+<style>
+  .hero-shell {
+    min-height: min(940px, 100svh);
+    background:
+      radial-gradient(circle at 74% 18%, rgba(155, 157, 248, 0.22), transparent 26rem),
+      radial-gradient(circle at 15% 15%, rgba(120, 181, 255, 0.15), transparent 22rem),
+      linear-gradient(180deg, var(--color-background) 0%, color-mix(in srgb, var(--color-warm-bg) 55%, var(--color-background)) 100%);
+  }
+
+  .hero-aurora {
+    position: absolute;
+    inset: -20% -15% auto 40%;
+    height: 32rem;
+    background: linear-gradient(115deg, transparent 10%, rgba(255,255,255,.7) 45%, transparent 70%);
+    filter: blur(30px);
+    opacity: .7;
+    pointer-events: none;
+    transform: rotate(-14deg);
+  }
+
+  :global(.dark) .hero-aurora { opacity: .08; }
+
+  .hero-title {
+    max-width: 13ch;
+    font-size: clamp(3.5rem, 7.5vw, 7rem);
+    line-height: .86;
+    letter-spacing: -.055em;
+  }
+
+  .hero-title::after {
+    display: inline-block;
+    width: .17em;
+    height: .17em;
+    margin-left: .08em;
+    border-radius: 50%;
+    background: var(--color-accent);
+    content: '';
+    vertical-align: .1em;
+  }
+
+  .sun-disc {
+    position: absolute;
+    width: min(82vw, 470px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #f9c66f, #f1866f 48%, #7777f2);
+    box-shadow: 0 40px 100px rgba(98, 100, 232, .24);
+  }
+
+  .sun-disc::after {
+    position: absolute;
+    inset: 1px;
+    border: 1px solid rgba(255,255,255,.32);
+    border-radius: inherit;
+    content: '';
+  }
+
+  .orbit {
+    position: absolute;
+    border: 1px solid color-mix(in srgb, var(--color-primary) 35%, transparent);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .orbit-one { width: 104%; aspect-ratio: 1; transform: rotate(14deg) scaleY(.75); }
+  .orbit-two { width: 89%; aspect-ratio: 1; transform: rotate(-18deg) scaleY(.7); }
+
+  .app-preview {
+    position: relative;
+    z-index: 2;
+    width: min(64vw, 292px);
+    overflow: hidden;
+    border: 8px solid #111522;
+    border-radius: 2.7rem;
+    background: #111522;
+    box-shadow: 0 35px 80px rgba(20, 26, 55, .32), inset 0 0 0 1px rgba(255,255,255,.1);
+    transform: rotate(3deg);
+  }
+
+  .app-preview img { display: block; width: 100%; height: auto; }
+
+  .verse-note {
+    position: absolute;
+    z-index: 3;
+    right: 0;
+    bottom: 10%;
+    width: min(260px, 52vw);
+    border: 1px solid rgba(255,255,255,.75);
+    border-radius: 1.5rem 1.5rem .4rem 1.5rem;
+    background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+    box-shadow: var(--shadow-float);
+    padding: 1.1rem 1.2rem;
+    backdrop-filter: blur(16px);
+  }
+
+  .morning-chip {
+    position: absolute;
+    z-index: 3;
+    top: 13%;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    border: 1px solid rgba(255,255,255,.7);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+    box-shadow: var(--shadow-float);
+    padding: .75rem 1rem;
+    color: var(--color-text-secondary);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    backdrop-filter: blur(16px);
+  }
+
+  @media (max-width: 1023px) {
+    .hero-title { margin-inline: auto; }
+  }
+
+  @media (max-width: 639px) {
+    .hero-visual { min-height: 510px; }
+    .app-preview { border-width: 6px; border-radius: 2.15rem; }
+    .verse-note { right: 2%; bottom: 4%; }
+    .morning-chip { left: 1%; top: 9%; }
+  }
+</style>

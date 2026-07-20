@@ -1,6 +1,5 @@
 ---
 import { getDownloadPath, getLangFromUrl, useTranslations, getLocalePrefix } from '../i18n/utils';
-import { languages } from '../i18n/ui';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 
 const lang = getLangFromUrl(Astro.url);
@@ -10,17 +9,17 @@ const home = prefix ? `${prefix}/` : '/';
 const downloadPath = getDownloadPath(lang);
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 glass border-b border-[var(--color-border)]">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16">
+<header class="fixed left-0 right-0 top-0 z-50 px-3 pt-3 sm:px-5">
+  <div class="nav-shell glass mx-auto max-w-7xl rounded-2xl border border-[var(--color-border)]/70 px-3 sm:px-4">
+    <div class="flex h-16 items-center justify-between">
       <!-- Logo -->
-      <a href={home} class="flex items-center gap-2">
-        <img src="/icon.png" alt="VersetVie" class="w-10 h-10 rounded-xl" />
-        <span class="font-semibold text-lg hidden sm:block">VersetVie</span>
+      <a href={home} class="group flex items-center gap-3">
+        <img src="/icon.png" alt="Verset Vie" class="h-9 w-9 rounded-[11px] shadow-sm transition-transform group-hover:-rotate-3 group-hover:scale-105" />
+        <span class="hidden font-serif text-xl font-semibold tracking-[-.03em] sm:block">Verset Vie</span>
       </a>
 
       <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center gap-1">
+      <nav class="hidden lg:flex items-center gap-1">
         <a href={home} data-section="hero" class="nav-link">
           {t('nav.home')}
         </a>
@@ -39,22 +38,16 @@ const downloadPath = getDownloadPath(lang);
         <a href={`${prefix}/#faq`} data-section="faq" class="nav-link">
           {t('nav.faq')}
         </a>
-        <a href={downloadPath} data-section="download" class="nav-link">
-          {t('nav.download')}
-        </a>
-        <a href={lang === 'de' ? `${prefix}/kontakt` : `${prefix}/contact`} data-section="contact" class="nav-link">
-          {t('nav.contact')}
-        </a>
       </nav>
 
       <!-- Actions -->
-      <div class="flex items-center gap-4">
+      <div class="flex items-center gap-2 sm:gap-3">
         <LanguageSwitcher />
 
         <!-- Theme Toggle -->
         <button
           id="theme-toggle"
-          class="p-2 rounded-lg hover:bg-[var(--color-surface)] transition-colors cursor-pointer"
+          class="cursor-pointer rounded-full p-2.5 transition-colors hover:bg-[var(--color-primary-bg)]"
           aria-label="Toggle theme"
         >
           <svg class="w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20">
@@ -65,11 +58,21 @@ const downloadPath = getDownloadPath(lang);
           </svg>
         </button>
 
+        <a
+          href={downloadPath}
+          data-section="download"
+          class="hidden min-h-11 items-center justify-center rounded-full bg-[var(--color-primary)] px-5 text-sm font-bold text-white shadow-[0_8px_25px_rgba(98,100,232,.22)] transition hover:-translate-y-0.5 sm:inline-flex"
+        >
+          {t('nav.download')}
+        </a>
+
         <!-- Mobile Menu Button -->
         <button
           id="mobile-menu-btn"
-          class="md:hidden p-2 rounded-lg hover:bg-[var(--color-surface)] transition-colors"
+          class="rounded-full p-2.5 transition-colors hover:bg-[var(--color-primary-bg)] lg:hidden"
           aria-label="Menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
         >
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
@@ -80,8 +83,8 @@ const downloadPath = getDownloadPath(lang);
   </div>
 
   <!-- Mobile Menu -->
-  <nav id="mobile-menu" class="hidden md:hidden border-t border-[var(--color-border)] bg-[var(--color-surface)]">
-    <div class="px-4 py-4 space-y-1">
+  <nav id="mobile-menu" class="mx-auto mt-2 hidden max-w-7xl overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-float)] lg:hidden">
+    <div class="space-y-1 p-3">
       <a href={home} data-section="hero" class="nav-link nav-link--mobile">
         {t('nav.home')}
       </a>
@@ -111,14 +114,21 @@ const downloadPath = getDownloadPath(lang);
 </header>
 
 <style>
-  /* Desktop nav links */
+  .nav-shell {
+    box-shadow: 0 12px 40px rgba(38, 45, 83, .08);
+  }
+
   .nav-link {
     position: relative;
-    padding: 0.5rem 0.75rem;
+    padding: 0.55rem 0.72rem;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
     font-size: 0.875rem;
     color: var(--color-text-secondary);
-    transition: color 0.2s ease;
-    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: color 0.2s ease, background 0.2s ease;
+    border-radius: 999px;
   }
 
   .nav-link:hover {
@@ -126,31 +136,31 @@ const downloadPath = getDownloadPath(lang);
     background: var(--color-surface);
   }
 
-  /* Active indicator (underline) */
   .nav-link::after {
-    content: '';
     position: absolute;
-    bottom: 0;
+    bottom: .32rem;
     left: 50%;
-    width: 0;
-    height: 2px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
     background: var(--color-primary);
-    border-radius: 1px;
-    transform: translateX(-50%);
-    transition: width 0.25s ease;
+    content: '';
+    opacity: 0;
+    transform: translateX(-50%) translateY(3px);
+    transition: opacity .2s ease, transform .2s ease;
   }
 
   .nav-link.active {
     color: var(--color-primary);
     font-weight: 600;
-    background: var(--color-primary-bg);
+    background: transparent;
   }
 
   .nav-link.active::after {
-    width: calc(100% - 1.5rem);
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 
-  /* Mobile nav links */
   .nav-link--mobile {
     display: block;
     padding: 0.75rem 1rem;
@@ -178,8 +188,39 @@ const downloadPath = getDownloadPath(lang);
     const mobileMenu = document.getElementById('mobile-menu');
 
     if (mobileMenuBtn && mobileMenu) {
-      mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
+      const btn = mobileMenuBtn as HTMLButtonElement;
+      const menu = mobileMenu as HTMLElement;
+      let trapHandler: ((e: KeyboardEvent) => void) | null = null;
+
+      function openMenu() {
+        menu.classList.remove('hidden');
+        btn.setAttribute('aria-expanded', 'true');
+        const focusable = menu.querySelectorAll<HTMLElement>('a, button');
+        focusable[0]?.focus();
+
+        trapHandler = (e: KeyboardEvent) => {
+          if (e.key === 'Escape') { closeMenu(); return; }
+          if (e.key !== 'Tab') return;
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+          if (e.shiftKey) {
+            if (document.activeElement === first) { e.preventDefault(); last?.focus(); }
+          } else {
+            if (document.activeElement === last) { e.preventDefault(); first?.focus(); }
+          }
+        };
+        document.addEventListener('keydown', trapHandler);
+      }
+
+      function closeMenu() {
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+        if (trapHandler) { document.removeEventListener('keydown', trapHandler); trapHandler = null; }
+        btn.focus();
+      }
+
+      btn.addEventListener('click', () => {
+        if (menu.classList.contains('hidden')) openMenu(); else closeMenu();
       });
     }
 

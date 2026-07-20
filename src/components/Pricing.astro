@@ -1,11 +1,16 @@
 ---
-import { getDownloadPath, getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const downloadPath = getDownloadPath(lang);
+const freeFeatures = [
+  t('pricing.free.feature1'),
+  t('pricing.free.feature2'),
+  t('pricing.free.feature3'),
+  t('pricing.free.feature4'),
+];
 
-const features = [
+const premiumFeatures = [
   t('pricing.support.feature1'),
   t('pricing.support.feature2'),
   t('pricing.support.feature3'),
@@ -16,42 +21,66 @@ const features = [
 ];
 ---
 
-<section id="pricing" class="py-20 px-4">
-  <div class="max-w-4xl mx-auto">
-    <h2 class="text-3xl sm:text-4xl font-bold text-center mb-6">
-      <span class="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] bg-clip-text text-transparent">
-        {t('pricing.title')}
-      </span>
-    </h2>
+<section id="pricing" class="px-4 py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl">
+    <div class="mx-auto mb-14 max-w-3xl text-center">
+      <p class="eyebrow justify-center">{t('pricing.eyebrow')}</p>
+      <h2 class="section-title mt-5 text-[var(--color-text)]">{t('pricing.title')}</h2>
+      <p class="mt-4 text-lg leading-relaxed text-[var(--color-text-secondary)]">{t('pricing.description')}</p>
+    </div>
 
-    <p class="text-center text-[var(--color-text-secondary)] max-w-3xl mx-auto mb-12 leading-relaxed">
-      {t('pricing.description')}
-    </p>
+    <div class="grid gap-5 lg:grid-cols-[0.88fr_1.12fr]">
+      <article class="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-card)] p-6 shadow-[var(--shadow-float)] sm:p-9">
+        <div class="mb-6">
+          <h3 class="text-2xl font-semibold">{t('pricing.free.title')}</h3>
+        </div>
 
-    <div class="max-w-3xl mx-auto">
-      <div class="p-8 rounded-2xl bg-[var(--color-card)] border-2 border-[var(--color-primary)]/20">
-        <h3 class="text-xl font-semibold mb-6 text-center">{t('pricing.support.subtitle')}</h3>
-
-        <ul class="space-y-4 mb-8">
-          {features.map((feature) => (
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-[var(--color-primary)] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+        <ul class="space-y-4">
+          {freeFeatures.map((feature) => (
+            <li class="flex items-start gap-3 text-sm text-[var(--color-text-secondary)]">
+              <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 6L9 17l-5-5" />
               </svg>
-              <span class="text-[var(--color-text-secondary)]">{feature}</span>
+              <span>{feature}</span>
             </li>
           ))}
         </ul>
+      </article>
 
-        <div class="text-center">
-          <a
-            href={downloadPath}
-            class="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] text-white font-semibold rounded-xl hover:opacity-90 transition-opacity"
-          >
-            {t('pricing.support.cta')}
-          </a>
+      <article class="premium-card relative overflow-hidden rounded-[2rem] border border-[var(--color-primary)]/35 bg-[var(--color-card)] p-6 shadow-[var(--shadow-soft)] sm:p-9">
+        <div class="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[var(--color-primary)] via-[var(--color-accent)] to-[var(--color-primary)]"></div>
+        <div class="mb-6">
+          <div>
+            <h3 class="text-2xl font-semibold">{t('pricing.support.subtitle')}</h3>
+            <p class="mt-2 text-sm text-[var(--color-text-secondary)]">{t('pricing.premium.note')}</p>
+          </div>
         </div>
-      </div>
+
+        <ul class="grid gap-4 sm:grid-cols-2">
+          {premiumFeatures.map((feature) => (
+            <li class="flex items-start gap-3 text-sm text-[var(--color-text-secondary)]">
+              <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-[var(--color-premium)]" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+      </article>
     </div>
   </div>
 </section>
+
+<style>
+  .premium-card::after {
+    position: absolute;
+    right: -6rem;
+    bottom: -8rem;
+    width: 18rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(98,100,232,.15), transparent 68%);
+    content: '';
+    pointer-events: none;
+  }
+</style>

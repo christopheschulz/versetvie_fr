@@ -4,74 +4,175 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const features = [
+const featureGroups = [
   {
+    label: t('features.group.daily'),
     title: t('features.verse.title'),
     description: t('features.verse.description'),
     icon: `<path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>`,
+    image: '02',
+    accent: 'primary',
+    items: [t('features.encouragement.title'), t('features.stats.title')],
   },
   {
-    title: t('features.encouragement.title'),
-    description: t('features.encouragement.description'),
-    icon: `<path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>`,
-  },
-  {
+    label: t('features.group.deepen'),
     title: t('features.categories.title'),
     description: t('features.categories.description'),
     icon: `<path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>`,
+    image: '04',
+    accent: 'warm',
+    items: [t('features.journal.title'), t('features.testimony.title')],
   },
   {
-    title: t('features.stats.title'),
-    description: t('features.stats.description'),
-    icon: `<path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>`,
-  },
-  {
-    title: t('features.testimony.title'),
-    description: t('features.testimony.description'),
-    icon: `<path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>`,
-  },
-  {
+    label: t('features.group.community'),
     title: t('features.prayer.title'),
     description: t('features.prayer.description'),
     icon: `<path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>`,
-  },
-  {
-    title: t('features.journal.title'),
-    description: t('features.journal.description'),
-    icon: `<path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>`,
+    image: '03',
+    accent: 'rose',
+    items: [t('features.prayer.item1'), t('features.prayer.item2')],
   },
 ];
 ---
 
-<section id="features" class="py-20 px-4">
-  <div class="max-w-6xl mx-auto">
-    <h2 class="text-3xl sm:text-4xl font-bold text-center mb-4">
-      <span class="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] bg-clip-text text-transparent">
-        {t('features.title')}
-      </span>
-    </h2>
+<section id="features" class="px-4 py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl">
+    <div class="mb-14 grid gap-5 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
+      <div>
+        <p class="eyebrow">{t('features.eyebrow')}</p>
+        <h2 class="section-title mt-5 text-[var(--color-text)]">{t('features.title')}</h2>
+      </div>
+      <p class="max-w-2xl text-base leading-relaxed text-[var(--color-text-secondary)] lg:justify-self-end lg:text-lg">{t('features.subtitle')}</p>
+    </div>
 
-    <p class="text-center text-[var(--color-text-secondary)] mb-12 max-w-2xl mx-auto">
-      {lang === 'fr' ? 'Tout ce dont tu as besoin pour nourrir ta foi au quotidien' :
-       lang === 'en' ? 'Everything you need to nourish your faith daily' :
-       'Alles, was du brauchst, um deinen Glauben täglich zu nähren'}
-    </p>
+    <div class="feature-grid grid gap-6">
+      {featureGroups.map((feature) => (
+        <div class={`feature-panel feature-panel--${feature.accent}`}>
+          <div class="feature-copy">
+            <div class="flex items-center gap-4">
+              <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--color-surface)] text-[var(--color-primary)] shadow-sm">
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <Fragment set:html={feature.icon} />
+                </svg>
+              </div>
+              <span class="text-xs font-bold uppercase tracking-[.13em] text-[var(--color-text-tertiary)]">{feature.label}</span>
+            </div>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {features.map((feature, index) => (
-        <div
-          class="group p-6 rounded-2xl bg-[var(--color-card)] border border-[var(--color-border)] hover:border-[var(--color-primary)]/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-          style={`animation-delay: ${index * 0.1}s`}
-        >
-          <div class="w-12 h-12 mb-4 rounded-xl bg-gradient-to-br from-[var(--color-primary)]/10 to-[var(--color-secondary)]/10 flex items-center justify-center group-hover:from-[var(--color-primary)]/20 group-hover:to-[var(--color-secondary)]/20 transition-colors">
-            <svg class="w-6 h-6 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <Fragment set:html={feature.icon} />
-            </svg>
+            <h3 class="mt-8 text-4xl font-semibold sm:text-5xl">{feature.title}</h3>
+            <p class="mt-4 max-w-xl text-base leading-relaxed text-[var(--color-text-secondary)]">{feature.description}</p>
+
+            <div class="mt-7 flex flex-wrap gap-2">
+              {feature.items.map((item) => (
+                <span class="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]/75 px-3 py-1.5 text-xs font-semibold text-[var(--color-text-secondary)]">{item}</span>
+              ))}
+            </div>
           </div>
-          <h3 class="text-lg font-semibold mb-2">{feature.title}</h3>
-          <p class="text-[var(--color-text-secondary)] text-sm">{feature.description}</p>
+
+          <div class="feature-visual">
+            <div class="feature-halo" aria-hidden="true"></div>
+            <div class="feature-image overflow-hidden rounded-[1.8rem] border border-white/50 bg-[var(--color-surface)]">
+              <img src={`/screenshots/${lang}/${feature.image}.png`} alt={feature.title} loading="lazy" width="1320" height="2868" class="block h-full w-full object-contain transition-transform duration-700" />
+            </div>
+          </div>
         </div>
       ))}
     </div>
   </div>
 </section>
+
+<style>
+  .feature-panel {
+    position: relative;
+    display: grid;
+    min-height: 36rem;
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, .7fr);
+    align-items: center;
+    gap: clamp(2rem, 6vw, 6rem);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: 2rem;
+    padding: clamp(1.5rem, 4vw, 4rem);
+    background: var(--color-card);
+    box-shadow: var(--shadow-float);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .feature-panel:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .feature-panel:hover .feature-image img { transform: scale(1.025); }
+
+  .feature-copy {
+    position: relative;
+    z-index: 2;
+  }
+
+  .feature-visual {
+    position: relative;
+    display: flex;
+    min-height: 31rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .feature-image {
+    position: relative;
+    z-index: 2;
+    width: min(100%, 15rem);
+    aspect-ratio: 1320 / 2868;
+    box-shadow: 0 20px 50px rgba(28, 35, 70, .12);
+    transform: rotate(2deg);
+    transition: transform .35s ease;
+  }
+
+  .feature-panel:hover .feature-image { transform: rotate(0deg) translateY(-4px); }
+
+  .feature-halo {
+    position: absolute;
+    width: min(25rem, 90%);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--feature-halo-color, rgba(98,100,232,.18));
+    filter: blur(2px);
+  }
+
+  .feature-panel--primary {
+    --feature-halo-color: rgba(120, 181, 255, .25);
+    background: linear-gradient(145deg, rgba(120, 181, 255, 0.2), var(--color-card) 58%);
+  }
+
+  .feature-panel--warm {
+    --feature-halo-color: rgba(240, 187, 93, .25);
+    background: linear-gradient(145deg, rgba(240, 187, 93, 0.2), var(--color-card) 58%);
+  }
+
+  .feature-panel--rose {
+    --feature-halo-color: rgba(224, 103, 140, .2);
+    background: linear-gradient(120deg, rgba(224, 103, 140, 0.14), var(--color-card) 58%);
+  }
+
+  @media (min-width: 1024px) {
+    .feature-panel:nth-child(even) {
+      grid-template-columns: minmax(16rem, .7fr) minmax(0, 1fr);
+    }
+
+    .feature-panel:nth-child(even) .feature-visual { order: -1; }
+    .feature-panel:nth-child(even) .feature-image { transform: rotate(-2deg); }
+  }
+
+  @media (max-width: 767px) {
+    .feature-panel {
+      min-height: auto;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      border-radius: 1.5rem;
+      padding: 1.4rem;
+    }
+
+    .feature-visual { min-height: 29rem; }
+    .feature-image { width: min(100%, 13.5rem); }
+    .feature-copy h3 { font-size: 2.5rem; }
+  }
+</style>

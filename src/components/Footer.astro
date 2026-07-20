@@ -20,16 +20,16 @@ const paths = legalPaths[lang as keyof typeof legalPaths];
 const badges = storeBadges[lang];
 ---
 
-<footer class="py-16 px-4 border-t border-[var(--color-border)] bg-[var(--color-surface)]/30">
-  <div class="max-w-6xl mx-auto">
+<footer class="border-t border-[var(--color-border)] bg-[var(--color-surface)]/45 px-4 py-16">
+  <div class="mx-auto max-w-7xl">
     <!-- Main Footer Content -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
 
       <!-- Brand Column -->
       <div class="lg:col-span-1 text-center md:text-left">
         <a href={home} class="inline-flex items-center gap-3 mb-4">
-          <img src="/icon.png" alt="VersetVie" class="w-12 h-12 rounded-xl" />
-          <span class="font-bold text-xl">VersetVie</span>
+          <img src="/icon.png" alt="Verset Vie" class="w-12 h-12 rounded-xl" />
+          <span class="font-serif text-2xl font-semibold tracking-[-.03em]">Verset Vie</span>
         </a>
         <p class="text-sm text-[var(--color-text-secondary)] mb-6 leading-relaxed">
           {t('footer.description')}
@@ -132,7 +132,7 @@ const badges = storeBadges[lang];
       <div class="flex flex-col md:flex-row items-center justify-between gap-4">
         <!-- Copyright -->
         <p class="text-sm text-[var(--color-text-tertiary)] text-center md:text-left">
-          &copy; {currentYear} VersetVie. {t('footer.rights')}
+          &copy; {currentYear} Verset Vie. {t('footer.rights')}
         </p>
 
         <!-- Made By -->
